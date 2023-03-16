@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="LAPTOP-60VI45O7"
   DTS:CreatorName="LAPTOP-60VI45O7\Jaron"
-  DTS:DTSID="{7AEAEC77-FA83-45F4-A0CE-F0D7B7C58B05}"
+  DTS:DTSID="{87BA6E44-3F62-418F-AED2-A83C1C6FE542}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="16.0.5035.3"
   DTS:LocaleID="2057"
-  DTS:ObjectName="Package"
+  DTS:ObjectName="Raw_to_RDBM"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{2EA79A4B-795A-4427-A336-506ADA6DAABD}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{F39F734B-FAC2-43E5-845A-50F3578AA329}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -108,7 +108,7 @@
                 <connection
                   refId="Package\Load Consignor\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.RDBMS]"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -259,7 +259,7 @@
                 <connection
                   refId="Package\Load Consignor\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.Kramse_raw]"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -479,7 +479,7 @@
                 <connection
                   refId="Package\Load Container\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.RDBMS]"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -648,7 +648,7 @@
                 <connection
                   refId="Package\Load Container\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.Kramse_raw]"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -901,7 +901,7 @@
                 <connection
                   refId="Package\Load Item\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.RDBMS]"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1066,7 +1066,7 @@
                 <connection
                   refId="Package\Load Item\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.Kramse_raw]"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1310,7 +1310,7 @@
                 <connection
                   refId="Package\Load Port\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.RDBMS]"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1471,7 +1471,7 @@
                 <connection
                   refId="Package\Load Port\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.Kramse_raw]"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1709,7 +1709,7 @@
                 <connection
                   refId="Package\Load Publication\Publication Destination.Connections[OleDbConnection]"
                   connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.RDBMS]"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2490,7 +2490,7 @@
                 <connection
                   refId="Package\Load Publication\Publication source.Connections[OleDbConnection]"
                   connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.Kramse_raw]"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -3811,7 +3811,7 @@
                 <connection
                   refId="Package\Load Ship\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.RDBMS]"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4005,7 +4005,7 @@
                 <connection
                   refId="Package\Load Ship\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.Kramse_raw]"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4294,7 +4294,7 @@
                 <connection
                   refId="Package\Load Shipment\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.RDBMS]"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4459,7 +4459,7 @@
                 <connection
                   refId="Package\Load Shipment\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.Kramse_raw]"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4706,7 +4706,7 @@
                 <connection
                   refId="Package\Load ShipmentDetail\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.RDBMS]"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4843,7 +4843,7 @@
                 <connection
                   refId="Package\Load ShipmentDetail\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.Kramse_raw]"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5039,7 +5039,7 @@
                 <connection
                   refId="Package\Load Voyage\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.RDBMS]"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5184,7 +5184,7 @@
                 <connection
                   refId="Package\Load Voyage\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.Kramse_raw]"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5395,7 +5395,7 @@
                 <connection
                   refId="Package\Load VoyagePort\OLE DB Destination.Connections[OleDbConnection]"
                   connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.RDBMS]"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5562,7 +5562,7 @@
                 <connection
                   refId="Package\Load VoyagePort\OLE DB Source.Connections[OleDbConnection]"
                   connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[LAPTOP-60VI45O7.Kramse_raw]"
+                  connectionManagerRefId="Project.ConnectionManagers[Kramse_raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5866,89 +5866,253 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Load Publication"
-          TopLeft="47.8571429590182,118.52941166081" />
-        <NodeLayout
           Size="162.4,41.6"
           Id="Package\Execute SQL Task"
           TopLeft="261.428571985084,1.52941176336526" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="291.161905318418,43.1294117633653">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-165.704762359399,75.399999897445"
-              Start="0,0"
-              End="-165.704762359399,67.899999897445">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.2093749725123" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.2093749725123"
-                    Point2="0,20.2093749725123"
-                    Point3="-4,20.2093749725123" />
-                  <mssgle:LineSegment
-                    End="-161.704762359399,20.2093749725123" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-161.704762359399,20.2093749725123"
-                    Point2="-165.704762359399,20.2093749725123"
-                    Point3="-165.704762359399,24.2093749725123" />
-                  <mssgle:LineSegment
-                    End="-165.704762359399,67.899999897445" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="151.2,41.6"
           Id="Package\Load Consignor"
-          TopLeft="206.428571868004,127.705882241002" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="316.895238651751,43.1294117633653">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-34.8666667837473,84.5764704776367"
-              Start="0,0"
-              End="-34.8666667837473,77.0764704776367">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.3256699694604" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.3256699694604"
-                    Point2="0,34.3256699694604"
-                    Point3="-4,34.3256699694604" />
-                  <mssgle:LineSegment
-                    End="-30.8666667837473,34.3256699694604" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-30.8666667837473,34.3256699694604"
-                    Point2="-34.8666667837473,34.3256699694604"
-                    Point3="-34.8666667837473,38.3256699694604" />
-                  <mssgle:LineSegment
-                    End="-34.8666667837473,77.0764704776367" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="202.857143288973,200.352941000854" />
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Load Container"
           TopLeft="480.7142867376,135.352941057828" />
+        <NodeLayout
+          Size="126.4,41.6"
+          Id="Package\Load Item"
+          TopLeft="352.142857892477,133.823529294463" />
+        <NodeLayout
+          Size="123.2,41.6"
+          Id="Package\Load Port"
+          TopLeft="702.142858637535,269.941176233974" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Load Publication"
+          TopLeft="47.1428572432119,118.52941166081" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\Load Ship"
+          TopLeft="596.428572698212,189.647058657296" />
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Load Shipment"
+          TopLeft="303.228571995728,346.156862441678" />
+        <NodeLayout
+          Size="175.2,41.6"
+          Id="Package\Load ShipmentDetail"
+          TopLeft="238.888889397421,456.274509403979" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Load Voyage"
+          TopLeft="501.428572495981,292.117646802771" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Load VoyagePort"
+          TopLeft="577.857144087249,391.529411421515" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="287.485714842227,43.1294117633653">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-162.742857599015,75.3999998974447"
+              Start="0,0"
+              End="-162.742857599015,67.8999998974447">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.3177410512706" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.3177410512706"
+                    Point2="0,18.3177410512706"
+                    Point3="-4,18.3177410512706" />
+                  <mssgle:LineSegment
+                    End="-158.742857599015,18.3177410512706" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-158.742857599015,18.3177410512706"
+                    Point2="-162.742857599015,18.3177410512706"
+                    Point3="-162.742857599015,22.3177410512706" />
+                  <mssgle:LineSegment
+                    End="-162.742857599015,67.8999998974447" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="309.54285769937,43.1294117633653">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.0857144103965,157.223529237489"
+              Start="0,0"
+              End="-31.0857144103965,149.723529237489">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.4985468926051" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,54.4985468926051"
+                    Point2="0,58.4985468926051"
+                    Point3="-4,58.4985468926051" />
+                  <mssgle:LineSegment
+                    End="-27.0857144103965,58.4985468926051" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.0857144103965,58.4985468926051"
+                    Point2="-31.0857144103965,58.4985468926051"
+                    Point3="-31.0857144103965,62.4985468926051" />
+                  <mssgle:LineSegment
+                    End="-31.0857144103965,149.723529237489" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="555.5142867376,176.952941057828">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-142.685714741872,169.20392138385"
+              Start="0,0"
+              End="-142.685714741872,161.70392138385">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,106.81665273731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,106.81665273731"
+                    Point2="0,110.81665273731"
+                    Point3="-4,110.81665273731" />
+                  <mssgle:LineSegment
+                    End="-138.685714741872,110.81665273731" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-138.685714741872,110.81665273731"
+                    Point2="-142.685714741872,110.81665273731"
+                    Point3="-142.685714741872,114.81665273731" />
+                  <mssgle:LineSegment
+                    End="-142.685714741872,161.70392138385" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="377.628571995728,387.756862441678">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-51.1396825983072,68.5176469623011"
+              Start="0,0"
+              End="-51.1396825983072,61.0176469623011">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.2588234811505" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,30.2588234811505"
+                    Point2="0,34.2588234811505"
+                    Point3="-4,34.2588234811505" />
+                  <mssgle:LineSegment
+                    End="-47.1396825983072,34.2588234811505" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-47.1396825983072,34.2588234811505"
+                    Point2="-51.1396825983072,34.2588234811505"
+                    Point3="-51.1396825983072,38.2588234811505" />
+                  <mssgle:LineSegment
+                    End="-51.1396825983072,61.0176469623011" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="577.857144087249,412.329411421515">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-125.828572091521,-45.3725489798369"
+              Start="0,0"
+              End="-118.328572091521,-45.3725489798369">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-58.9142860457605,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-58.9142860457605,0"
+                    Point2="-62.9142860457605,0"
+                    Point3="-62.9142860457605,-4" />
+                  <mssgle:LineSegment
+                    End="-62.9142860457605,-41.3725489798369" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-62.9142860457605,-41.3725489798369"
+                    Point2="-62.9142860457605,-45.3725489798369"
+                    Point3="-66.9142860457605,-45.3725489798369" />
+                  <mssgle:LineSegment
+                    End="-118.328572091521,-45.3725489798369" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="278.457143288973,241.952941000854">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63.9714287067548,104.203921440824"
+              Start="0,0"
+              End="63.9714287067548,96.7039214408242">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,64.246230239413" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,64.246230239413"
+                    Point2="0,68.246230239413"
+                    Point3="4,68.246230239413" />
+                  <mssgle:LineSegment
+                    End="59.9714287067548,68.246230239413" />
+                  <mssgle:CubicBezierSegment
+                    Point1="59.9714287067548,68.246230239413"
+                    Point2="63.9714287067548,68.246230239413"
+                    Point3="63.9714287067548,72.246230239413" />
+                  <mssgle:LineSegment
+                    End="63.9714287067548,96.7039214408242" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
           TopLeft="368.361905318418,43.1294117633653">
@@ -5983,10 +6147,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="126.4,41.6"
-          Id="Package\Load Item"
-          TopLeft="352.142857892477,133.823529294463" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="331.600000556513,43.1294117633653">
@@ -6021,10 +6181,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="124.8,41.6"
-          Id="Package\Load Ship"
-          TopLeft="596.428572698212,189.647058657296" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="375.714286270798,43.1294117633653">
@@ -6059,22 +6215,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="139.2,41.6"
-          Id="Package\Load Voyage"
-          TopLeft="501.428572495981,292.117646802771" />
-        <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\Load VoyagePort"
-          TopLeft="577.857144087249,391.529411421515" />
-        <NodeLayout
-          Size="123.2,41.6"
-          Id="Package\Load Port"
-          TopLeft="702.142858637535,269.941176233974" />
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\Load ShipmentDetail"
-          TopLeft="238.888889397421,456.274509403979" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="658.828572698212,231.247058657296">
@@ -6211,78 +6351,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="148.8,41.6"
-          Id="Package\Load Shipment"
-          TopLeft="303.228571995728,346.156862441678" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="577.857144087249,412.329411421515">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-125.828572091521,-45.3725489798369"
-              Start="0,0"
-              End="-118.328572091521,-45.3725489798369">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-58.9142860457605,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-58.9142860457605,0"
-                    Point2="-62.9142860457605,0"
-                    Point3="-62.9142860457605,-4" />
-                  <mssgle:LineSegment
-                    End="-62.9142860457605,-41.3725489798369" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-62.9142860457605,-41.3725489798369"
-                    Point2="-62.9142860457605,-45.3725489798369"
-                    Point3="-66.9142860457605,-45.3725489798369" />
-                  <mssgle:LineSegment
-                    End="-118.328572091521,-45.3725489798369" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="282.028571868004,169.305882241002">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="60.4000001277241,176.850980200676"
-              Start="0,0"
-              End="60.4000001277241,169.350980200676">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,111.824937737062" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,111.824937737062"
-                    Point2="0,115.824937737062"
-                    Point3="4,115.824937737062" />
-                  <mssgle:LineSegment
-                    End="56.4000001277241,115.824937737062" />
-                  <mssgle:CubicBezierSegment
-                    Point1="56.4000001277241,115.824937737062"
-                    Point2="60.4000001277241,115.824937737062"
-                    Point3="60.4000001277241,119.824937737062" />
-                  <mssgle:LineSegment
-                    End="60.4000001277241,169.350980200676" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
           TopLeft="415.342857892477,175.423529294463">
@@ -6317,141 +6385,9 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="555.5142867376,176.952941057828">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-142.685714741872,169.20392138385"
-              Start="0,0"
-              End="-142.685714741872,161.70392138385">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,106.81665273731" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,106.81665273731"
-                    Point2="0,110.81665273731"
-                    Point3="-4,110.81665273731" />
-                  <mssgle:LineSegment
-                    End="-138.685714741872,110.81665273731" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-138.685714741872,110.81665273731"
-                    Point2="-142.685714741872,110.81665273731"
-                    Point3="-142.685714741872,114.81665273731" />
-                  <mssgle:LineSegment
-                    End="-142.685714741872,161.70392138385" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="377.628571995728,387.756862441678">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-51.1396825983072,68.5176469623011"
-              Start="0,0"
-              End="-51.1396825983072,61.0176469623011">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.2588234811505" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,30.2588234811505"
-                    Point2="0,34.2588234811505"
-                    Point3="-4,34.2588234811505" />
-                  <mssgle:LineSegment
-                    End="-47.1396825983072,34.2588234811505" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-47.1396825983072,34.2588234811505"
-                    Point2="-51.1396825983072,34.2588234811505"
-                    Point3="-51.1396825983072,38.2588234811505" />
-                  <mssgle:LineSegment
-                    End="-51.1396825983072,61.0176469623011" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
-  <TaskHost
-    design-time-name="Package\Load Publication">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="163.2,41.6"
-          Id="Package\Load Publication\Publication source"
-          TopLeft="265.714286279922,58.1176470078812" />
-        <NodeLayout
-          Size="185.6,41.6"
-          Id="Package\Load Publication\Publication Destination"
-          TopLeft="249.285714816378,214.882352752824" />
-        <EdgeLayout
-          Id="Package\Load Publication.Paths[OLE DB Source Output]"
-          TopLeft="344.70000054815,99.7176470078812">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,115.164705744943"
-              Start="0,0"
-              End="0,107.664705744943">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,107.664705744943" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Publication\Publication source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Publication\Publication Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Consignor">
     <LayoutInfo>
@@ -6491,7 +6427,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Consignor\OLE DB Source">
+    design-time-name="Package\Load Consignor\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6504,7 +6440,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Consignor\OLE DB Destination">
+    design-time-name="Package\Load Consignor\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6567,7 +6503,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Container\OLE DB Source">
+    design-time-name="Package\Load Container\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6580,7 +6516,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Container\OLE DB Destination">
+    design-time-name="Package\Load Container\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6643,19 +6579,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Item\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load Item\OLE DB Destination">
     <Properties>
       <Property>
@@ -6668,211 +6591,8 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load Ship">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Load Ship\OLE DB Source"
-          TopLeft="300.99999551475,90.9999986439943" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Load Ship\OLE DB Destination"
-          TopLeft="286.999995723367,281.999995797872" />
-        <EdgeLayout
-          Id="Package\Load Ship.Paths[OLE DB Source Output]"
-          TopLeft="373.999995619059,132.599998643994">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,149.399997153878"
-              Start="0,0"
-              End="0,141.899997153878">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,141.899997153878" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Ship\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Ship\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load Voyage">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Load Voyage\OLE DB Source"
-          TopLeft="254.999996200204,80.9999987930059" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Load Voyage\OLE DB Destination"
-          TopLeft="330.999995067716,282.999995782971" />
-        <EdgeLayout
-          Id="Package\Load Voyage.Paths[OLE DB Source Output]"
-          TopLeft="329.799996200204,122.599998793006">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="86.3999988675117,160.399996989965"
-              Start="0,0"
-              End="86.3999988675117,152.899996989965">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,76.1999984949827" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,76.1999984949827"
-                    Point2="0,80.1999984949827"
-                    Point3="4,80.1999984949827" />
-                  <mssgle:LineSegment
-                    End="82.3999988675117,80.1999984949827" />
-                  <mssgle:CubicBezierSegment
-                    Point1="82.3999988675117,80.1999984949827"
-                    Point2="86.3999988675117,80.1999984949827"
-                    Point3="86.3999988675117,84.1999984949827" />
-                  <mssgle:LineSegment
-                    End="86.3999988675117,152.899996989965" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Voyage\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Voyage\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Load VoyagePort">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Load VoyagePort\OLE DB Source"
-          TopLeft="318.99999524653,92.999998614192" />
-        <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Load VoyagePort\OLE DB Destination"
-          TopLeft="348.999994799495,287.999995708466" />
-        <EdgeLayout
-          Id="Package\Load VoyagePort.Paths[OLE DB Source Output]"
-          TopLeft="393.79999524653,134.599998614192">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="40.399999552965,153.399997094274"
-              Start="0,0"
-              End="40.399999552965,145.899997094274">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,72.6999985471368" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,72.6999985471368"
-                    Point2="0,76.6999985471368"
-                    Point3="4,76.6999985471368" />
-                  <mssgle:LineSegment
-                    End="36.399999552965,76.6999985471368" />
-                  <mssgle:CubicBezierSegment
-                    Point1="36.399999552965,76.6999985471368"
-                    Point2="40.399999552965,76.6999985471368"
-                    Point3="40.399999552965,80.6999985471368" />
-                  <mssgle:LineSegment
-                    End="40.399999552965,145.899997094274" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load VoyagePort\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load VoyagePort\OLE DB Destination">
+    design-time-name="Package\Load Item\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6935,19 +6655,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Port\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load Port\OLE DB Destination">
     <Properties>
       <Property>
@@ -6960,45 +6667,46 @@
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Port\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Load ShipmentDetail">
+    design-time-name="Package\Load Publication">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="149.6,41.6"
-          Id="Package\Load ShipmentDetail\OLE DB Source"
-          TopLeft="337.999994963408,116.999998256564" />
+          Size="163.2,41.6"
+          Id="Package\Load Publication\Publication source"
+          TopLeft="265.714286279922,58.1176470078812" />
         <NodeLayout
-          Size="170.4,41.6"
-          Id="Package\Load ShipmentDetail\OLE DB Destination"
-          TopLeft="366.999994531274,278.999995842576" />
+          Size="185.6,41.6"
+          Id="Package\Load Publication\Publication Destination"
+          TopLeft="249.285714816378,214.882352752824" />
         <EdgeLayout
-          Id="Package\Load ShipmentDetail.Paths[OLE DB Source Output]"
-          TopLeft="412.799994963408,158.599998256564">
+          Id="Package\Load Publication.Paths[OLE DB Source Output]"
+          TopLeft="344.70000054815,99.7176470078812">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="39.3999995678663,120.399997586012"
+              EndConnector="0,115.164705744943"
               Start="0,0"
-              End="39.3999995678663,112.899997586012">
+              End="0,107.664705744943">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56.1999987930059" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,56.1999987930059"
-                    Point2="0,60.1999987930059"
-                    Point3="4,60.1999987930059" />
-                  <mssgle:LineSegment
-                    End="35.3999995678663,60.1999987930059" />
-                  <mssgle:CubicBezierSegment
-                    Point1="35.3999995678663,60.1999987930059"
-                    Point2="39.3999995678663,60.1999987930059"
-                    Point3="39.3999995678663,64.1999987930059" />
-                  <mssgle:LineSegment
-                    End="39.3999995678663,112.899997586012" />
+                    End="0,107.664705744943" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7011,7 +6719,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load ShipmentDetail\OLE DB Source">
+    design-time-name="Package\Load Publication\Publication Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7024,7 +6732,71 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load ShipmentDetail\OLE DB Destination">
+    design-time-name="Package\Load Publication\Publication source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load Ship">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Load Ship\OLE DB Source"
+          TopLeft="300.99999551475,90.9999986439943" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load Ship\OLE DB Destination"
+          TopLeft="286.999995723367,281.999995797872" />
+        <EdgeLayout
+          Id="Package\Load Ship.Paths[OLE DB Source Output]"
+          TopLeft="373.999995619059,132.599998643994">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,149.399997153878"
+              Start="0,0"
+              End="0,141.899997153878">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,141.899997153878" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Ship\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Ship\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7087,7 +6859,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Shipment\OLE DB Source">
+    design-time-name="Package\Load Shipment\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7100,7 +6872,235 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Shipment\OLE DB Destination">
+    design-time-name="Package\Load Shipment\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load ShipmentDetail">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Load ShipmentDetail\OLE DB Source"
+          TopLeft="337.999994963408,116.999998256564" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load ShipmentDetail\OLE DB Destination"
+          TopLeft="366.999994531274,278.999995842576" />
+        <EdgeLayout
+          Id="Package\Load ShipmentDetail.Paths[OLE DB Source Output]"
+          TopLeft="412.799994963408,158.599998256564">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39.3999995678663,120.399997586012"
+              Start="0,0"
+              End="39.3999995678663,112.899997586012">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.1999987930059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.1999987930059"
+                    Point2="0,60.1999987930059"
+                    Point3="4,60.1999987930059" />
+                  <mssgle:LineSegment
+                    End="35.3999995678663,60.1999987930059" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.3999995678663,60.1999987930059"
+                    Point2="39.3999995678663,60.1999987930059"
+                    Point3="39.3999995678663,64.1999987930059" />
+                  <mssgle:LineSegment
+                    End="39.3999995678663,112.899997586012" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load ShipmentDetail\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load ShipmentDetail\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load Voyage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Load Voyage\OLE DB Source"
+          TopLeft="254.999996200204,80.9999987930059" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load Voyage\OLE DB Destination"
+          TopLeft="330.999995067716,282.999995782971" />
+        <EdgeLayout
+          Id="Package\Load Voyage.Paths[OLE DB Source Output]"
+          TopLeft="329.799996200204,122.599998793006">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="86.3999988675117,160.399996989965"
+              Start="0,0"
+              End="86.3999988675117,152.899996989965">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.1999984949827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,76.1999984949827"
+                    Point2="0,80.1999984949827"
+                    Point3="4,80.1999984949827" />
+                  <mssgle:LineSegment
+                    End="82.3999988675117,80.1999984949827" />
+                  <mssgle:CubicBezierSegment
+                    Point1="82.3999988675117,80.1999984949827"
+                    Point2="86.3999988675117,80.1999984949827"
+                    Point3="86.3999988675117,84.1999984949827" />
+                  <mssgle:LineSegment
+                    End="86.3999988675117,152.899996989965" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Voyage\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Voyage\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Load VoyagePort">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149.6,41.6"
+          Id="Package\Load VoyagePort\OLE DB Source"
+          TopLeft="318.99999524653,92.999998614192" />
+        <NodeLayout
+          Size="170.4,41.6"
+          Id="Package\Load VoyagePort\OLE DB Destination"
+          TopLeft="348.999994799495,287.999995708466" />
+        <EdgeLayout
+          Id="Package\Load VoyagePort.Paths[OLE DB Source Output]"
+          TopLeft="393.79999524653,134.599998614192">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="40.399999552965,153.399997094274"
+              Start="0,0"
+              End="40.399999552965,145.899997094274">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.6999985471368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,72.6999985471368"
+                    Point2="0,76.6999985471368"
+                    Point3="4,76.6999985471368" />
+                  <mssgle:LineSegment
+                    End="36.399999552965,76.6999985471368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="36.399999552965,76.6999985471368"
+                    Point2="40.399999552965,76.6999985471368"
+                    Point3="40.399999552965,80.6999985471368" />
+                  <mssgle:LineSegment
+                    End="40.399999552965,145.899997094274" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load VoyagePort\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load VoyagePort\OLE DB Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

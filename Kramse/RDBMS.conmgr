@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="LAPTOP-60VI45O7.RDBMS"
+  DTS:ObjectName="RDBMS"
   DTS:DTSID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
