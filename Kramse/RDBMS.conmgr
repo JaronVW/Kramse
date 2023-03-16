@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LAPTOP-60VI45O7.RDBMS"
+  DTS:DTSID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=LAPTOP-60VI45O7;Initial Catalog=RDBMS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Kramse-{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}LAPTOP-60VI45O7.RDBMS;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
