@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="Kramse_raw"
+  DTS:ObjectName="RAW"
   DTS:DTSID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
