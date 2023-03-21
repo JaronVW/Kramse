@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="Data_Cleanup"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{35250E6C-7AD7-487D-BE62-F7D07DD91016}">
+  DTS:VersionBuild="25"
+  DTS:VersionGUID="{3DB4566B-8683-4D4B-B86A-5266E4FCD731}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,36 +25,1870 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\avans\jaar2\periode3\kramse\data\Countries.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 1]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{A719F8F9-49A9-4DD5-8760-0EC93D0885B1}"
-      DTS:ObjectName="Excel Connection Manager 1">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\avans\jaar2\periode3\kramse\data\Countries.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Excel Connection Manager 2]"
-      DTS:CreationName="EXCEL"
-      DTS:DTSID="{AC083AA4-918B-4154-BA61-C8E2B1DB8582}"
-      DTS:ObjectName="Excel Connection Manager 2">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="0"
-          DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\avans\jaar2\periode3\kramse\data\Countries.xlsx;Extended Properties=&quot;Excel 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\timot\Desktop\Kramse project\Countries.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Fix Dutch Country Formatting Ship"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{78AF4390-7B0F-4194-AB42-3D6A768217C9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fix Dutch Country Formatting Ship"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup and replace dutch names"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Countries]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Countries]) [refTable]
+where [refTable].[DutchName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="EnglishName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DutchName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ISO" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Inputs[Lookup Input].Columns[Sh_Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Country"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DutchName</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">EnglishName</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup wrong values"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Countries]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Countries]) [refTable]
+where [refTable].[EnglishName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="EnglishName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DutchName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ISO" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Inputs[Lookup Input].Columns[Sh_Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Country"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">EnglishName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update Ship 
+set Sh_Country = ?
+where VS_Shipid = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].Columns[Sh_Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Country"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]" />
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].Columns[VS_Shipid]"
+                      cachedDataType="i4"
+                      cachedName="VS_Shipid"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[VS_Shipid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Ship]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VS_Shipid]"
+                      cachedDataType="i4"
+                      cachedName="VS_Shipid"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VS_Shipid]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[VS_Shipid]" />
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Shipname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Shipname"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Shipname]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Shipname]" />
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_MaxTEU]"
+                      cachedDataType="i4"
+                      cachedName="Sh_MaxTEU"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_MaxTEU]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_MaxTEU]" />
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_SpeedInKnots]"
+                      cachedDataType="i4"
+                      cachedName="Sh_SpeedInKnots"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKnots]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKnots]" />
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_SpeedInKm_H]"
+                      cachedDataType="i4"
+                      cachedName="Sh_SpeedInKm_H"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKm_H]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKm_H]" />
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Country"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Country]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]" />
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Yearcost]"
+                      cachedDataType="cy"
+                      cachedName="Sh_Yearcost"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Yearcost]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Yearcost]" />
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Length]"
+                      cachedDataType="i4"
+                      cachedName="Sh_Length"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Length]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Length]" />
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Width]"
+                      cachedDataType="i4"
+                      cachedName="Sh_Width"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Width]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Width]" />
+                    <inputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IMO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IMO"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMO]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[IMO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VS_Shipid]"
+                      dataType="i4"
+                      name="VS_Shipid" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Shipname]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sh_Shipname" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_MaxTEU]"
+                      dataType="i4"
+                      name="Sh_MaxTEU" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKnots]"
+                      dataType="i4"
+                      name="Sh_SpeedInKnots" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKm_H]"
+                      dataType="i4"
+                      name="Sh_SpeedInKm_H" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Country]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sh_Country" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Yearcost]"
+                      dataType="cy"
+                      name="Sh_Yearcost" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Length]"
+                      dataType="i4"
+                      name="Sh_Length" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Width]"
+                      dataType="i4"
+                      name="Sh_Width" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMO]"
+                      dataType="wstr"
+                      length="255"
+                      name="IMO" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source Ship"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Ship]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[VS_Shipid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[VS_Shipid]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[VS_Shipid]"
+                      name="VS_Shipid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Shipname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Shipname]"
+                      length="50"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Shipname]"
+                      name="Sh_Shipname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_MaxTEU]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_MaxTEU]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_MaxTEU]"
+                      name="Sh_MaxTEU"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKnots]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_SpeedInKnots]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKnots]"
+                      name="Sh_SpeedInKnots"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKm_H]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_SpeedInKm_H]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKm_H]"
+                      name="Sh_SpeedInKm_H"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Country]"
+                      length="50"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]"
+                      name="Sh_Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Yearcost]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Yearcost]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Yearcost]"
+                      name="Sh_Yearcost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Length]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Length]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Length]"
+                      name="Sh_Length"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Width]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Width]"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Width]"
+                      name="Sh_Width"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[IMO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[IMO]"
+                      length="255"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[IMO]"
+                      name="IMO"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[VS_Shipid]"
+                      dataType="i4"
+                      name="VS_Shipid" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Shipname]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sh_Shipname" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_MaxTEU]"
+                      dataType="i4"
+                      name="Sh_MaxTEU" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_SpeedInKnots]"
+                      dataType="i4"
+                      name="Sh_SpeedInKnots" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_SpeedInKm_H]"
+                      dataType="i4"
+                      name="Sh_SpeedInKm_H" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Country]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sh_Country" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Yearcost]"
+                      dataType="cy"
+                      name="Sh_Yearcost" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Length]"
+                      dataType="i4"
+                      name="Sh_Length" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Width]"
+                      dataType="i4"
+                      name="Sh_Width" />
+                    <externalMetadataColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[IMO]"
+                      dataType="wstr"
+                      length="255"
+                      name="IMO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[VS_Shipid]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[VS_Shipid]"
+                      name="VS_Shipid" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Shipname]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Shipname]"
+                      name="Sh_Shipname" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_MaxTEU]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_MaxTEU]"
+                      name="Sh_MaxTEU" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_SpeedInKnots]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_SpeedInKnots]"
+                      name="Sh_SpeedInKnots" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_SpeedInKm_H]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_SpeedInKm_H]"
+                      name="Sh_SpeedInKm_H" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Country]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Country]"
+                      name="Sh_Country" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Yearcost]"
+                      dataType="cy"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Yearcost]"
+                      name="Sh_Yearcost" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Length]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Length]"
+                      name="Sh_Length" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Width]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Width]"
+                      name="Sh_Width" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[IMO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[IMO]"
+                      name="IMO" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fix Dutch Country Formatting Ship.Paths[Lookup Match Output]"
+              endId="Package\Fix Dutch Country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Fix Dutch Country Formatting Ship.Paths[Lookup No Match Output]"
+              endId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Inputs[Lookup Input]"
+              name="Lookup No Match Output"
+              startId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Fix Dutch Country Formatting Ship.Paths[Lookup No Match Output1]"
+              endId="Package\Fix Dutch Country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Fix Dutch Country Formatting Ship.Paths[OLE DB Source Output]"
+              endId="Package\Fix Dutch Country Formatting Ship\Lookup wrong values.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Fix ISO country Formatting Ship"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{D65A84C4-AFFE-4A82-9F50-1AA0AEF09CFD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Fix ISO country Formatting Ship"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup and replace ISO names"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Countries]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Countries]) [refTable]
+where [refTable].[DutchName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="EnglishName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DutchName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ISO" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Inputs[Lookup Input].Columns[Sh_Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Country"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ISO</property>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">EnglishName</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fix ISO country Formatting Ship\Lookup wrong values"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup wrong values"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[Countries]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[Countries]) [refTable]
+where [refTable].[EnglishName] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="EnglishName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DutchName" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ISO" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Inputs[Lookup Input].Columns[Sh_Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Country"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">EnglishName</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fix ISO country Formatting Ship\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update Ship 
+set Sh_Country = ?
+where VS_Shipid = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix ISO country Formatting Ship\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fix ISO country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].Columns[Sh_Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Country"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]" />
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].Columns[VS_Shipid]"
+                      cachedDataType="i4"
+                      cachedName="VS_Shipid"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[VS_Shipid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Fix ISO country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Fix ISO country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fix ISO country Formatting Ship\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Ship]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[VS_Shipid]"
+                      cachedDataType="i4"
+                      cachedName="VS_Shipid"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VS_Shipid]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[VS_Shipid]" />
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Shipname]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Shipname"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Shipname]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Shipname]" />
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_MaxTEU]"
+                      cachedDataType="i4"
+                      cachedName="Sh_MaxTEU"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_MaxTEU]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_MaxTEU]" />
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_SpeedInKnots]"
+                      cachedDataType="i4"
+                      cachedName="Sh_SpeedInKnots"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKnots]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKnots]" />
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_SpeedInKm_H]"
+                      cachedDataType="i4"
+                      cachedName="Sh_SpeedInKm_H"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKm_H]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKm_H]" />
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Country]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Sh_Country"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Country]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]" />
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Yearcost]"
+                      cachedDataType="cy"
+                      cachedName="Sh_Yearcost"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Yearcost]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Yearcost]" />
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Length]"
+                      cachedDataType="i4"
+                      cachedName="Sh_Length"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Length]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Length]" />
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Sh_Width]"
+                      cachedDataType="i4"
+                      cachedName="Sh_Width"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Width]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Width]" />
+                    <inputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[IMO]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="IMO"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMO]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[IMO]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[VS_Shipid]"
+                      dataType="i4"
+                      name="VS_Shipid" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Shipname]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sh_Shipname" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_MaxTEU]"
+                      dataType="i4"
+                      name="Sh_MaxTEU" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKnots]"
+                      dataType="i4"
+                      name="Sh_SpeedInKnots" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_SpeedInKm_H]"
+                      dataType="i4"
+                      name="Sh_SpeedInKm_H" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Country]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sh_Country" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Yearcost]"
+                      dataType="cy"
+                      name="Sh_Yearcost" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Length]"
+                      dataType="i4"
+                      name="Sh_Length" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Sh_Width]"
+                      dataType="i4"
+                      name="Sh_Width" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IMO]"
+                      dataType="wstr"
+                      length="255"
+                      name="IMO" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source Ship"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Ship]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[VS_Shipid]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[VS_Shipid]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[VS_Shipid]"
+                      name="VS_Shipid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Shipname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Shipname]"
+                      length="50"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Shipname]"
+                      name="Sh_Shipname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_MaxTEU]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_MaxTEU]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_MaxTEU]"
+                      name="Sh_MaxTEU"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKnots]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_SpeedInKnots]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKnots]"
+                      name="Sh_SpeedInKnots"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKm_H]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_SpeedInKm_H]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_SpeedInKm_H]"
+                      name="Sh_SpeedInKm_H"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Country]"
+                      length="50"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Country]"
+                      name="Sh_Country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Yearcost]"
+                      dataType="cy"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Yearcost]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Yearcost]"
+                      name="Sh_Yearcost"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Length]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Length]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Length]"
+                      name="Sh_Length"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Width]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Width]"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[Sh_Width]"
+                      name="Sh_Width"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[IMO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[IMO]"
+                      length="255"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].Columns[IMO]"
+                      name="IMO"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[VS_Shipid]"
+                      dataType="i4"
+                      name="VS_Shipid" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Shipname]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sh_Shipname" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_MaxTEU]"
+                      dataType="i4"
+                      name="Sh_MaxTEU" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_SpeedInKnots]"
+                      dataType="i4"
+                      name="Sh_SpeedInKnots" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_SpeedInKm_H]"
+                      dataType="i4"
+                      name="Sh_SpeedInKm_H" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Country]"
+                      dataType="wstr"
+                      length="50"
+                      name="Sh_Country" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Yearcost]"
+                      dataType="cy"
+                      name="Sh_Yearcost" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Length]"
+                      dataType="i4"
+                      name="Sh_Length" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[Sh_Width]"
+                      dataType="i4"
+                      name="Sh_Width" />
+                    <externalMetadataColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output].ExternalColumns[IMO]"
+                      dataType="wstr"
+                      length="255"
+                      name="IMO" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[VS_Shipid]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[VS_Shipid]"
+                      name="VS_Shipid" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Shipname]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Shipname]"
+                      name="Sh_Shipname" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_MaxTEU]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_MaxTEU]"
+                      name="Sh_MaxTEU" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_SpeedInKnots]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_SpeedInKnots]"
+                      name="Sh_SpeedInKnots" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_SpeedInKm_H]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_SpeedInKm_H]"
+                      name="Sh_SpeedInKm_H" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Country]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Country]"
+                      name="Sh_Country" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Yearcost]"
+                      dataType="cy"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Yearcost]"
+                      name="Sh_Yearcost" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Length]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Length]"
+                      name="Sh_Length" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Width]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[Sh_Width]"
+                      name="Sh_Width" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[IMO]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[IMO]"
+                      name="IMO" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Fix ISO country Formatting Ship.Paths[Lookup Match Output]"
+              endId="Package\Fix ISO country Formatting Ship\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Lookup Match Output"
+              startId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Fix ISO country Formatting Ship.Paths[Lookup No Match Output]"
+              endId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Inputs[Lookup Input]"
+              name="Lookup No Match Output"
+              startId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Fix ISO country Formatting Ship.Paths[Lookup No Match Output1]"
+              endId="Package\Fix ISO country Formatting Ship\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\Fix ISO country Formatting Ship.Paths[OLE DB Source Output]"
+              endId="Package\Fix ISO country Formatting Ship\Lookup wrong values.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Fix ISO country Formatting Ship\OLE DB Source Ship.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Load Countries"
       DTS:CreationName="Microsoft.Pipeline"
@@ -112,8 +1946,8 @@
               <connections>
                 <connection
                   refId="Package\Load Countries\Excel Source.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager 2]"
-                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager 2]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -363,6 +2197,24 @@
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{BAE5795D-F67F-481C-A8DB-79DD4379F2E3}"
+      DTS:From="Package\Load Countries"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Fix Dutch Country Formatting Ship" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{BCB72DDB-EF91-4CA0-87E1-0240F3F7440A}"
+      DTS:From="Package\Load Countries"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Fix ISO country Formatting Ship" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -374,11 +2226,87 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="148.8,41.6"
+          Size="149,42"
           Id="Package\Load Countries"
-          TopLeft="244.285714805735,74.1764705232167" />
+          TopLeft="175.194805714826,30.3582887050349" />
+        <NodeLayout
+          Size="241,42"
+          Id="Package\Fix Dutch Country Formatting Ship"
+          TopLeft="5.45454545454547,164.727272727273" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="226.194805714826,72.3582887050349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-100.24026026028,92.3689840222379"
+              Start="0,0"
+              End="-100.24026026028,84.8689840222379">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5363998815469" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.5363998815469"
+                    Point2="0,37.5363998815469"
+                    Point3="-4,37.5363998815469" />
+                  <mssgle:LineSegment
+                    End="-96.2402602602801,37.5363998815469" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-96.2402602602801,37.5363998815469"
+                    Point2="-100.24026026028,37.5363998815469"
+                    Point3="-100.24026026028,41.5363998815469" />
+                  <mssgle:LineSegment
+                    End="-100.24026026028,84.8689840222379" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="230,42"
+          Id="Package\Fix ISO country Formatting Ship"
+          TopLeft="304.454545454545,164.272727272727" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="273.194805714825,72.3582887050349">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="146.25973973972,91.9144385676924"
+              Start="0,0"
+              End="146.25973973972,84.4144385676924">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.3516841988232" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.3516841988232"
+                    Point2="0,37.3516841988232"
+                    Point3="4,37.3516841988232" />
+                  <mssgle:LineSegment
+                    End="142.25973973972,37.3516841988232" />
+                  <mssgle:CubicBezierSegment
+                    Point1="142.25973973972,37.3516841988232"
+                    Point2="146.25973973972,37.3516841988232"
+                    Point3="146.25973973972,41.3516841988232" />
+                  <mssgle:LineSegment
+                    End="146.25973973972,84.4144385676924" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -388,13 +2316,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="138.4,41.6"
-          Id="Package\Load Countries\Excel Source"
-          TopLeft="250.999996259809,89.9999986588955" />
-        <NodeLayout
-          Size="170.4,41.6"
+          Size="170,42"
           Id="Package\Load Countries\OLE DB Destination"
           TopLeft="243.999996364117,229.999996572733" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Load Countries\Excel Source"
+          TopLeft="250.999996259809,89.9999986588955" />
         <EdgeLayout
           Id="Package\Load Countries.Paths[Excel Source Output]"
           TopLeft="320.199996259809,131.599998658896">
@@ -455,6 +2383,387 @@
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fix Dutch Country Formatting Ship">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Fix Dutch Country Formatting Ship\Lookup wrong values"
+          TopLeft="317,188" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Fix Dutch Country Formatting Ship\OLE DB Source Ship"
+          TopLeft="309,105" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names"
+          TopLeft="291,372" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Fix Dutch Country Formatting Ship\OLE DB Destination"
+          TopLeft="266,610" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Fix Dutch Country Formatting Ship\OLE DB Command"
+          TopLeft="674,513" />
+        <EdgeLayout
+          Id="Package\Fix Dutch Country Formatting Ship.Paths[OLE DB Source Output]"
+          TopLeft="396,147">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,41"
+              Start="0,0"
+              End="10.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="6.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,20.5"
+                    Point2="10.5,20.5"
+                    Point3="10.5,24.5" />
+                  <mssgle:LineSegment
+                    End="10.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Dutch Country Formatting Ship.Paths[Lookup No Match Output]"
+          TopLeft="407.5,230">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,142"
+              Start="0,0"
+              End="0,134.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,134.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,61.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Dutch Country Formatting Ship.Paths[Lookup Match Output]"
+          TopLeft="408.5,414">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="348.5,99"
+              Start="0,0"
+              End="348.5,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45.5"
+                    Point2="0,49.5"
+                    Point3="4,49.5" />
+                  <mssgle:LineSegment
+                    End="344.5,49.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="344.5,49.5"
+                    Point2="348.5,49.5"
+                    Point3="348.5,53.5" />
+                  <mssgle:LineSegment
+                    End="348.5,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="126.05861328125,54.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Dutch Country Formatting Ship.Paths[Lookup No Match Output1]"
+          TopLeft="370.666666666667,414">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.1666666666666,196"
+              Start="0,0"
+              End="-19.1666666666666,188.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.1952662721893" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,75.1952662721893"
+                    Point2="0,79.1952662721893"
+                    Point3="-4,79.1952662721893" />
+                  <mssgle:LineSegment
+                    End="-15.1666666666666,79.1952662721893" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.1666666666666,79.1952662721893"
+                    Point2="-19.1666666666666,79.1952662721893"
+                    Point3="-19.1666666666666,83.1952662721893" />
+                  <mssgle:LineSegment
+                    End="-19.1666666666666,188.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-65.3897200520833,84.1952662721893,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Dutch Country Formatting Ship\Lookup wrong values">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Countries]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Dutch Country Formatting Ship\Lookup and replace dutch names">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Countries]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Dutch Country Formatting Ship\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fix ISO country Formatting Ship">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Fix ISO country Formatting Ship\Lookup wrong values"
+          TopLeft="111,143" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Fix ISO country Formatting Ship\OLE DB Source Ship"
+          TopLeft="103,60" />
+        <NodeLayout
+          Size="226,42"
+          Id="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names"
+          TopLeft="85,327" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Fix ISO country Formatting Ship\OLE DB Destination"
+          TopLeft="70,550" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Fix ISO country Formatting Ship\OLE DB Command"
+          TopLeft="468,468" />
+        <EdgeLayout
+          Id="Package\Fix ISO country Formatting Ship.Paths[OLE DB Source Output]"
+          TopLeft="190,102">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="10.5,41"
+              Start="0,0"
+              End="10.5,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="6.5,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="6.5,20.5"
+                    Point2="10.5,20.5"
+                    Point3="10.5,24.5" />
+                  <mssgle:LineSegment
+                    End="10.5,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix ISO country Formatting Ship.Paths[Lookup No Match Output]"
+          TopLeft="199.25,185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,142"
+              Start="0,0"
+              End="0,134.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,134.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,61.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix ISO country Formatting Ship.Paths[Lookup Match Output]"
+          TopLeft="234.333333333333,369">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="316.666666666667,99"
+              Start="0,0"
+              End="316.666666666667,91.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.0175746924429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,36.0175746924429"
+                    Point2="0,40.0175746924429"
+                    Point3="4,40.0175746924429" />
+                  <mssgle:LineSegment
+                    End="312.666666666667,40.0175746924429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="312.666666666667,40.0175746924429"
+                    Point2="316.666666666667,40.0175746924429"
+                    Point3="316.666666666667,44.0175746924429" />
+                  <mssgle:LineSegment
+                    End="316.666666666667,91.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="110.141946614583,45.0175746924429,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix ISO country Formatting Ship.Paths[Lookup No Match Output1]"
+          TopLeft="158.583333333333,369">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,181"
+              Start="0,0"
+              End="0,173.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,173.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,80.9453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix ISO country Formatting Ship\Lookup and replace ISO names">
+    <Properties>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q2:string">[dbo].[Countries]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q3:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
