@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="RDBMS_to_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="14"
-  DTS:VersionGUID="{1CB69B95-CF5F-4955-A4C6-DFBC86A117F0}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{E0AAAB87-87C3-4170-A88E-1FA96F63BCD8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -6349,7 +6349,7 @@
         <NodeLayout
           Size="214,42"
           Id="Package\Load ShipmentVoyage\ShipmentVoyage Destination"
-          TopLeft="471,623" />
+          TopLeft="480,622" />
         <NodeLayout
           Size="176,42"
           Id="Package\Load ShipmentVoyage\Load ShipmentDetail"
@@ -6357,11 +6357,11 @@
         <NodeLayout
           Size="140,42"
           Id="Package\Load ShipmentVoyage\Load Voyage"
-          TopLeft="141,331" />
+          TopLeft="136,331" />
         <NodeLayout
           Size="159,42"
           Id="Package\Load ShipmentVoyage\Load VoyagePort"
-          TopLeft="139,497" />
+          TopLeft="131,497" />
         <NodeLayout
           Size="183,42"
           Id="Package\Load ShipmentVoyage\Merge ShipmentDetail"
@@ -6472,18 +6472,18 @@
           TopLeft="353,335" />
         <EdgeLayout
           Id="Package\Load ShipmentVoyage.Paths[OLE DB Source Output2]"
-          TopLeft="281,354">
+          TopLeft="276,354">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="72,0"
+              EndConnector="77,0"
               Start="0,0"
-              End="64.5,0">
+              End="69.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="64.5,0" />
+                    End="69.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6517,33 +6517,21 @@
         <NodeLayout
           Size="146,42"
           Id="Package\Load ShipmentVoyage\Merge Voyage"
-          TopLeft="514,342" />
+          TopLeft="503,342" />
         <EdgeLayout
           Id="Package\Load ShipmentVoyage.Paths[Sort Output2]"
-          TopLeft="577.5,314">
+          TopLeft="576.75,314">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="9.5,28"
+              EndConnector="0,28"
               Start="0,0"
-              End="9.5,20.5">
+              End="0,20.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,10" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,10"
-                    Point2="0,14"
-                    Point3="4,14" />
-                  <mssgle:LineSegment
-                    End="5.5,14" />
-                  <mssgle:CubicBezierSegment
-                    Point1="5.5,14"
-                    Point2="9.5,14"
-                    Point3="9.5,18" />
-                  <mssgle:LineSegment
-                    End="9.5,20.5" />
+                    End="0,20.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6558,14 +6546,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54,0"
+              EndConnector="43,0"
               Start="0,0"
-              End="46.5,0">
+              End="35.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="46.5,0" />
+                    End="35.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6577,21 +6565,33 @@
         <NodeLayout
           Size="107,42"
           Id="Package\Load ShipmentVoyage\Sort 4"
-          TopLeft="352,501" />
+          TopLeft="351,507" />
         <EdgeLayout
           Id="Package\Load ShipmentVoyage.Paths[OLE DB Source Output3]"
-          TopLeft="298,520">
+          TopLeft="290,518">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="54,0"
+              EndConnector="61,10"
               Start="0,0"
-              End="46.5,0">
+              End="53.5,10">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="46.5,0" />
+                    End="26.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.5,0"
+                    Point2="30.5,0"
+                    Point3="30.5,4" />
+                  <mssgle:LineSegment
+                    End="30.5,6" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.5,6"
+                    Point2="30.5,10"
+                    Point3="34.5,10" />
+                  <mssgle:LineSegment
+                    End="53.5,10" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6610,7 +6610,7 @@
           TopLeft="528,428" />
         <EdgeLayout
           Id="Package\Load ShipmentVoyage.Paths[Merge Join Output1]"
-          TopLeft="584.25,384">
+          TopLeft="578.75,384">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6654,30 +6654,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load ShipmentVoyage.Paths[Sort Output5]"
-          TopLeft="459,522">
+          TopLeft="458,531.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="45,13"
+              EndConnector="46,0"
               Start="0,0"
-              End="37.5,13">
+              End="38.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.5,0"
-                    Point2="22.5,0"
-                    Point3="22.5,4" />
-                  <mssgle:LineSegment
-                    End="22.5,9" />
-                  <mssgle:CubicBezierSegment
-                    Point1="22.5,9"
-                    Point2="22.5,13"
-                    Point3="26.5,13" />
-                  <mssgle:LineSegment
-                    End="37.5,13" />
+                    End="38.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6688,30 +6676,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load ShipmentVoyage.Paths[Merge Join Output2]"
-          TopLeft="586.5,556">
+          TopLeft="586.75,556">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.5,67"
+              EndConnector="0,66"
               Start="0,0"
-              End="-8.5,59.5">
+              End="0,58.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.5"
-                    Point2="0,33.5"
-                    Point3="-4,33.5" />
-                  <mssgle:LineSegment
-                    End="-4.5,33.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4.5,33.5"
-                    Point2="-8.5,33.5"
-                    Point3="-8.5,37.5" />
-                  <mssgle:LineSegment
-                    End="-8.5,59.5" />
+                    End="0,58.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
