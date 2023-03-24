@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="Localhost.Kramse_ODS"
+  DTS:ObjectName="ODS"
   DTS:DTSID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
