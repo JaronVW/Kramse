@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Kramse", "Kramse\Kramse.dtproj", "{B06917AF-6630-4A71-BA3D-9DF0A7B1780F}"
 EndProject
-Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Kramse_MDM", "Kramse_MDM\Kramse_MDM.dwproj", "{430FE1BD-F37D-4020-B782-5AA737817130}"
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Kramse_MDM", "Kramse_MDM\Kramse_MDM.dwproj", "{7CBA9D96-E1A5-4353-A720-5C7EB6C9E626}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B06917AF-6630-4A71-BA3D-9DF0A7B1780F}.Development|Default.ActiveCfg = Development
 		{B06917AF-6630-4A71-BA3D-9DF0A7B1780F}.Development|Default.Build.0 = Development
-		{430FE1BD-F37D-4020-B782-5AA737817130}.Development|Default.ActiveCfg = Development
-		{430FE1BD-F37D-4020-B782-5AA737817130}.Development|Default.Build.0 = Development
-		{430FE1BD-F37D-4020-B782-5AA737817130}.Development|Default.Deploy.0 = Development
+		{7CBA9D96-E1A5-4353-A720-5C7EB6C9E626}.Development|Default.ActiveCfg = Development
+		{7CBA9D96-E1A5-4353-A720-5C7EB6C9E626}.Development|Default.Build.0 = Development
+		{7CBA9D96-E1A5-4353-A720-5C7EB6C9E626}.Development|Default.Deploy.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

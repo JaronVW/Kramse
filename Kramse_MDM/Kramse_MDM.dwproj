@@ -6,14 +6,30 @@
     <Name>Kramse_MDM.database</Name>
     <FullPath>Kramse_MDM.database</FullPath>
   </Database>
+  <Cubes>
+    <ProjectItem>
+      <Name>Kramse ODS.cube</Name>
+      <FullPath>Kramse ODS.cube</FullPath>
+      <Dependencies>
+        <ProjectItem>
+          <Name>Kramse ODS.partitions</Name>
+          <FullPath>Kramse ODS.partitions</FullPath>
+        </ProjectItem>
+      </Dependencies>
+    </ProjectItem>
+  </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>D Port.dim</Name>
-      <FullPath>D Port.dim</FullPath>
+      <Name>D Time.dim</Name>
+      <FullPath>D Time.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>D Ship.dim</Name>
       <FullPath>D Ship.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>D Port.dim</Name>
+      <FullPath>D Port.dim</FullPath>
     </ProjectItem>
     <ProjectItem>
       <Name>D Container Type.dim</Name>
@@ -27,21 +43,17 @@
       <Name>D Item.dim</Name>
       <FullPath>D Item.dim</FullPath>
     </ProjectItem>
-    <ProjectItem>
-      <Name>D_Time.dim</Name>
-      <FullPath>D_Time.dim</FullPath>
-    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
-      <Name>ODS.ds</Name>
-      <FullPath>ODS.ds</FullPath>
+      <Name>Kramse ODS.ds</Name>
+      <FullPath>Kramse ODS.ds</FullPath>
     </ProjectItem>
   </DataSources>
   <DataSourceViews>
     <ProjectItem>
-      <Name>Kramse_ODS.dsv</Name>
-      <FullPath>Kramse_ODS.dsv</FullPath>
+      <Name>Kramse ODS.dsv</Name>
+      <FullPath>Kramse ODS.dsv</FullPath>
     </ProjectItem>
   </DataSourceViews>
   <Configurations>
@@ -50,15 +62,15 @@
       <Options>
         <ConnectionMappings>
           <ConfigurationSetting>
-            <Id>ODS</Id>
-            <Name>ODS</Name>
-            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=Localhost;Integrated Security=SSPI;Initial Catalog=Kramse_ODS</Value>
+            <Id>Kramse ODS</Id>
+            <Name>Kramse ODS</Name>
+            <Value xsi:type="xsd:string">Provider=MSOLEDBSQL.1;Data Source=DESKTOP-GL58MB9;Integrated Security=SSPI;Initial Catalog=Kramse_ODS</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
           <ConfigurationSetting>
-            <Id>ODS</Id>
-            <Name>ODS</Name>
+            <Id>Kramse ODS</Id>
+            <Name>Kramse ODS</Name>
             <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
         </ConnectionSecurityMappings>
