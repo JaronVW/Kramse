@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">LAPTOP-60VI45O7</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAM5Sbr7ru/kaFOIwhg8Dq3AAAAAACAAAAAAAQZgAAAAEAACAAAAAgqdz8wkhwuP3tszIOTMRhj0nkVY6hkmh6DeA08KMrXQAAAAAOgAAAAAIAACAAAAAid59Pz+N3qvLsRk4P5gI7yCeqhgjFZ8vWMdMfWHbAzpAAAACz4Gy1+uGTzZoHr6jY5u2bMsk/iLUq1hFD7IOKCOPHo86BAnfip0YMbfbmsVFubHxV5lsR+jXVhmD2SNY8nODF9cn08QJnPcv2S/sqiRtFLUU6URsv/3//3efOqaHC/ZLBJnjZokryxq+ny+70zlZlCnwWWV8v/H7JHcMotu/rmKhU5qcCnqxxjIKqxnxoVc1AAAAA16eXb+hdrfuoKGqmBgsQA7kxKpJGblgCxRp17IGZa9VjjxOMp6I9WkM0cVGwCiOFS/rED3+dVOeCDPt5q04+rg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAARGkVkoiN0ES04rm6xxbifAAAAAACAAAAAAAQZgAAAAEAACAAAADr+mlPHI82AviEk7vQUkwXCQrC3ZYtIEEuP5ujQcuHCQAAAAAOgAAAAAIAACAAAACl+vG8hcrPmkol6vNvC5hyoCWSlpKUd9ZGEFSIPNlbrpAAAACCH7fhRi15MgQ7hn1djZq2gD6prLExVZfkXTg5QezZKDezTRP+ELgGi0kG9DS8m9V4aZyLOFK2uVDgzR9PDAb/Hj8SbM1gDfS1QUmlIt0EoiJTVfaRL/7qzSP+8LCW6TaT7TfAMuXh7r9XbT2IsFdNRa7WXOJg4K2y6k97VvZbMowOdNPUmLk/BHKF7sk/euJAAAAAXf63E1/waWLo/XrZywAisr3PbjqDaolLSUZsx/rRoXvUE1iebMAriTdYzRtCMUiQnJGiWMXsBMqu3lZxVD2b+A==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -366,7 +366,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=Localhost;Initial Catalog=Kramse_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Kramse-{233B804A-603C-46F3-A8D4-4415822E3551}Localhost.Kramse_Staging;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=Localhost;Initial Catalog=Kramse_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Kramse-{233B804A-603C-46F3-A8D4-4415822E3551}Localhost.Kramse_Staging;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -662,7 +662,7 @@
                 <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                 <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="Value">Data Source=Localhost;Initial Catalog=Kramse_ODS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Kramse-{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}Localhost.Kramse_ODS;Auto Translate=False;</SSIS:Property>
+                <SSIS:Property SSIS:Name="Value">Data Source=Localhost;Initial Catalog=Kramse_ODS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Kramse-{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}Localhost.Kramse_ODS;</SSIS:Property>
                 <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
               </SSIS:Properties>
             </SSIS:Parameter>
@@ -792,10 +792,10 @@
                 <SSIS:Property SSIS:Name="Name">Data_Cleanup</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">59</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">68</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{F1033A85-4CA5-45BC-82FF-37114E2CBE9F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{6B5D9692-3814-4341-A1B6-D1CE29C172D4}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -828,7 +828,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\timot\Desktop\Kramse project\Countries.xlsx;Extended Properties="EXCEL 12.0 XML;HDR=YES";</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\avans\jaar2\periode3\kramse\data\Countries.xlsx;Extended Properties="EXCEL 12.0 XML;HDR=YES";</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -843,7 +843,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\timot\Desktop\Kramse project\Countries.xlsx</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\avans\jaar2\periode3\kramse\data\Countries.xlsx</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -916,7 +916,7 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">C:\Users\timot\Desktop\Kramse project\Countries.xlsx</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">C:\avans\jaar2\periode3\kramse\data\Countries.xlsx</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
@@ -959,10 +959,10 @@
                 <SSIS:Property SSIS:Name="Name">RAW_to_RDBMS</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">14</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">18</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{99FED472-F344-41E2-8C80-E5464A47742C}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{B84C6987-4667-4374-97CF-F06C0A325E5D}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

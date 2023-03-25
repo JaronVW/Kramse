@@ -43,6 +43,10 @@
       <Name>D Item.dim</Name>
       <FullPath>D Item.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>D Time 1.dim</Name>
+      <FullPath>D Time 1.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
@@ -64,7 +68,7 @@
           <ConfigurationSetting>
             <Id>Kramse ODS</Id>
             <Name>Kramse ODS</Name>
-            <Value xsi:type="xsd:string">Provider=MSOLEDBSQL.1;Data Source=DESKTOP-GL58MB9;Integrated Security=SSPI;Initial Catalog=Kramse_ODS</Value>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=LAPTOP-60VI45O7;Integrated Security=SSPI;Initial Catalog=Kramse_ODS</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>

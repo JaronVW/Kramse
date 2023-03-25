@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="Data_Cleanup"
   DTS:PackageType="5"
-  DTS:VersionBuild="67"
-  DTS:VersionGUID="{5A672C8D-85FF-43C8-922F-01C157116185}">
+  DTS:VersionBuild="68"
+  DTS:VersionGUID="{6B5D9692-3814-4341-A1B6-D1CE29C172D4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\timot\Desktop\Kramse project\Countries.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\avans\jaar2\periode3\kramse\data\Countries.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -7785,25 +7785,33 @@ and ContainerNr = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\Execute SQL Task"
           TopLeft="334.155844155844,47.0779220779221" />
         <NodeLayout
-          Size="208,42"
+          Size="208,41.6"
           Id="Package\Fix Consignor Country Data"
           TopLeft="609.909090909089,246.96103896104" />
         <NodeLayout
-          Size="180,42"
+          Size="206.4,41.6"
+          Id="Package\Fix Container Country Data"
+          TopLeft="917,249" />
+        <NodeLayout
+          Size="180,41.6"
           Id="Package\Fix Port Country Data"
           TopLeft="328.571428571429,247.857142857143" />
         <NodeLayout
-          Size="181,42"
+          Size="180.8,41.6"
           Id="Package\Fix Ship Country Data"
           TopLeft="58.3766233766233,246.48051948052" />
         <NodeLayout
-          Size="149,42"
+          Size="148.8,41.6"
           Id="Package\Load Countries"
           TopLeft="344.545455065475,136.072574419321" />
+        <NodeLayout
+          Size="159.2,41.6"
+          Id="Package\Split ContainerNr"
+          TopLeft="663,113" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="383.795455065475,178.072574419321">
@@ -7895,32 +7903,6 @@ and ContainerNr = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="417.35064961066,89.0779220779221">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,46.9946523413988"
-              Start="0,0"
-              End="0,39.4946523413988">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,39.4946523413988" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="206,42"
-          Id="Package\Fix Container Country Data"
-          TopLeft="917,249" />
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="461.345455065475,178.072574419321">
           <EdgeLayout.Curve>
@@ -7954,10 +7936,28 @@ and ContainerNr = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Split ContainerNr"
-          TopLeft="663,113" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="417.35064961066,89.0779220779221">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46.9946523413988"
+              Start="0,0"
+              End="0,39.4946523413988">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.4946523413988" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="441.489177489177,89.0779220779221">
@@ -8423,7 +8423,7 @@ and ContainerNr = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -8433,7 +8433,7 @@ and ContainerNr = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -8460,6 +8460,510 @@ and ContainerNr = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Fix Container Country Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Fix Container Country Data\OLE DB Command Update values"
+          TopLeft="590,417" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Fix Container Country Data\OLE DB Destination"
+          TopLeft="399,679" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Fix Container Country Data\OLE DB Source Consigner"
+          TopLeft="73,59" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Fix Container Country Data\Lookup Dutch names"
+          TopLeft="93,311" />
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Fix Container Country Data\Lookup English names"
+          TopLeft="96,441" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Fix Container Country Data\Aggregate"
+          TopLeft="426,581" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Fix Container Country Data\Lookup conversion values"
+          TopLeft="78,577" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Fix Container Country Data\Lookup ISO names"
+          TopLeft="86,185" />
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[Aggregate Output 1]"
+          TopLeft="487,623">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[OLE DB Source Output]"
+          TopLeft="171.5,101">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,84"
+              Start="0,0"
+              End="0,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[Lookup No Match Output]"
+          TopLeft="278,600">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="148,0"
+              Start="0,0"
+              End="140.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="140.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="14.44361328125,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[Lookup No Match Output1]"
+          TopLeft="188,483">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-10,94"
+              Start="0,0"
+              End="-10,86.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,43"
+                    Point2="0,47"
+                    Point3="-4,47" />
+                  <mssgle:LineSegment
+                    End="-6,47" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-6,47"
+                    Point2="-10,47"
+                    Point3="-10,51" />
+                  <mssgle:LineSegment
+                    End="-10,86.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-60.80638671875,52,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[Lookup No Match Output2]"
+          TopLeft="185,353">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,88"
+              Start="0,0"
+              End="0,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,34.4453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[Lookup No Match Output3]"
+          TopLeft="170,227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="12,84"
+              Start="0,0"
+              End="12,76.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38"
+                    Point2="0,42"
+                    Point3="4,42" />
+                  <mssgle:LineSegment
+                    End="8,42" />
+                  <mssgle:CubicBezierSegment
+                    Point1="8,42"
+                    Point2="12,42"
+                    Point3="12,46" />
+                  <mssgle:LineSegment
+                    End="12,76.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-49.80638671875,47,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Fix Container Country Data\Union All"
+          TopLeft="500,253" />
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[Lookup Match Output]"
+          TopLeft="196.666666666667,227">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="363.833333333333,26"
+              Start="0,0"
+              End="363.833333333333,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,6.54716981132076" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,6.54716981132076"
+                    Point2="0,10.5471698113208"
+                    Point3="4,10.5471698113208" />
+                  <mssgle:LineSegment
+                    End="359.833333333333,10.5471698113208" />
+                  <mssgle:CubicBezierSegment
+                    Point1="359.833333333333,10.5471698113208"
+                    Point2="363.833333333333,10.5471698113208"
+                    Point3="363.833333333333,14.5471698113208" />
+                  <mssgle:LineSegment
+                    End="363.833333333333,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="133.725279947917,15.5471698113208,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[Lookup Match Output1]"
+          TopLeft="271,332">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="229,-58"
+              Start="0,0"
+              End="221.5,-58">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="110.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="110.5,0"
+                    Point2="114.5,0"
+                    Point3="114.5,-4" />
+                  <mssgle:LineSegment
+                    End="114.5,-54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="114.5,-54"
+                    Point2="114.5,-58"
+                    Point3="118.5,-58" />
+                  <mssgle:LineSegment
+                    End="221.5,-58" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="66.30861328125,1,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[Lookup Match Output2]"
+          TopLeft="217.333333333333,441">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="343.166666666667,-146"
+              Start="0,0"
+              End="343.166666666667,-138.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-55.1551724137931" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-55.1551724137931"
+                    Point2="0,-59.1551724137931"
+                    Point3="4,-59.1551724137931" />
+                  <mssgle:LineSegment
+                    End="339.166666666667,-59.1551724137931" />
+                  <mssgle:CubicBezierSegment
+                    Point1="339.166666666667,-59.1551724137931"
+                    Point2="343.166666666667,-59.1551724137931"
+                    Point3="343.166666666667,-63.1551724137931" />
+                  <mssgle:LineSegment
+                    End="343.166666666667,-138.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="123.391946614583,-54.1551724137931,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[Lookup Match Output3]"
+          TopLeft="210,577">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="331.666666666667,-282"
+              Start="0,0"
+              End="331.666666666667,-274.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-136.103212301747" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-136.103212301747"
+                    Point2="0,-140.103212301747"
+                    Point3="4,-140.103212301747" />
+                  <mssgle:LineSegment
+                    End="327.666666666667,-140.103212301747" />
+                  <mssgle:CubicBezierSegment
+                    Point1="327.666666666667,-140.103212301747"
+                    Point2="331.666666666667,-140.103212301747"
+                    Point3="331.666666666667,-144.103212301747" />
+                  <mssgle:LineSegment
+                    End="331.666666666667,-274.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="117.641946614583,-135.103212301747,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Container Country Data.Paths[Union All Output 1]"
+          TopLeft="588.75,295">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="118.75,122"
+              Start="0,0"
+              End="118.75,114.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.4204851752022" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,38.4204851752022"
+                    Point2="0,42.4204851752022"
+                    Point3="4,42.4204851752022" />
+                  <mssgle:LineSegment
+                    End="114.75,42.4204851752022" />
+                  <mssgle:CubicBezierSegment
+                    Point1="114.75,42.4204851752022"
+                    Point2="118.75,42.4204851752022"
+                    Point3="118.75,46.4204851752022" />
+                  <mssgle:LineSegment
+                    End="118.75,114.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Container Country Data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Container Country Data\OLE DB Source Consigner">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Container Country Data\Lookup Dutch names">
+    <Properties>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q2:string">[dbo].[Countries]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q3:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q4:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Container Country Data\Lookup ISO names">
+    <Properties>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q2:string">[dbo].[Countries]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q3:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q4:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Container Country Data\Lookup conversion values">
+    <Properties>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q2:string">[dbo].[Country_Conversion_ISO]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q3:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q4:string">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Container Country Data\Lookup English names">
+    <Properties>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q2:string">[dbo].[Countries]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q3:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q4:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -8926,7 +9430,7 @@ and ContainerNr = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -8936,7 +9440,7 @@ and ContainerNr = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9417,7 +9921,7 @@ and ContainerNr = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -9427,7 +9931,7 @@ and ContainerNr = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9438,13 +9942,13 @@ and ContainerNr = ?</property>
     design-time-name="Package\Load Countries">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Load Countries\OLE DB Destination"
           TopLeft="243.999996364117,229.999996572733" />
         <NodeLayout
-          Size="138,42"
+          Size="137.6,41.6"
           Id="Package\Load Countries\Excel Source"
           TopLeft="250.999996259809,89.9999986588955" />
         <EdgeLayout
@@ -9478,9 +9982,7 @@ and ContainerNr = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9509,510 +10011,6 @@ and ContainerNr = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Fix Container Country Data">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="235,42"
-          Id="Package\Fix Container Country Data\OLE DB Command Update values"
-          TopLeft="590,417" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Fix Container Country Data\OLE DB Destination"
-          TopLeft="399,679" />
-        <NodeLayout
-          Size="200,42"
-          Id="Package\Fix Container Country Data\OLE DB Source Consigner"
-          TopLeft="73,59" />
-        <NodeLayout
-          Size="178,42"
-          Id="Package\Fix Container Country Data\Lookup Dutch names"
-          TopLeft="93,311" />
-        <NodeLayout
-          Size="184,42"
-          Id="Package\Fix Container Country Data\Lookup English names"
-          TopLeft="96,441" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\Fix Container Country Data\Aggregate"
-          TopLeft="426,581" />
-        <NodeLayout
-          Size="200,42"
-          Id="Package\Fix Container Country Data\Lookup conversion values"
-          TopLeft="78,577" />
-        <NodeLayout
-          Size="168,42"
-          Id="Package\Fix Container Country Data\Lookup ISO names"
-          TopLeft="86,185" />
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[Aggregate Output 1]"
-          TopLeft="487,623">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56"
-              Start="0,0"
-              End="0,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[OLE DB Source Output]"
-          TopLeft="171.5,101">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,84"
-              Start="0,0"
-              End="0,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[Lookup No Match Output]"
-          TopLeft="278,600">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="148,0"
-              Start="0,0"
-              End="140.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="140.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="14.44361328125,5,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[Lookup No Match Output1]"
-          TopLeft="188,483">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-10,94"
-              Start="0,0"
-              End="-10,86.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,43"
-                    Point2="0,47"
-                    Point3="-4,47" />
-                  <mssgle:LineSegment
-                    End="-6,47" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-6,47"
-                    Point2="-10,47"
-                    Point3="-10,51" />
-                  <mssgle:LineSegment
-                    End="-10,86.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-60.80638671875,52,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[Lookup No Match Output2]"
-          TopLeft="185,353">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,88"
-              Start="0,0"
-              End="0,80.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,80.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,34.4453125,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[Lookup No Match Output3]"
-          TopLeft="170,227">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="12,84"
-              Start="0,0"
-              End="12,76.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38"
-                    Point2="0,42"
-                    Point3="4,42" />
-                  <mssgle:LineSegment
-                    End="8,42" />
-                  <mssgle:CubicBezierSegment
-                    Point1="8,42"
-                    Point2="12,42"
-                    Point3="12,46" />
-                  <mssgle:LineSegment
-                    End="12,76.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-49.80638671875,47,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="121,42"
-          Id="Package\Fix Container Country Data\Union All"
-          TopLeft="500,253" />
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[Lookup Match Output]"
-          TopLeft="196.666666666667,227">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="363.833333333333,26"
-              Start="0,0"
-              End="363.833333333333,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,6.54716981132076" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,6.54716981132076"
-                    Point2="0,10.5471698113208"
-                    Point3="4,10.5471698113208" />
-                  <mssgle:LineSegment
-                    End="359.833333333333,10.5471698113208" />
-                  <mssgle:CubicBezierSegment
-                    Point1="359.833333333333,10.5471698113208"
-                    Point2="363.833333333333,10.5471698113208"
-                    Point3="363.833333333333,14.5471698113208" />
-                  <mssgle:LineSegment
-                    End="363.833333333333,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="133.725279947917,15.5471698113208,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[Lookup Match Output1]"
-          TopLeft="271,332">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="229,-58"
-              Start="0,0"
-              End="221.5,-58">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="110.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="110.5,0"
-                    Point2="114.5,0"
-                    Point3="114.5,-4" />
-                  <mssgle:LineSegment
-                    End="114.5,-54" />
-                  <mssgle:CubicBezierSegment
-                    Point1="114.5,-54"
-                    Point2="114.5,-58"
-                    Point3="118.5,-58" />
-                  <mssgle:LineSegment
-                    End="221.5,-58" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="66.30861328125,1,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[Lookup Match Output2]"
-          TopLeft="217.333333333333,441">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="343.166666666667,-146"
-              Start="0,0"
-              End="343.166666666667,-138.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-55.1551724137931" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-55.1551724137931"
-                    Point2="0,-59.1551724137931"
-                    Point3="4,-59.1551724137931" />
-                  <mssgle:LineSegment
-                    End="339.166666666667,-59.1551724137931" />
-                  <mssgle:CubicBezierSegment
-                    Point1="339.166666666667,-59.1551724137931"
-                    Point2="343.166666666667,-59.1551724137931"
-                    Point3="343.166666666667,-63.1551724137931" />
-                  <mssgle:LineSegment
-                    End="343.166666666667,-138.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="123.391946614583,-54.1551724137931,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[Lookup Match Output3]"
-          TopLeft="210,577">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="331.666666666667,-282"
-              Start="0,0"
-              End="331.666666666667,-274.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-136.103212301747" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-136.103212301747"
-                    Point2="0,-140.103212301747"
-                    Point3="4,-140.103212301747" />
-                  <mssgle:LineSegment
-                    End="327.666666666667,-140.103212301747" />
-                  <mssgle:CubicBezierSegment
-                    Point1="327.666666666667,-140.103212301747"
-                    Point2="331.666666666667,-140.103212301747"
-                    Point3="331.666666666667,-144.103212301747" />
-                  <mssgle:LineSegment
-                    End="331.666666666667,-274.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="117.641946614583,-135.103212301747,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Container Country Data.Paths[Union All Output 1]"
-          TopLeft="588.75,295">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="118.75,122"
-              Start="0,0"
-              End="118.75,114.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.4204851752022" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38.4204851752022"
-                    Point2="0,42.4204851752022"
-                    Point3="4,42.4204851752022" />
-                  <mssgle:LineSegment
-                    End="114.75,42.4204851752022" />
-                  <mssgle:CubicBezierSegment
-                    Point1="114.75,42.4204851752022"
-                    Point2="118.75,42.4204851752022"
-                    Point3="118.75,46.4204851752022" />
-                  <mssgle:LineSegment
-                    End="118.75,114.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fix Container Country Data\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fix Container Country Data\OLE DB Source Consigner">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fix Container Country Data\Lookup Dutch names">
-    <Properties>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q2:string">[dbo].[Countries]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q3:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q4:boolean">false</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fix Container Country Data\Lookup English names">
-    <Properties>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q2:string">[dbo].[Countries]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q3:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q4:boolean">false</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fix Container Country Data\Lookup conversion values">
-    <Properties>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q2:string">[dbo].[Country_Conversion_ISO]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q3:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q4:boolean">false</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fix Container Country Data\Lookup ISO names">
-    <Properties>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q2:string">[dbo].[Countries]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q3:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q4:boolean">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

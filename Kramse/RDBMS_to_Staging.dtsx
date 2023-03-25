@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="RDBMS_to_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="19"
-  DTS:VersionGUID="{4870F99D-719A-4957-8475-E183EBE3118A}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{569B87FB-DD6F-4CCB-BFA4-7D9883410DB7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -4192,12 +4192,6 @@
                       externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemId]"
                       lineageId="Package\Load ShipmentVoyage\Merge VoyagePort.Outputs[Merge Join Output].Columns[Item]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[PortIdFrom]"
-                      cachedDataType="i4"
-                      cachedName="PortIdFrom"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdCurrent]"
-                      lineageId="Package\Load ShipmentVoyage\Merge VoyagePort.Outputs[Merge Join Output].Columns[PortIdFrom]" />
-                    <inputColumn
                       refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[Vp_LegDateDepart]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Vp_LegDateDepart"
@@ -4245,6 +4239,12 @@
                       cachedName="ContainerTo"
                       externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTo]"
                       lineageId="Package\Load ShipmentVoyage\Merge VoyagePort.Outputs[Merge Join Output].Columns[ContainerTo]" />
+                    <inputColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[PortIdFrom]"
+                      cachedDataType="i4"
+                      cachedName="PortIdFrom"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
+                      lineageId="Package\Load ShipmentVoyage\Merge VoyagePort.Outputs[Merge Join Output].Columns[PortIdFrom]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4260,10 +4260,6 @@
                       refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConsignorId]"
                       dataType="i4"
                       name="ConsignorId" />
-                    <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdCurrent]"
-                      dataType="i4"
-                      name="PortIdCurrent" />
                     <externalMetadataColumn
                       refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdTo]"
                       dataType="i4"
@@ -4316,6 +4312,10 @@
                       refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ArrivalInPort]"
                       dataType="dbTimeStamp"
                       name="ArrivalInPort" />
+                    <externalMetadataColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
+                      dataType="i4"
+                      name="PortIdFrom" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6329,31 +6329,31 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\Execute SQL Task"
           TopLeft="416,49" />
         <NodeLayout
-          Size="152,42"
+          Size="152,41.6"
           Id="Package\Load Consignor"
           TopLeft="249,245" />
         <NodeLayout
-          Size="173,42"
+          Size="172.8,41.6"
           Id="Package\Load ContainerType"
           TopLeft="415,242" />
         <NodeLayout
-          Size="127,42"
+          Size="127.2,41.6"
           Id="Package\Load Item"
           TopLeft="85,251" />
         <NodeLayout
-          Size="124,42"
+          Size="124,41.6"
           Id="Package\Load Port"
           TopLeft="852,246" />
         <NodeLayout
-          Size="125,42"
+          Size="124.8,41.6"
           Id="Package\Load Ship"
           TopLeft="672,244" />
         <NodeLayout
-          Size="184,42"
+          Size="184,41.6"
           Id="Package\Load ShipmentVoyage"
           TopLeft="405,423" />
         <EdgeLayout
@@ -7023,61 +7023,61 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="107,42"
-          Id="Package\Load ShipmentVoyage\Sort 1"
-          TopLeft="359,189" />
-        <NodeLayout
-          Size="140,42"
-          Id="Package\Load ShipmentVoyage\Load Voyage"
-          TopLeft="136,331" />
-        <NodeLayout
-          Size="107,42"
+          Size="107.2,41.6"
           Id="Package\Load ShipmentVoyage\Sort 2"
           TopLeft="524,272" />
         <NodeLayout
-          Size="98,42"
+          Size="97.6,41.6"
           Id="Package\Load ShipmentVoyage\Sort"
           TopLeft="529,101" />
         <NodeLayout
-          Size="159,42"
+          Size="159.2,41.6"
           Id="Package\Load ShipmentVoyage\Load VoyagePort"
           TopLeft="131,497" />
         <NodeLayout
-          Size="183,42"
+          Size="183.2,41.6"
           Id="Package\Load ShipmentVoyage\Merge ShipmentDetail"
           TopLeft="493,193" />
         <NodeLayout
-          Size="107,42"
+          Size="107.2,41.6"
           Id="Package\Load ShipmentVoyage\Sort 3"
           TopLeft="353,335" />
         <NodeLayout
-          Size="107,42"
-          Id="Package\Load ShipmentVoyage\Sort 5"
-          TopLeft="528,428" />
-        <NodeLayout
-          Size="123,42"
+          Size="123.2,41.6"
           Id="Package\Load ShipmentVoyage\Shipment"
           TopLeft="521,22" />
         <NodeLayout
-          Size="146,42"
+          Size="145.6,41.6"
           Id="Package\Load ShipmentVoyage\Merge Voyage"
           TopLeft="503,342" />
         <NodeLayout
-          Size="165,42"
+          Size="164.8,41.6"
           Id="Package\Load ShipmentVoyage\Merge VoyagePort"
           TopLeft="504,514" />
         <NodeLayout
-          Size="107,42"
+          Size="107.2,41.6"
           Id="Package\Load ShipmentVoyage\Sort 4"
           TopLeft="351,507" />
         <NodeLayout
-          Size="214,42"
-          Id="Package\Load ShipmentVoyage\ShipmentVoyage Destination"
-          TopLeft="480,622" />
+          Size="107.2,41.6"
+          Id="Package\Load ShipmentVoyage\Sort 5"
+          TopLeft="528,428" />
         <NodeLayout
-          Size="176,42"
+          Size="214.4,41.6"
+          Id="Package\Load ShipmentVoyage\ShipmentVoyage Destination"
+          TopLeft="480,599.058823549521" />
+        <NodeLayout
+          Size="140,41.6"
+          Id="Package\Load ShipmentVoyage\Load Voyage"
+          TopLeft="136,331" />
+        <NodeLayout
+          Size="176,41.6"
           Id="Package\Load ShipmentVoyage\Load ShipmentDetail"
           TopLeft="148,186" />
+        <NodeLayout
+          Size="107.2,41.6"
+          Id="Package\Load ShipmentVoyage\Sort 1"
+          TopLeft="359,189" />
         <EdgeLayout
           Id="Package\Load ShipmentVoyage.Paths[Sort Output5]"
           TopLeft="458,531.5">
@@ -7312,18 +7312,18 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load ShipmentVoyage.Paths[Merge Join Output2]"
-          TopLeft="586.75,556">
+          TopLeft="586.8,555.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,66"
+              EndConnector="0,43.4588235495205"
               Start="0,0"
-              End="0,58.5">
+              End="0,35.9588235495205">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.5" />
+                    End="0,35.9588235495205" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -7380,19 +7380,6 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load ShipmentVoyage\Load Voyage">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load ShipmentVoyage\Load VoyagePort">
     <Properties>
       <Property>
@@ -7420,6 +7407,19 @@
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load ShipmentVoyage\ShipmentVoyage Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load ShipmentVoyage\Load Voyage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
