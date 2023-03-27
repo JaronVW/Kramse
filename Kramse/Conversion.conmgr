@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="Localhost.Kramse_Conversion"
+  DTS:ObjectName="Conversion"
   DTS:DTSID="{D6F88AAE-2321-47A3-91AE-1AE8C29899AE}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=Localhost;Initial Catalog=Kramse_Conversion;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Kramse-{D6F88AAE-2321-47A3-91AE-1AE8C29899AE}Localhost.Kramse_Conversion;" />
+      DTS:ConnectionString="Data Source=.;Initial Catalog=Kramse-Conversion;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-{D6F88AAE-2321-47A3-91AE-1AE8C29899AE}Localhost.Kramse_Conversion;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>
