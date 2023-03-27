@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0"?>
 <DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
-  DTS:ObjectName="RAW"
-  DTS:DTSID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}"
+  DTS:ObjectName="Raw"
+  DTS:DTSID="{3A4E73BC-34A6-45EE-9033-482C148E0921}"
   DTS:CreationName="OLEDB">
   <DTS:ObjectData>
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=Localhost;Initial Catalog=Kramse_RAW;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-{5DA09C50-9FD0-4CDD-B569-0106FC495B12}Kramse_raw;" />
+      DTS:ConnectionString="Data Source=LAPTOP-E1ALBBKP;Initial Catalog=Kramse_RAW;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Kramse-{3A4E73BC-34A6-45EE-9033-482C148E0921}LAPTOP-E1ALBBKP.Kramse_RAW1;Auto Translate=False;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

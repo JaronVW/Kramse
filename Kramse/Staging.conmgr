@@ -7,6 +7,6 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=Localhost;Initial Catalog=Kramse_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Kramse-{233B804A-603C-46F3-A8D4-4415822E3551}Localhost.Kramse_Staging;" />
+      DTS:ConnectionString="Data Source=LAPTOP-E1ALBBKP;Initial Catalog=Kramse_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Kramse-{233B804A-603C-46F3-A8D4-4415822E3551}Localhost.Kramse_Staging;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>

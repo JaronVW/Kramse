@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="RAW_to_RDBMS"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{B84C6987-4667-4374-97CF-F06C0A325E5D}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{101493AB-E6B7-4085-9D5E-538FCAD459C4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -258,8 +258,8 @@
               <connections>
                 <connection
                   refId="Package\Load Consignor\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[RAW]"
+                  connectionManagerID="{3A4E73BC-34A6-45EE-9033-482C148E0921}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -647,8 +647,8 @@
               <connections>
                 <connection
                   refId="Package\Load Container\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[RAW]"
+                  connectionManagerID="{3A4E73BC-34A6-45EE-9033-482C148E0921}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1065,8 +1065,8 @@
               <connections>
                 <connection
                   refId="Package\Load Item\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[RAW]"
+                  connectionManagerID="{3A4E73BC-34A6-45EE-9033-482C148E0921}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -1470,8 +1470,8 @@
               <connections>
                 <connection
                   refId="Package\Load Port\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[RAW]"
+                  connectionManagerID="{3A4E73BC-34A6-45EE-9033-482C148E0921}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -2489,8 +2489,8 @@
               <connections>
                 <connection
                   refId="Package\Load Publication\Publication source.Connections[OleDbConnection]"
-                  connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[RAW]"
+                  connectionManagerID="{3A4E73BC-34A6-45EE-9033-482C148E0921}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4004,8 +4004,8 @@
               <connections>
                 <connection
                   refId="Package\Load Ship\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[RAW]"
+                  connectionManagerID="{3A4E73BC-34A6-45EE-9033-482C148E0921}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4458,8 +4458,8 @@
               <connections>
                 <connection
                   refId="Package\Load Shipment\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[RAW]"
+                  connectionManagerID="{3A4E73BC-34A6-45EE-9033-482C148E0921}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -4850,8 +4850,8 @@
               <connections>
                 <connection
                   refId="Package\Load ShipmentDetail\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[RAW]"
+                  connectionManagerID="{3A4E73BC-34A6-45EE-9033-482C148E0921}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5191,8 +5191,8 @@
               <connections>
                 <connection
                   refId="Package\Load Voyage\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[RAW]"
+                  connectionManagerID="{3A4E73BC-34A6-45EE-9033-482C148E0921}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5569,8 +5569,8 @@
               <connections>
                 <connection
                   refId="Package\Load VoyagePort\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{5DA09C50-9FD0-4CDD-B569-0106FC495B12}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[RAW]"
+                  connectionManagerID="{3A4E73BC-34A6-45EE-9033-482C148E0921}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Raw]"
                   description="The OLE DB runtime connection used to access the database."
                   name="OleDbConnection" />
               </connections>
@@ -5874,47 +5874,47 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="234,42"
+          Size="233.6,41.6"
           Id="Package\Execute SQL Task Empty RDBMS"
           TopLeft="272.428571985084,2.52941176336526" />
         <NodeLayout
-          Size="151,42"
+          Size="151.2,41.6"
           Id="Package\Load Consignor"
           TopLeft="202.857143288973,173.352941000854" />
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Load Container"
           TopLeft="536.7142867376,169.352941057828" />
         <NodeLayout
-          Size="142,42"
+          Size="142.4,41.6"
           Id="Package\Load Item"
           TopLeft="375.142857892477,169.823529294463" />
         <NodeLayout
-          Size="146,42"
+          Size="145.6,41.6"
           Id="Package\Load Port"
           TopLeft="868.142858637535,169.941176233974" />
         <NodeLayout
-          Size="155,42"
+          Size="155.2,41.6"
           Id="Package\Load Publication"
           TopLeft="24.1428572432119,172.52941166081" />
         <NodeLayout
-          Size="125,42"
+          Size="124.8,41.6"
           Id="Package\Load Ship"
           TopLeft="718.428572698212,170.647058657296" />
         <NodeLayout
-          Size="149,42"
+          Size="148.8,41.6"
           Id="Package\Load Shipment"
           TopLeft="373.228571995728,347.156862441678" />
         <NodeLayout
-          Size="210,42"
+          Size="209.6,41.6"
           Id="Package\Load ShipmentDetail"
           TopLeft="315.888889397421,474.274509403979" />
         <NodeLayout
-          Size="139,42"
+          Size="139.2,41.6"
           Id="Package\Load Voyage"
           TopLeft="706.428572495981,280.117646802771" />
         <NodeLayout
-          Size="158,42"
+          Size="158.4,41.6"
           Id="Package\Load VoyagePort"
           TopLeft="830.857144087249,415.529411421515" />
         <EdgeLayout
@@ -6352,13 +6352,13 @@
     design-time-name="Package\Load Consignor">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Load Consignor\OLE DB Destination"
           TopLeft="293.999995619059,269.999995976686" />
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Load Consignor\OLE DB Source"
           TopLeft="307.999995410442,94.9999985843897" />
         <EdgeLayout
@@ -6380,9 +6380,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6418,13 +6416,13 @@
     design-time-name="Package\Load Container">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Load Container\OLE DB Source"
           TopLeft="261.999996095896,94.9999985843897" />
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Load Container\OLE DB Destination"
           TopLeft="280.999995812774,266.99999602139" />
         <EdgeLayout
@@ -6458,9 +6456,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6496,7 +6492,7 @@
     design-time-name="Package\Load Item">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Load Item\OLE DB Source"
@@ -6536,9 +6532,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6574,7 +6568,7 @@
     design-time-name="Package\Load Port">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Load Port\OLE DB Source"
@@ -6614,9 +6608,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6652,7 +6644,7 @@
     design-time-name="Package\Load Publication">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="163.2,41.6"
           Id="Package\Load Publication\Publication source"
@@ -6680,9 +6672,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6718,7 +6708,7 @@
     design-time-name="Package\Load Ship">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Load Ship\OLE DB Source"
@@ -6746,9 +6736,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6784,7 +6772,7 @@
     design-time-name="Package\Load Shipment">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Load Shipment\OLE DB Source"
@@ -6824,9 +6812,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6864,13 +6850,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
-          Id="Package\Load ShipmentDetail\OLE DB Source"
-          TopLeft="337.999994963408,116.999998256564" />
-        <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Load ShipmentDetail\OLE DB Destination"
           TopLeft="366.999994531274,278.999995842576" />
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Load ShipmentDetail\OLE DB Source"
+          TopLeft="337.999994963408,116.999998256564" />
         <EdgeLayout
           Id="Package\Load ShipmentDetail.Paths[OLE DB Source Output]"
           TopLeft="412.799994963408,158.599998256564">
@@ -6938,7 +6924,7 @@
     design-time-name="Package\Load Voyage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170.4,41.6"
           Id="Package\Load Voyage\OLE DB Destination"
@@ -6978,9 +6964,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7016,7 +7000,7 @@
     design-time-name="Package\Load VoyagePort">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="149.6,41.6"
           Id="Package\Load VoyagePort\OLE DB Source"
@@ -7056,9 +7040,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
