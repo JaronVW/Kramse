@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="RAW_to_RDBMS"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{B84C6987-4667-4374-97CF-F06C0A325E5D}">
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{512791CB-A95E-409C-BC1B-0BF9D2900F01}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -5874,47 +5874,47 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="234,42"
+          Size="233.6,41.6"
           Id="Package\Execute SQL Task Empty RDBMS"
           TopLeft="272.428571985084,2.52941176336526" />
         <NodeLayout
-          Size="151,42"
+          Size="151.2,41.6"
           Id="Package\Load Consignor"
           TopLeft="202.857143288973,173.352941000854" />
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Load Container"
           TopLeft="536.7142867376,169.352941057828" />
         <NodeLayout
-          Size="142,42"
+          Size="142.4,41.6"
           Id="Package\Load Item"
           TopLeft="375.142857892477,169.823529294463" />
         <NodeLayout
-          Size="146,42"
+          Size="145.6,41.6"
           Id="Package\Load Port"
           TopLeft="868.142858637535,169.941176233974" />
         <NodeLayout
-          Size="155,42"
+          Size="155.2,41.6"
           Id="Package\Load Publication"
           TopLeft="24.1428572432119,172.52941166081" />
         <NodeLayout
-          Size="125,42"
+          Size="124.8,41.6"
           Id="Package\Load Ship"
           TopLeft="718.428572698212,170.647058657296" />
         <NodeLayout
-          Size="149,42"
+          Size="148.8,41.6"
           Id="Package\Load Shipment"
           TopLeft="373.228571995728,347.156862441678" />
         <NodeLayout
-          Size="210,42"
+          Size="209.6,41.6"
           Id="Package\Load ShipmentDetail"
           TopLeft="315.888889397421,474.274509403979" />
         <NodeLayout
-          Size="139,42"
+          Size="139.2,41.6"
           Id="Package\Load Voyage"
           TopLeft="706.428572495981,280.117646802771" />
         <NodeLayout
-          Size="158,42"
+          Size="158.4,41.6"
           Id="Package\Load VoyagePort"
           TopLeft="830.857144087249,415.529411421515" />
         <EdgeLayout
@@ -6352,13 +6352,13 @@
     design-time-name="Package\Load Consignor">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="170,42"
+          Size="169.6,41.6"
           Id="Package\Load Consignor\OLE DB Destination"
           TopLeft="293.999995619059,269.999995976686" />
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Load Consignor\OLE DB Source"
           TopLeft="307.999995410442,94.9999985843897" />
         <EdgeLayout
@@ -6380,9 +6380,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

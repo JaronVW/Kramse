@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="RDBMS_to_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{3FDCE01E-FFC0-4306-BC8A-D8C0DA19B98F}">
+  DTS:VersionBuild="21"
+  DTS:VersionGUID="{CB3789F8-13B7-4732-932E-DC4D418661DB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -4245,6 +4245,13 @@
                       cachedName="PortIdFrom"
                       externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
                       lineageId="Package\Load ShipmentVoyage\Merge VoyagePort.Outputs[Merge Join Output].Columns[PortIdFrom]" />
+                    <inputColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[ContainerNr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ContainerNr"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
+                      lineageId="Package\Load ShipmentVoyage\Merge VoyagePort.Outputs[Merge Join Output].Columns[ContainerNr]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4316,6 +4323,11 @@
                       refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
                       dataType="i4"
                       name="PortIdFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      name="ContainerNr" />
                   </externalMetadataColumns>
                 </input>
               </inputs>

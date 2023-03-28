@@ -7,6 +7,6 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=.;Initial Catalog=Kramse-Conversion;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-{D6F88AAE-2321-47A3-91AE-1AE8C29899AE}Localhost.Kramse_Conversion;" />
+      DTS:ConnectionString="Data Source=Localhost;Initial Catalog=Kramse_Conversion;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-{D6F88AAE-2321-47A3-91AE-1AE8C29899AE}Localhost.Kramse_Conversion;" />
   </DTS:ObjectData>
 </DTS:ConnectionManager>
