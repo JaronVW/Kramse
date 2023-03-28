@@ -1213,8 +1213,8 @@ If the CALCULATE command is deleted or modified, the data within the cube is aff
 You should edit this command only if you manually specify how the cube is aggregated.
 */
 CALCULATE; 
-CREATE MEMBER CURRENTCUBE.[Measures].[Calculated Member]
- AS [D Container Type].[Euro Price Per Km] + (0 *[Measures].[Number Of Days]), 
+CREATE MEMBER CURRENTCUBE.[D Container Type].[Cubes].[Calculated Member]
+ AS [D Container Type].[Cubes], 
 FORMAT_STRING = "#,#", 
 VISIBLE = 1  ; </Text>
         </Command>
