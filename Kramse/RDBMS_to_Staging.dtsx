@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="RDBMS_to_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="26"
-  DTS:VersionGUID="{455DD793-E6D1-415C-BE41-0B73E1EA695D}">
+  DTS:VersionBuild="27"
+  DTS:VersionGUID="{1F3B5202-A190-461F-9B5D-0886D9C3C0C4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -568,6 +568,12 @@
                       refId="Package\Load ContainerType\ContainerType destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
                       dataType="r8"
                       name="EuroPricePerKm" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\ContainerType destination.Inputs[OLE DB Destination Input].ExternalColumns[TEU]"
+                      dataType="numeric"
+                      name="TEU"
+                      precision="2"
+                      scale="1" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6691,7 +6697,7 @@
     design-time-name="Package\Load Consignor">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="182.4,41.6"
           Id="Package\Load Consignor\Consignor Destination"
@@ -6719,7 +6725,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6755,13 +6763,13 @@
     design-time-name="Package\Load ContainerType">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="150,42"
+          Size="150.4,41.6"
           Id="Package\Load ContainerType\Load Container"
           TopLeft="350,101" />
         <NodeLayout
-          Size="202,42"
+          Size="201.6,41.6"
           Id="Package\Load ContainerType\ContainerType destination"
           TopLeft="338,284" />
         <EdgeLayout
@@ -6795,9 +6803,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -7031,27 +7037,31 @@
     design-time-name="Package\Load ShipmentVoyage">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="107.2,41.6"
-          Id="Package\Load ShipmentVoyage\Sort 2"
-          TopLeft="524,272" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="97.6,41.6"
           Id="Package\Load ShipmentVoyage\Sort"
           TopLeft="529,101" />
         <NodeLayout
-          Size="159.2,41.6"
-          Id="Package\Load ShipmentVoyage\Load VoyagePort"
-          TopLeft="131,497" />
+          Size="140,41.6"
+          Id="Package\Load ShipmentVoyage\Load Voyage"
+          TopLeft="136,331" />
+        <NodeLayout
+          Size="107.2,41.6"
+          Id="Package\Load ShipmentVoyage\Sort 4"
+          TopLeft="351,507" />
+        <NodeLayout
+          Size="107.2,41.6"
+          Id="Package\Load ShipmentVoyage\Sort 3"
+          TopLeft="353,335" />
         <NodeLayout
           Size="183.2,41.6"
           Id="Package\Load ShipmentVoyage\Merge ShipmentDetail"
           TopLeft="493,193" />
         <NodeLayout
           Size="107.2,41.6"
-          Id="Package\Load ShipmentVoyage\Sort 3"
-          TopLeft="353,335" />
+          Id="Package\Load ShipmentVoyage\Sort 5"
+          TopLeft="528,428" />
         <NodeLayout
           Size="123.2,41.6"
           Id="Package\Load ShipmentVoyage\Shipment"
@@ -7065,21 +7075,13 @@
           Id="Package\Load ShipmentVoyage\Merge VoyagePort"
           TopLeft="504,514" />
         <NodeLayout
-          Size="107.2,41.6"
-          Id="Package\Load ShipmentVoyage\Sort 4"
-          TopLeft="351,507" />
-        <NodeLayout
-          Size="107.2,41.6"
-          Id="Package\Load ShipmentVoyage\Sort 5"
-          TopLeft="528,428" />
-        <NodeLayout
           Size="214.4,41.6"
           Id="Package\Load ShipmentVoyage\ShipmentVoyage Destination"
           TopLeft="480,599.058823549521" />
         <NodeLayout
-          Size="140,41.6"
-          Id="Package\Load ShipmentVoyage\Load Voyage"
-          TopLeft="136,331" />
+          Size="159.2,41.6"
+          Id="Package\Load ShipmentVoyage\Load VoyagePort"
+          TopLeft="131,497" />
         <NodeLayout
           Size="176,41.6"
           Id="Package\Load ShipmentVoyage\Load ShipmentDetail"
@@ -7088,6 +7090,10 @@
           Size="107.2,41.6"
           Id="Package\Load ShipmentVoyage\Sort 1"
           TopLeft="359,189" />
+        <NodeLayout
+          Size="107.2,41.6"
+          Id="Package\Load ShipmentVoyage\Sort 2"
+          TopLeft="524,272" />
         <EdgeLayout
           Id="Package\Load ShipmentVoyage.Paths[Sort Output5]"
           TopLeft="458,531.5">
@@ -7107,7 +7113,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7129,7 +7137,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7151,7 +7161,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7173,7 +7185,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7195,7 +7209,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7217,7 +7233,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7251,7 +7269,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7273,7 +7293,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7295,7 +7317,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7317,7 +7341,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7339,7 +7365,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7361,7 +7389,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -7383,14 +7413,16 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load ShipmentVoyage\Load VoyagePort">
+    design-time-name="Package\Load ShipmentVoyage\Load Voyage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7429,7 +7461,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load ShipmentVoyage\Load Voyage">
+    design-time-name="Package\Load ShipmentVoyage\Load VoyagePort">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

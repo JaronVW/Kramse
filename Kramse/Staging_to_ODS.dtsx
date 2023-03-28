@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="Staging_to_ODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{CCBD9480-2B60-4454-B303-8AE775AF9D79}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{F00D97E2-F21C-4C25-9C6F-FF461D4AF5CB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1801,14 +1801,6 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
                       lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Cubes]" />
                     <inputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[TEU]"
-                      cachedDataType="numeric"
-                      cachedName="TEU"
-                      cachedPrecision="2"
-                      cachedScale="1"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[TEU]"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[TEU]" />
-                    <inputColumn
                       refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[EuroPricePerKm]"
                       cachedDataType="r8"
                       cachedName="EuroPricePerKm"
@@ -1820,6 +1812,14 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       cachedName="StartDate"
                       externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
                       lineageId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Output].Columns[StartDate]" />
+                    <inputColumn
+                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[TEU]"
+                      cachedDataType="numeric"
+                      cachedName="TEU"
+                      cachedPrecision="2"
+                      cachedScale="1"
+                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[TEU]"
+                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[TEU]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1854,12 +1854,6 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       dataType="r8"
                       name="Cubes" />
                     <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[TEU]"
-                      dataType="numeric"
-                      name="TEU"
-                      precision="2"
-                      scale="1" />
-                    <externalMetadataColumn
                       refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
                       dataType="r8"
                       name="EuroPricePerKm" />
@@ -1871,6 +1865,12 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
                       dataType="dbTimeStamp"
                       name="EndDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[TEU]"
+                      dataType="numeric"
+                      name="TEU"
+                      precision="2"
+                      scale="1" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2115,17 +2115,17 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[Cubes]"
                       name="Cubes" />
                     <outputColumn
+                      refId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[EuroPricePerKm]"
+                      dataType="r8"
+                      lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[EuroPricePerKm]"
+                      name="EuroPricePerKm" />
+                    <outputColumn
                       refId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[TEU]"
                       dataType="numeric"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[TEU]"
                       name="TEU"
                       precision="2"
                       scale="1" />
-                    <outputColumn
-                      refId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[EuroPricePerKm]"
-                      dataType="r8"
-                      lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[EuroPricePerKm]"
-                      name="EuroPricePerKm" />
                     <outputColumn
                       refId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
@@ -9951,13 +9951,63 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\Load ContainerType\ContainerType Source"
-          TopLeft="149.1,5.49999999999995" />
+          Size="162.4,41.6"
+          Id="Package\Load ContainerType\Derived Column 3"
+          TopLeft="159.5,513.5" />
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Load ContainerType\Derived Column"
+          TopLeft="488.571429611469,570.952941080619" />
         <NodeLayout
           Size="208,41.6"
           Id="Package\Load ContainerType\Slowly Changing Dimension"
           TopLeft="136.7,107.1" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Load ContainerType\OLE DB Command 2"
+          TopLeft="301.5,208.7" />
+        <NodeLayout
+          Size="183.2,41.6"
+          Id="Package\Load ContainerType\ContainerType Source"
+          TopLeft="149.1,5.49999999999995" />
+        <NodeLayout
+          Size="174.4,41.6"
+          Id="Package\Load ContainerType\OLE DB Command 1"
+          TopLeft="5.50000000000004,310.3" />
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Load ContainerType\Derived Column 2"
+          TopLeft="17.5,208.7" />
+        <NodeLayout
+          Size="203.2,41.6"
+          Id="Package\Load ContainerType\ContainerType Destination"
+          TopLeft="159.5,615.1" />
+        <NodeLayout
+          Size="129.6,41.6"
+          Id="Package\Load ContainerType\Union All 1"
+          TopLeft="175.9,411.9" />
+        <EdgeLayout
+          Id="Package\Load ContainerType.Paths[Union All Output 1]"
+          TopLeft="240.7,453.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load ContainerType.Paths[OLE DB Source Output]"
           TopLeft="240.7,47.1">
@@ -9980,64 +10030,32 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Load ContainerType\Derived Column 2"
-          TopLeft="17.5,208.7" />
         <EdgeLayout
-          Id="Package\Load ContainerType.Paths[Historical Attribute Inserts Output]"
-          TopLeft="190.7,148.7">
+          Id="Package\Load ContainerType.Paths[OLE DB Command Output]"
+          TopLeft="92.7,351.9">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-92,60"
+              EndConnector="127.733333333333,59.9999999999998"
               Start="0,0"
-              End="-92,52.5">
+              End="127.733333333333,52.4999999999998">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.506329113924" />
+                    End="0,31.560975609756" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.506329113924"
-                    Point2="0,20.506329113924"
-                    Point3="-4,20.506329113924" />
+                    Point1="0,31.560975609756"
+                    Point2="0,35.560975609756"
+                    Point3="4,35.560975609756" />
                   <mssgle:LineSegment
-                    End="-88,20.506329113924" />
+                    End="123.733333333333,35.560975609756" />
                   <mssgle:CubicBezierSegment
-                    Point1="-88,20.506329113924"
-                    Point2="-92,20.506329113924"
-                    Point3="-92,24.506329113924" />
+                    Point1="123.733333333333,35.560975609756"
+                    Point2="127.733333333333,35.560975609756"
+                    Point3="127.733333333333,39.560975609756" />
                   <mssgle:LineSegment
-                    End="-92,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-121.05638671875,25.506329113924,150.1127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Load ContainerType\OLE DB Command 1"
-          TopLeft="5.50000000000004,310.3" />
-        <EdgeLayout
-          Id="Package\Load ContainerType.Paths[Derived Column Output]"
-          TopLeft="95.7,250.3">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="127.733333333333,52.4999999999998" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10046,10 +10064,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Load ContainerType\Union All 1"
-          TopLeft="175.9,411.9" />
         <EdgeLayout
           Id="Package\Load ContainerType.Paths[New Output]"
           TopLeft="240.7,148.7">
@@ -10087,82 +10101,14 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load ContainerType.Paths[OLE DB Command Output]"
-          TopLeft="92.7,351.9">
+          Id="Package\Load ContainerType.Paths[Historical Attribute Inserts Output]"
+          TopLeft="190.7,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="127.733333333333,59.9999999999998"
+              EndConnector="-92,60"
               Start="0,0"
-              End="127.733333333333,52.4999999999998">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.560975609756" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,31.560975609756"
-                    Point2="0,35.560975609756"
-                    Point3="4,35.560975609756" />
-                  <mssgle:LineSegment
-                    End="123.733333333333,35.560975609756" />
-                  <mssgle:CubicBezierSegment
-                    Point1="123.733333333333,35.560975609756"
-                    Point2="127.733333333333,35.560975609756"
-                    Point3="127.733333333333,39.560975609756" />
-                  <mssgle:LineSegment
-                    End="127.733333333333,52.4999999999998" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Load ContainerType\Derived Column 3"
-          TopLeft="159.5,513.5" />
-        <EdgeLayout
-          Id="Package\Load ContainerType.Paths[Union All Output 1]"
-          TopLeft="240.7,453.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
-              Start="0,0"
-              End="0,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Load ContainerType\ContainerType Destination"
-          TopLeft="159.5,615.1" />
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Load ContainerType\OLE DB Command 2"
-          TopLeft="301.5,208.7" />
-        <EdgeLayout
-          Id="Package\Load ContainerType.Paths[Changing Attribute Updates Output]"
-          TopLeft="290.7,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="98,59.9999999999999"
-              Start="0,0"
-              End="98,52.4999999999999">
+              End="-92,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -10171,61 +10117,23 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                   <mssgle:CubicBezierSegment
                     Point1="0,16.506329113924"
                     Point2="0,20.506329113924"
-                    Point3="4,20.506329113924" />
+                    Point3="-4,20.506329113924" />
                   <mssgle:LineSegment
-                    End="94,20.506329113924" />
+                    End="-88,20.506329113924" />
                   <mssgle:CubicBezierSegment
-                    Point1="94,20.506329113924"
-                    Point2="98,20.506329113924"
-                    Point3="98,24.506329113924" />
+                    Point1="-88,20.506329113924"
+                    Point2="-92,20.506329113924"
+                    Point3="-92,24.506329113924" />
                   <mssgle:LineSegment
-                    End="98,52.4999999999999" />
+                    End="-92,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-29.53390625,25.506329113924,157.0678125,11.6630859375"
+              BoundingBox="-121.05638671875,25.506329113924,150.1127734375,11.609375"
               RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Load ContainerType\Derived Column"
-          TopLeft="488.571429611469,570.952941080619" />
-        <EdgeLayout
-          Id="Package\Load ContainerType.Paths[Derived Column Output1]"
-          TopLeft="321.9,534.299999999999">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="166.671429611469,57.452941080619"
-              Start="0,0"
-              End="159.171429611469,57.452941080619">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="79.3357148057344,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="79.3357148057344,0"
-                    Point2="83.3357148057344,0"
-                    Point3="83.3357148057344,4" />
-                  <mssgle:LineSegment
-                    End="83.3357148057344,53.452941080619" />
-                  <mssgle:CubicBezierSegment
-                    Point1="83.3357148057344,53.452941080619"
-                    Point2="83.3357148057344,57.452941080619"
-                    Point3="87.3357148057344,57.452941080619" />
-                  <mssgle:LineSegment
-                    End="159.171429611469,57.452941080619" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10262,11 +10170,199 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load ContainerType.Paths[Derived Column Output1]"
+          TopLeft="321.9,534.299999999999">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="166.671429611469,57.452941080619"
+              Start="0,0"
+              End="159.171429611469,57.452941080619">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="79.3357148057344,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="79.3357148057344,0"
+                    Point2="83.3357148057344,0"
+                    Point3="83.3357148057344,4" />
+                  <mssgle:LineSegment
+                    End="83.3357148057344,53.452941080619" />
+                  <mssgle:CubicBezierSegment
+                    Point1="83.3357148057344,53.452941080619"
+                    Point2="83.3357148057344,57.452941080619"
+                    Point3="87.3357148057344,57.452941080619" />
+                  <mssgle:LineSegment
+                    End="159.171429611469,57.452941080619" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load ContainerType.Paths[Derived Column Output]"
+          TopLeft="95.7,250.3">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59.9999999999999"
+              Start="0,0"
+              End="0,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load ContainerType.Paths[Changing Attribute Updates Output]"
+          TopLeft="290.7,148.7">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="98,59.9999999999999"
+              Start="0,0"
+              End="98,52.4999999999999">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.506329113924"
+                    Point2="0,20.506329113924"
+                    Point3="4,20.506329113924" />
+                  <mssgle:LineSegment
+                    End="94,20.506329113924" />
+                  <mssgle:CubicBezierSegment
+                    Point1="94,20.506329113924"
+                    Point2="98,20.506329113924"
+                    Point3="98,24.506329113924" />
+                  <mssgle:LineSegment
+                    End="98,52.4999999999999" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.53390625,25.506329113924,157.0678125,11.6630859375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Load ContainerType\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[D_ContainerType]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Cubes]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Cubes&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;EuroPricePerKm&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Length]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Length&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[PowerFlag]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PowerFlag&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;RefrigerationFlag&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[TEU]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;TEU&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Type]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Type&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 2&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 3&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;StartDate&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;EndDate&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load ContainerType\ContainerType Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load ContainerType\ContainerType Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10326,7 +10422,9 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10420,7 +10518,9 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11346,9 +11446,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -11419,7 +11517,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,7.62178322262932,96.3827734375,11.609375"
+              BoundingBox="-48.19138671875,7.6217832226293,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -11542,102 +11640,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load ContainerType\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[D_ContainerType]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Cubes]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Cubes&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;EuroPricePerKm&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Id]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Id&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Length]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Length&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[PowerFlag]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;PowerFlag&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;RefrigerationFlag&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[TEU]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;TEU&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Type]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Type&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 2&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Union All 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 3&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn&gt;StartDate&lt;/StartDateColumn&gt;
-  &lt;EndDateColumn&gt;EndDate&lt;/EndDateColumn&gt;
-  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load ContainerType\ContainerType Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
