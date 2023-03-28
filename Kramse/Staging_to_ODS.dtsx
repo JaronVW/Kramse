@@ -11,12 +11,452 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="Staging_to_ODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="23"
-  DTS:VersionGUID="{A3A914C7-E11D-442F-8340-25F4C4CD538E}">
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{1A9ACA4F-DBBA-488F-B528-100B1D2AD087}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Calculate NumberOfDays"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{8B3C953B-F874-47D4-8028-637F95A30B48}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Calculate NumberOfDays"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Calculate NumberOfDays\F_DaysInPort source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="F_DaysInPort source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[F_DaysInPort]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calculate NumberOfDays\F_DaysInPort source.Connections[OleDbConnection]"
+                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[ShipRowId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].ExternalColumns[ShipRowId]"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[ShipRowId]"
+                      name="ShipRowId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[PortId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].ExternalColumns[PortId]"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[PortId]"
+                      name="PortId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[DateOfArrival]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].ExternalColumns[DateOfArrival]"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[DateOfArrival]"
+                      name="DateOfArrival"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[DateOfDeparture]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].ExternalColumns[DateOfDeparture]"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[DateOfDeparture]"
+                      name="DateOfDeparture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[NumberOfDays]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].ExternalColumns[NumberOfDays]"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[NumberOfDays]"
+                      name="NumberOfDays"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].ExternalColumns[ShipRowId]"
+                      dataType="i4"
+                      name="ShipRowId" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].ExternalColumns[PortId]"
+                      dataType="i4"
+                      name="PortId" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].ExternalColumns[DateOfArrival]"
+                      dataType="dbTimeStamp"
+                      name="DateOfArrival" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].ExternalColumns[DateOfDeparture]"
+                      dataType="dbTimeStamp"
+                      name="DateOfDeparture" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].ExternalColumns[NumberOfDays]"
+                      dataType="i4"
+                      name="NumberOfDays" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[ShipRowId]"
+                      dataType="i4"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[ShipRowId]"
+                      name="ShipRowId" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[PortId]"
+                      dataType="i4"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[PortId]"
+                      name="PortId" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[DateOfArrival]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[DateOfArrival]"
+                      name="DateOfArrival" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[DateOfDeparture]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[DateOfDeparture]"
+                      name="DateOfDeparture" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[NumberOfDays]"
+                      dataType="i4"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[NumberOfDays]"
+                      name="NumberOfDays" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calculate NumberOfDays\NumberOfDays calculation"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="NumberOfDays calculation"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Calculate NumberOfDays\NumberOfDays calculation.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calculate NumberOfDays\NumberOfDays calculation.Inputs[Derived Column Input].Columns[DateOfArrival]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateOfArrival"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[DateOfArrival]" />
+                    <inputColumn
+                      refId="Package\Calculate NumberOfDays\NumberOfDays calculation.Inputs[Derived Column Input].Columns[DateOfDeparture]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateOfDeparture"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[DateOfDeparture]" />
+                    <inputColumn
+                      refId="Package\Calculate NumberOfDays\NumberOfDays calculation.Inputs[Derived Column Input].Columns[NumberOfDays]"
+                      cachedDataType="i4"
+                      cachedName="NumberOfDays"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[NumberOfDays]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEDIFF]("day",#{Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[DateOfArrival]},#{Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[DateOfDeparture]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEDIFF("day",DateOfArrival,DateOfDeparture)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calculate NumberOfDays\NumberOfDays calculation.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Calculate NumberOfDays\NumberOfDays calculation.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calculate NumberOfDays\NumberOfDays calculation.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Calculate NumberOfDays\NumberOfDays calculation.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\NumberOfDays calculation.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calculate NumberOfDays\NumberOfDays calculation.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\NumberOfDays calculation.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calculate NumberOfDays\NumberOfDays calculation.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calculate NumberOfDays\Update F_DaysInPort"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update F_DaysInPort"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE F_DaysInPort
+SET NumberOfDays = ?
+WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Connections[OleDbConnection]"
+                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].Columns[NumberOfDays]"
+                      cachedDataType="i4"
+                      cachedName="NumberOfDays"
+                      externalMetadataColumnId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[NumberOfDays]" />
+                    <inputColumn
+                      refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].Columns[ShipRowId]"
+                      cachedDataType="i4"
+                      cachedName="ShipRowId"
+                      externalMetadataColumnId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[ShipRowId]" />
+                    <inputColumn
+                      refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].Columns[PortId]"
+                      cachedDataType="i4"
+                      cachedName="PortId"
+                      externalMetadataColumnId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[PortId]" />
+                    <inputColumn
+                      refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].Columns[DateOfArrival]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateOfArrival"
+                      externalMetadataColumnId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output].Columns[DateOfArrival]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="dbTimeStamp"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calculate NumberOfDays\Update F_DaysInPort.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calculate NumberOfDays\Update F_DaysInPort.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calculate NumberOfDays\Update F_DaysInPort.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Calculate NumberOfDays.Paths[Derived Column Output]"
+              endId="Package\Calculate NumberOfDays\Update F_DaysInPort.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Calculate NumberOfDays\NumberOfDays calculation.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Calculate NumberOfDays.Paths[OLE DB Source Output]"
+              endId="Package\Calculate NumberOfDays\NumberOfDays calculation.Inputs[Derived Column Input]"
+              name="OLE DB Source Output"
+              startId="Package\Calculate NumberOfDays\F_DaysInPort source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Load Consignor"
       DTS:CreationName="Microsoft.Pipeline"
@@ -1399,16 +1839,22 @@
                       name="PowerFlag" />
                     <externalMetadataColumn
                       refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
-                      dataType="r8"
-                      name="Length" />
+                      dataType="numeric"
+                      name="Length"
+                      precision="4"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
-                      dataType="r8"
-                      name="Cubes" />
+                      dataType="numeric"
+                      name="Cubes"
+                      precision="4"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
-                      dataType="r8"
-                      name="EuroPricePerKm" />
+                      dataType="numeric"
+                      name="EuroPricePerKm"
+                      precision="4"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
                       dataType="dbTimeStamp"
@@ -2607,6 +3053,10 @@
                       refId="Package\Load DaysInPort\DaysInPort Destination.Inputs[OLE DB Destination Input].ExternalColumns[DateOfDeparture]"
                       dataType="dbTimeStamp"
                       name="DateOfDeparture" />
+                    <externalMetadataColumn
+                      refId="Package\Load DaysInPort\DaysInPort Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberOfDays]"
+                      dataType="i4"
+                      name="NumberOfDays" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -2685,7 +3135,7 @@
                       refId="Package\Load DaysInPort\Group by PK of DaysInPort.Inputs[Aggregate Input 1].Columns[ShipRowId]"
                       cachedDataType="i4"
                       cachedName="ShipRowId"
-                      lineageId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Match Output].Columns[ShipRowId]" />
+                      lineageId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Match Output].Columns[ShipRowId]" />
                     <inputColumn
                       refId="Package\Load DaysInPort\Group by PK of DaysInPort.Inputs[Aggregate Input 1].Columns[PortIdTo]"
                       cachedDataType="i4"
@@ -2731,7 +3181,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="Specifies the ID of the input column used in the aggregation."
-                          name="AggregationColumnId">#{Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Match Output].Columns[ShipRowId]}</property>
+                          name="AggregationColumnId">#{Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Match Output].Columns[ShipRowId]}</property>
                         <property
                           dataType="System.Int32"
                           description="Specifies the type of aggregation."
@@ -2903,7 +3353,7 @@
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[F_DaysInPort]) [refTable]
-where [refTable].[ShipRowId] = ? and [refTable].[DateOfDeparture] = ? and [refTable].[PortId] = ?</property>
+where [refTable].[ShipRowId] = ? and [refTable].[PortId] = ? and [refTable].[DateOfArrival] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -2934,12 +3384,12 @@ where [refTable].[ShipRowId] = ? and [refTable].[DateOfDeparture] = ? and [refTa
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShipRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DateOfArrival" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DateOfDeparture" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShipRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DateOfArrival" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DateOfDeparture" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NumberOfDays" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load DaysInPort\Group by PK of DaysInPort.Outputs[Aggregate Output 1].Columns[ShipRowId]};#{Package\Load DaysInPort\Group by PK of DaysInPort.Outputs[Aggregate Output 1].Columns[LegDateArrival]};#{Package\Load DaysInPort\Group by PK of DaysInPort.Outputs[Aggregate Output 1].Columns[PortIdFrom]};</property>
+                  name="ParameterMap">#{Package\Load DaysInPort\Group by PK of DaysInPort.Outputs[Aggregate Output 1].Columns[ShipRowId]};#{Package\Load DaysInPort\Group by PK of DaysInPort.Outputs[Aggregate Output 1].Columns[PortIdFrom]};#{Package\Load DaysInPort\Group by PK of DaysInPort.Outputs[Aggregate Output 1].Columns[ArrivalInPort]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -2979,22 +3429,6 @@ where [refTable].[ShipRowId] = ? and [refTable].[DateOfDeparture] = ? and [refTa
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load DaysInPort\Lookup Existing Facts.Inputs[Lookup Input].Columns[LegDateArrival]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="LegDateArrival"
-                      lineageId="Package\Load DaysInPort\Group by PK of DaysInPort.Outputs[Aggregate Output 1].Columns[LegDateArrival]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">DateOfDeparture</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
                       refId="Package\Load DaysInPort\Lookup Existing Facts.Inputs[Lookup Input].Columns[PortIdFrom]"
                       cachedDataType="i4"
                       cachedName="PortIdFrom"
@@ -3004,6 +3438,22 @@ where [refTable].[ShipRowId] = ? and [refTable].[DateOfDeparture] = ? and [refTa
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
                           name="JoinToReferenceColumn">PortId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Load DaysInPort\Lookup Existing Facts.Inputs[Lookup Input].Columns[ArrivalInPort]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="ArrivalInPort"
+                      lineageId="Package\Load DaysInPort\Group by PK of DaysInPort.Outputs[Aggregate Output 1].Columns[ArrivalInPort]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">DateOfArrival</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -3232,11 +3682,11 @@ where [refTable].[VoyageId] = ? and [refTable].[PortIdTo] = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load DaysInPort\Lookup ShipRowId 1"
+              refId="Package\Load DaysInPort\Lookup ShipRowId"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup ShipRowId 1"
+              name="Lookup ShipRowId"
               usesDispositions="true"
               version="6">
               <properties>
@@ -3300,7 +3750,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load DaysInPort\Lookup ShipRowId 1.Connections[OleDbConnection]"
+                  refId="Package\Load DaysInPort\Lookup ShipRowId.Connections[OleDbConnection]"
                   connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
                   connectionManagerRefId="Project.ConnectionManagers[ODS]"
                   description="Connection manager used to access lookup data."
@@ -3308,11 +3758,11 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load DaysInPort\Lookup ShipRowId 1.Inputs[Lookup Input]"
+                  refId="Package\Load DaysInPort\Lookup ShipRowId.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load DaysInPort\Lookup ShipRowId 1.Inputs[Lookup Input].Columns[ShipId]"
+                      refId="Package\Load DaysInPort\Lookup ShipRowId.Inputs[Lookup Input].Columns[ShipId]"
                       cachedDataType="i4"
                       cachedName="ShipId"
                       lineageId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipId]">
@@ -3333,18 +3783,18 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Match Output]"
+                  refId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   errorRowDisposition="FailComponent"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Load DaysInPort\Lookup ShipRowId 1.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Load DaysInPort\Lookup ShipRowId.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Match Output].Columns[ShipRowId]"
+                      refId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Match Output].Columns[ShipRowId]"
                       dataType="i4"
                       errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Match Output].Columns[ShipRowId]"
+                      lineageId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Match Output].Columns[ShipRowId]"
                       name="ShipRowId"
                       truncationRowDisposition="FailComponent">
                       <properties>
@@ -3358,30 +3808,30 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup No Match Output]"
+                  refId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Load DaysInPort\Lookup ShipRowId 1.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Load DaysInPort\Lookup ShipRowId.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Error Output]"
+                  refId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Load DaysInPort\Lookup ShipRowId 1.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Load DaysInPort\Lookup ShipRowId.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -3603,6 +4053,16 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                       lineageId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdFrom]"
                       name="PortIdFrom"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerNr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerNr]"
+                      length="50"
+                      lineageId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerNr]"
+                      name="ContainerNr"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -3674,6 +4134,11 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                       refId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[PortIdFrom]"
                       dataType="i4"
                       name="PortIdFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      name="ContainerNr" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -3706,6 +4171,12 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                       dataType="i4"
                       lineageId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerTo]"
                       name="ContainerTo" />
+                    <outputColumn
+                      refId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerNr]"
+                      name="ContainerNr" />
                     <outputColumn
                       refId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ConsignorId]"
                       dataType="i4"
@@ -3799,7 +4270,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               refId="Package\Load DaysInPort.Paths[Lookup Match Output1]"
               endId="Package\Load DaysInPort\Lookup ShipmentVoyage to get ArrivalInPort.Inputs[Lookup Input]"
               name="Lookup Match Output"
-              startId="Package\Load DaysInPort\Lookup ShipRowId 1.Outputs[Lookup Match Output]" />
+              startId="Package\Load DaysInPort\Lookup ShipRowId.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load DaysInPort.Paths[Lookup No Match Output]"
               endId="Package\Load DaysInPort\DaysInPort Destination.Inputs[OLE DB Destination Input]"
@@ -3807,7 +4278,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               startId="Package\Load DaysInPort\Lookup Existing Facts.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Load DaysInPort.Paths[OLE DB Source Output]"
-              endId="Package\Load DaysInPort\Lookup ShipRowId 1.Inputs[Lookup Input]"
+              endId="Package\Load DaysInPort\Lookup ShipRowId.Inputs[Lookup Input]"
               name="OLE DB Source Output"
               startId="Package\Load DaysInPort\ShipmentVoyage Source.Outputs[OLE DB Source Output]" />
           </paths>
@@ -7295,11 +7766,11 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1"
+              refId="Package\Load ShipmentVoyage\Lookup Existing Facts"
               componentClassID="Microsoft.Lookup"
               contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
               description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup Existing Facts 1"
+              name="Lookup Existing Facts"
               usesDispositions="true"
               version="6">
               <properties>
@@ -7315,7 +7786,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                   expressionType="Notify"
                   name="SqlCommandParam"
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[F_ShipmentVoyage]) [refTable]
-where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[PortIdFrom] = ? and [refTable].[PortIdTo] = ? and [refTable].[ContainerFrom] = ? and [refTable].[ContainerTo] = ?</property>
+where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[PortIdTo] = ? and [refTable].[PortIdFrom] = ? and [refTable].[ContainerNr] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the type of connection used to access the reference dataset."
@@ -7346,12 +7817,12 @@ where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[
                 <property
                   dataType="System.String"
                   description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShipmentId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ShipRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerFrom" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerTo" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ConsignorRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ItemId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NumberContainers" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerTypeRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdFrom" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdTo" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Distance" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VoyageId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LegDateDepart" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LegDateArrival" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdStart" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdEnd" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShipmentId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ShipRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerFrom" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerTo" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerNr" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ConsignorRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ItemId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NumberContainers" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerTypeRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdFrom" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdTo" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Distance" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VoyageId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LegDateDepart" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LegDateArrival" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdStart" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdEnd" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   containsID="true"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[VoyageId]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipmentId]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdTo]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerFrom]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]};</property>
+                  name="ParameterMap">#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[VoyageId]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipmentId]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdTo]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdFrom]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerNr]};</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -7363,7 +7834,7 @@ where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Connections[OleDbConnection]"
+                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Connections[OleDbConnection]"
                   connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
                   connectionManagerRefId="Project.ConnectionManagers[ODS]"
                   description="Connection manager used to access lookup data."
@@ -7371,11 +7842,11 @@ where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Inputs[Lookup Input]"
+                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Inputs[Lookup Input].Columns[VoyageId]"
+                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Inputs[Lookup Input].Columns[VoyageId]"
                       cachedDataType="i4"
                       cachedName="VoyageId"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[VoyageId]">
@@ -7391,7 +7862,7 @@ where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Inputs[Lookup Input].Columns[ShipmentId]"
+                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Inputs[Lookup Input].Columns[ShipmentId]"
                       cachedDataType="i4"
                       cachedName="ShipmentId"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipmentId]">
@@ -7407,7 +7878,7 @@ where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Inputs[Lookup Input].Columns[PortIdTo]"
+                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Inputs[Lookup Input].Columns[PortIdTo]"
                       cachedDataType="i4"
                       cachedName="PortIdTo"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdTo]">
@@ -7423,15 +7894,15 @@ where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Inputs[Lookup Input].Columns[ContainerFrom]"
+                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Inputs[Lookup Input].Columns[PortIdFrom]"
                       cachedDataType="i4"
-                      cachedName="ContainerFrom"
-                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerFrom]">
+                      cachedName="PortIdFrom"
+                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdFrom]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">ContainerFrom</property>
+                          name="JoinToReferenceColumn">PortIdFrom</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -7439,15 +7910,16 @@ where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Inputs[Lookup Input].Columns[ContainerTo]"
-                      cachedDataType="i4"
-                      cachedName="ContainerTo"
-                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]">
+                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Inputs[Lookup Input].Columns[ContainerNr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ContainerNr"
+                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerNr]">
                       <properties>
                         <property
                           dataType="System.String"
                           description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">ContainerTo</property>
+                          name="JoinToReferenceColumn">ContainerNr</property>
                         <property
                           dataType="System.Null"
                           description="Specifies the column in the reference table from which a column is copied."
@@ -7460,243 +7932,38 @@ where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Outputs[Lookup Match Output]"
+                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Outputs[Lookup Match Output]"
                   errorOrTruncationOperation="Lookup"
                   exclusionGroup="1"
                   name="Lookup Match Output"
-                  synchronousInputId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Load ShipmentVoyage\Lookup Existing Facts.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Outputs[Lookup No Match Output]"
+                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Outputs[Lookup No Match Output]"
                   description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
                   exclusionGroup="1"
                   name="Lookup No Match Output"
-                  synchronousInputId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Load ShipmentVoyage\Lookup Existing Facts.Inputs[Lookup Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Outputs[Lookup Error Output]"
+                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Outputs[Lookup Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Lookup Error Output"
-                  synchronousInputId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Inputs[Lookup Input]">
+                  synchronousInputId="Package\Load ShipmentVoyage\Lookup Existing Facts.Inputs[Lookup Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load ShipmentVoyage\Lookup Existing Facts.Outputs[Lookup Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup Existing Facts 2"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[F_ShipmentVoyage]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[F_ShipmentVoyage]) [refTable]
-where [refTable].[VoyageId] = ? and [refTable].[ShipmentId] = ? and [refTable].[PortIdFrom] = ? and [refTable].[PortIdTo] = ? and [refTable].[ContainerFrom] = ? and [refTable].[ContainerTo] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShipmentId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ShipRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerFrom" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerTo" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ConsignorRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ItemId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="NumberContainers" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ContainerTypeRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdFrom" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdTo" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Distance" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="VoyageId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LegDateDepart" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="LegDateArrival" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdStart" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PortIdEnd" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[VoyageId]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipmentId]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdTo]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerFrom]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]};#{Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Connections[OleDbConnection]"
-                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Inputs[Lookup Input].Columns[VoyageId]"
-                      cachedDataType="i4"
-                      cachedName="VoyageId"
-                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[VoyageId]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">VoyageId</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Inputs[Lookup Input].Columns[ShipmentId]"
-                      cachedDataType="i4"
-                      cachedName="ShipmentId"
-                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipmentId]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">ShipmentId</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Inputs[Lookup Input].Columns[PortIdTo]"
-                      cachedDataType="i4"
-                      cachedName="PortIdTo"
-                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdTo]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">PortIdTo</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Inputs[Lookup Input].Columns[ContainerFrom]"
-                      cachedDataType="i4"
-                      cachedName="ContainerFrom"
-                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerFrom]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">ContainerFrom</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Inputs[Lookup Input].Columns[ContainerTo]"
-                      cachedDataType="i4"
-                      cachedName="ContainerTo"
-                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">ContainerTo</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load ShipmentVoyage\Lookup Existing Facts.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -7862,11 +8129,11 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load ShipmentVoyage\Ship Destination"
+              refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Ship Destination"
+              name="ShipmentVoyage Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -7919,7 +8186,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load ShipmentVoyage\Ship Destination.Connections[OleDbConnection]"
+                  refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Connections[OleDbConnection]"
                   connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
                   connectionManagerRefId="Project.ConnectionManagers[ODS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -7927,190 +8194,208 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[VoyageId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[VoyageId]"
                       cachedDataType="i4"
                       cachedName="VoyageId"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[VoyageId]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[VoyageId]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[VoyageId]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[ShipmentId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[ShipmentId]"
                       cachedDataType="i4"
                       cachedName="ShipmentId"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipmentId]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipmentId]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipmentId]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[ItemId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[ItemId]"
                       cachedDataType="i4"
                       cachedName="ItemId"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemId]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemId]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ItemId]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[NumberContainers]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[NumberContainers]"
                       cachedDataType="i4"
                       cachedName="NumberContainers"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainers]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainers]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[NumberContainers]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[PortIdTo]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[PortIdTo]"
                       cachedDataType="i4"
                       cachedName="PortIdTo"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdTo]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdTo]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdTo]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[Distance]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[Distance]"
                       cachedDataType="i4"
                       cachedName="Distance"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[Distance]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[LegDateDepart]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[LegDateDepart]"
                       cachedDataType="dbTimeStamp"
                       cachedName="LegDateDepart"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[LegDateDepart]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[LegDateDepart]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LegDateDepart]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[LegDateArrival]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[LegDateArrival]"
                       cachedDataType="dbTimeStamp"
                       cachedName="LegDateArrival"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[LegDateArrival]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[LegDateArrival]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LegDateArrival]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[PortIdStart]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[PortIdStart]"
                       cachedDataType="i4"
                       cachedName="PortIdStart"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdStart]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdStart]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdStart]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[PortIdEnd]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[PortIdEnd]"
                       cachedDataType="i4"
                       cachedName="PortIdEnd"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdEnd]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdEnd]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdEnd]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[ConsignorRowId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[ConsignorRowId]"
                       cachedDataType="i4"
                       cachedName="ConsignorRowId"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConsignorRowId]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConsignorRowId]"
                       lineageId="Package\Load ShipmentVoyage\Lookup ConsignorRowID.Outputs[Lookup Match Output].Columns[ConsignorRowId]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[ContainerTypeRowId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[ContainerTypeRowId]"
                       cachedDataType="i4"
                       cachedName="ContainerTypeRowId"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTypeRowId]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTypeRowId]"
                       lineageId="Package\Load ShipmentVoyage\Lookup ContainerTypeRowId.Outputs[Lookup Match Output].Columns[ContainerTypeRowId]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[ShipRowId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[ShipRowId]"
                       cachedDataType="i4"
                       cachedName="ShipRowId"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipRowId]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipRowId]"
                       lineageId="Package\Load ShipmentVoyage\Lookup ShipRowId 1.Outputs[Lookup Match Output].Columns[ShipRowId]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[ContainerFrom]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[ContainerFrom]"
                       cachedDataType="i4"
                       cachedName="ContainerFrom"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerFrom]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerFrom]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerFrom]" />
                     <inputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].Columns[ContainerTo]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[ContainerTo]"
                       cachedDataType="i4"
                       cachedName="ContainerTo"
-                      externalMetadataColumnId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTo]"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTo]"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]" />
+                    <inputColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[PortIdFrom]"
+                      cachedDataType="i4"
+                      cachedName="PortIdFrom"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
+                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdFrom]" />
+                    <inputColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[ContainerNr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ContainerNr"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
+                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerNr]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[VoyageId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[VoyageId]"
                       dataType="i4"
                       name="VoyageId" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipmentId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipmentId]"
                       dataType="i4"
                       name="ShipmentId" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipRowId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ShipRowId]"
                       dataType="i4"
                       name="ShipRowId" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConsignorRowId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ConsignorRowId]"
                       dataType="i4"
                       name="ConsignorRowId" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ItemId]"
                       dataType="i4"
                       name="ItemId" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainers]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[NumberContainers]"
                       dataType="i4"
                       name="NumberContainers" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTypeRowId]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTypeRowId]"
                       dataType="i4"
                       name="ContainerTypeRowId" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdTo]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdTo]"
                       dataType="i4"
                       name="PortIdTo" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[Distance]"
                       dataType="i4"
                       name="Distance" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[LegDateDepart]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[LegDateDepart]"
                       dataType="dbTimeStamp"
                       name="LegDateDepart" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[LegDateArrival]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[LegDateArrival]"
                       dataType="dbTimeStamp"
                       name="LegDateArrival" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdStart]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdStart]"
                       dataType="i4"
                       name="PortIdStart" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdEnd]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdEnd]"
                       dataType="i4"
                       name="PortIdEnd" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerFrom]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerFrom]"
                       dataType="i4"
                       name="ContainerFrom" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTo]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTo]"
                       dataType="i4"
                       name="ContainerTo" />
                     <externalMetadataColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
                       dataType="i4"
                       name="PortIdFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      name="ContainerNr" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load ShipmentVoyage\Ship Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load ShipmentVoyage\Ship Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load ShipmentVoyage\Ship Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load ShipmentVoyage\Ship Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -8332,6 +8617,16 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdFrom]"
                       name="PortIdFrom"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerNr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerNr]"
+                      length="50"
+                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerNr]"
+                      name="ContainerNr"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8403,6 +8698,11 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                       refId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[PortIdFrom]"
                       dataType="i4"
                       name="PortIdFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      name="ContainerNr" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -8435,6 +8735,12 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                       dataType="i4"
                       lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerTo]"
                       name="ContainerTo" />
+                    <outputColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerNr]"
+                      name="ContainerNr" />
                     <outputColumn
                       refId="Package\Load ShipmentVoyage\ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ConsignorId]"
                       dataType="i4"
@@ -8526,19 +8832,14 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               startId="Package\Load ShipmentVoyage\Lookup ContainerTypeRowId.Outputs[Lookup Match Output]" />
             <path
               refId="Package\Load ShipmentVoyage.Paths[Lookup Match Output2]"
-              endId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Inputs[Lookup Input]"
+              endId="Package\Load ShipmentVoyage\Lookup Existing Facts.Inputs[Lookup Input]"
               name="Lookup Match Output"
               startId="Package\Load ShipmentVoyage\Lookup ShipRowId 1.Outputs[Lookup Match Output]" />
             <path
-              refId="Package\Load ShipmentVoyage.Paths[Lookup Match Output3]"
-              endId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Load ShipmentVoyage\Lookup Existing Facts 1.Outputs[Lookup Match Output]" />
-            <path
               refId="Package\Load ShipmentVoyage.Paths[Lookup No Match Output]"
-              endId="Package\Load ShipmentVoyage\Ship Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input]"
               name="Lookup No Match Output"
-              startId="Package\Load ShipmentVoyage\Lookup Existing Facts 2.Outputs[Lookup No Match Output]" />
+              startId="Package\Load ShipmentVoyage\Lookup Existing Facts.Outputs[Lookup No Match Output]" />
             <path
               refId="Package\Load ShipmentVoyage.Paths[OLE DB Source Output]"
               endId="Package\Load ShipmentVoyage\Lookup ConsignorRowID.Inputs[Lookup Input]"
@@ -8606,6 +8907,14 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\Load DaysInPort" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{D3FE7687-A2B1-4471-8349-DA66AAFE1A8F}"
+      DTS:From="Package\Load DaysInPort"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Calculate NumberOfDays" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -8619,6 +8928,10 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="195.2,41.6"
+          Id="Package\Calculate NumberOfDays"
+          TopLeft="838.82857286851,426.164705665178" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\Load Consignor"
@@ -8873,9 +9186,112 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="935.747619767589,359.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,67.064705665178"
+              Start="0,0"
+              End="0,59.564705665178">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,59.564705665178" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Calculate NumberOfDays">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\Calculate NumberOfDays\NumberOfDays calculation"
+          TopLeft="300.999995514751,209.999996870756" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Calculate NumberOfDays\F_DaysInPort source"
+          TopLeft="320.999995216727,71.9999989271164" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Calculate NumberOfDays\Update F_DaysInPort"
+          TopLeft="317.999995261431,322.999995186925" />
+        <EdgeLayout
+          Id="Package\Calculate NumberOfDays.Paths[OLE DB Source Output]"
+          TopLeft="405.599995365739,113.599998927116">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,96.3999979436398"
+              Start="0,0"
+              End="0,88.8999979436398">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,88.8999979436398" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calculate NumberOfDays.Paths[Derived Column Output]"
+          TopLeft="404.699995388091,251.599996870756">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,71.3999983161688"
+              Start="0,0"
+              End="0,63.8999983161688">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,63.8999983161688" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calculate NumberOfDays\F_DaysInPort source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Consignor">
     <LayoutInfo>
@@ -9240,31 +9656,31 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="163,42"
+          Size="163.2,41.6"
           Id="Package\Load ContainerType\Derived Column 1"
           TopLeft="556,533.5" />
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\Load ContainerType\Slowly Changing Dimension"
           TopLeft="533,125.5" />
         <NodeLayout
-          Size="121,42"
+          Size="120.8,41.6"
           Id="Package\Load ContainerType\Union All"
           TopLeft="577,431.5" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\Load ContainerType\OLE DB Command"
           TopLeft="410.5,329.5" />
         <NodeLayout
-          Size="154,42"
+          Size="153.6,41.6"
           Id="Package\Load ContainerType\Derived Column"
           TopLeft="422.5,227.5" />
         <NodeLayout
-          Size="183,42"
+          Size="183.2,41.6"
           Id="Package\Load ContainerType\ContainerType Source"
           TopLeft="546,23.5" />
         <NodeLayout
-          Size="203,42"
+          Size="203.2,41.6"
           Id="Package\Load ContainerType\ContainerType Destination"
           TopLeft="531,636.5" />
         <EdgeLayout
@@ -9286,9 +9702,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9310,9 +9724,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9346,9 +9758,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9425,26 +9835,24 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load ContainerType.Paths[Derived Column Output1]"
-          TopLeft="635,575.5">
+          TopLeft="635.1,575.1">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,61"
+              EndConnector="0,61.4"
               Start="0,0"
-              End="0,53.5">
+              End="0,53.9">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,53.5" />
+                    End="0,53.9" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9466,9 +9874,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9563,58 +9969,123 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load ContainerType\ContainerType Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load DaysInPort">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Load DaysInPort\Lookup ShipRowId"
+          TopLeft="118,170" />
+        <NodeLayout
           Size="204.8,41.6"
           Id="Package\Load DaysInPort\Group by PK of DaysInPort"
-          TopLeft="558,387" />
+          TopLeft="104,395" />
         <NodeLayout
           Size="180,41.6"
           Id="Package\Load DaysInPort\Lookup Existing Facts"
-          TopLeft="573,480" />
+          TopLeft="119,488" />
         <NodeLayout
           Size="192.8,41.6"
           Id="Package\Load DaysInPort\ShipmentVoyage Source"
-          TopLeft="554,52" />
+          TopLeft="100,60" />
         <NodeLayout
           Size="187.2,41.6"
           Id="Package\Load DaysInPort\DaysInPort Destination"
-          TopLeft="569,584" />
+          TopLeft="115,592" />
         <NodeLayout
           Size="288.8,41.6"
           Id="Package\Load DaysInPort\Lookup ShipmentVoyage to get ArrivalInPort"
-          TopLeft="514,268" />
+          TopLeft="60,276" />
         <EdgeLayout
-          Id="Package\Load DaysInPort.Paths[Lookup No Match Output]"
-          TopLeft="662.75,522">
+          Id="Package\Load DaysInPort.Paths[OLE DB Source Output]"
+          TopLeft="199,102">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,62"
+              EndConnector="0,68"
               Start="0,0"
-              End="0,54.5">
+              End="0,60.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.5" />
+                    End="0,60.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,21.4453125,111.6127734375,11.609375"
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DaysInPort.Paths[Lookup No Match Output]"
+          TopLeft="208.8,529.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.4"
+              Start="0,0"
+              End="0,54.9">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.9" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,21.6453125,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load DaysInPort.Paths[Lookup Match Output1]"
+          TopLeft="203,212">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,64"
+              Start="0,0"
+              End="0,56.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,22.4453125,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DaysInPort.Paths[Lookup Match Output]"
-          TopLeft="659.5,310">
+          TopLeft="205.5,318">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -9638,7 +10109,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load DaysInPort.Paths[Aggregate Output 1]"
-          TopLeft="661.75,429">
+          TopLeft="207.75,437">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -9655,68 +10126,8 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175.2,41.6"
-          Id="Package\Load DaysInPort\Lookup ShipRowId 1"
-          TopLeft="555.666666045785,165.600007748604" />
-        <EdgeLayout
-          Id="Package\Load DaysInPort.Paths[OLE DB Source Output]"
-          TopLeft="646.833333022892,93.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,72.0000077486036"
-              Start="0,0"
-              End="0,64.5000077486036">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64.5000077486036" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load DaysInPort.Paths[Lookup Match Output1]"
-          TopLeft="643.266666045785,207.200007748604">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="15.1333339542151,60.7999922513964"
-              Start="0,0"
-              End="15.1333339542151,53.2999922513964">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.3999961256982" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.3999961256982"
-                    Point2="0,30.3999961256982"
-                    Point3="4,30.3999961256982" />
-                  <mssgle:LineSegment
-                    End="11.1333339542151,30.3999961256982" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11.1333339542151,30.3999961256982"
-                    Point2="15.1333339542151,30.3999961256982"
-                    Point3="15.1333339542151,34.3999961256982" />
-                  <mssgle:LineSegment
-                    End="15.1333339542151,53.2999922513964" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-40.6247197416424,35.3999961256982,96.3827734375,11.609375"
+              BoundingBox="0,0,0,0"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9724,25 +10135,43 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load DaysInPort\Lookup Existing Facts">
+    design-time-name="Package\Load DaysInPort\Lookup ShipRowId">
     <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[F_DaysInPort]</Value>
+          type="q2:string">[dbo].[D_Ship]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q3:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load DaysInPort\Lookup Existing Facts">
+    <Properties>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q2:string">[dbo].[F_DaysInPort]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q3:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q4:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -9776,22 +10205,22 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
     design-time-name="Package\Load DaysInPort\Lookup ShipmentVoyage to get ArrivalInPort">
     <Properties>
       <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[ShipmentVoyage]</Value>
+          type="q2:string">[dbo].[ShipmentVoyage]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q3:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q4:string">true</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -10001,19 +10430,19 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208.8,41.6"
           Id="Package\Load Port\Slowly Changing Dimension"
           TopLeft="584.5,153.5" />
         <NodeLayout
-          Size="166,42"
+          Size="166.4,41.6"
           Id="Package\Load Port\OLE DB Command"
           TopLeft="606,255.5" />
         <NodeLayout
-          Size="133,42"
+          Size="132.8,41.6"
           Id="Package\Load Port\Port Source"
           TopLeft="622.5,51.5" />
         <NodeLayout
-          Size="154,42"
+          Size="153.6,41.6"
           Id="Package\Load Port\Port Destination"
           TopLeft="382.5,255.5" />
         <EdgeLayout
@@ -10583,9 +11012,13 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="155.2,41.6"
-          Id="Package\Load ShipmentVoyage\Ship Destination"
-          TopLeft="547.285714284194,553.882352912354" />
+          Size="195.2,41.6"
+          Id="Package\Load ShipmentVoyage\Lookup ConsignorRowID"
+          TopLeft="519,138" />
+        <NodeLayout
+          Size="213.6,41.6"
+          Id="Package\Load ShipmentVoyage\ShipmentVoyage Destination"
+          TopLeft="512.285714805735,557.882352852749" />
         <NodeLayout
           Size="215.2,41.6"
           Id="Package\Load ShipmentVoyage\Lookup ContainerTypeRowId"
@@ -10595,9 +11028,13 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           Id="Package\Load ShipmentVoyage\ShipmentVoyage Source"
           TopLeft="524,26" />
         <NodeLayout
-          Size="195.2,41.6"
-          Id="Package\Load ShipmentVoyage\Lookup ConsignorRowID"
-          TopLeft="519,138" />
+          Size="167.2,41.6"
+          Id="Package\Load ShipmentVoyage\Lookup ShipRowId 1"
+          TopLeft="534.142857200637,315.952941445259" />
+        <NodeLayout
+          Size="180,41.6"
+          Id="Package\Load ShipmentVoyage\Lookup Existing Facts"
+          TopLeft="528.428571474187,421.482353117463" />
         <EdgeLayout
           Id="Package\Load ShipmentVoyage.Paths[OLE DB Source Output]"
           TopLeft="618.5,68">
@@ -10617,7 +11054,81 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load ShipmentVoyage.Paths[Lookup No Match Output]"
+          TopLeft="618.757143139961,463.082353117463">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,94.7999997352856"
+              Start="0,0"
+              End="0,87.2999997352856">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,87.2999997352856" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-55.80638671875,37.8453123676428,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load ShipmentVoyage.Paths[Lookup Match Output2]"
+          TopLeft="618.085714337412,357.552941445259">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63.9294116722044"
+              Start="0,0"
+              End="0,56.4294116722044">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.4294116722044" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,22.4100183361022,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load ShipmentVoyage.Paths[Lookup Match Output1]"
+          TopLeft="616.171428600319,281.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.3529414452586"
+              Start="0,0"
+              End="0,26.8529414452586">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.8529414452586" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,7.62178322262932,96.3827734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10644,119 +11155,34 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="167.2,41.6"
-          Id="Package\Load ShipmentVoyage\Lookup ShipRowId 1"
-          TopLeft="534.142857200637,315.952941445259" />
-        <EdgeLayout
-          Id="Package\Load ShipmentVoyage.Paths[Lookup Match Output1]"
-          TopLeft="616.171428600319,281.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34.3529414452586"
-              Start="0,0"
-              End="0,26.8529414452586">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.8529414452586" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,7.62178322262932,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="180,41.6"
-          Id="Package\Load ShipmentVoyage\Lookup Existing Facts 1"
-          TopLeft="532.000000053219,397.011764903619" />
-        <EdgeLayout
-          Id="Package\Load ShipmentVoyage.Paths[Lookup Match Output2]"
-          TopLeft="619.871428626928,357.552941445259">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.4588234583607"
-              Start="0,0"
-              End="0,31.9588234583607">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.9588234583607" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,10.1747242291803,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="188.8,41.6"
-          Id="Package\Load ShipmentVoyage\Lookup Existing Facts 2"
-          TopLeft="527.000000042575,474.247058953566" />
-        <EdgeLayout
-          Id="Package\Load ShipmentVoyage.Paths[Lookup Match Output3]"
-          TopLeft="621.700000047897,438.611764903619">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35.635294049947"
-              Start="0,0"
-              End="0,28.135294049947">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.135294049947" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.2629595249735,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load ShipmentVoyage.Paths[Lookup No Match Output]"
-          TopLeft="623.142857163384,515.847058953566">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,38.0352939587874"
-              Start="0,0"
-              End="0,30.5352939587874">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,30.5352939587874" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,9.4629594793937,111.6127734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load ShipmentVoyage\Ship Destination">
+    design-time-name="Package\Load ShipmentVoyage\Lookup ConsignorRowID">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">true</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[D_Consignor]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load ShipmentVoyage\ShipmentVoyage Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -10805,58 +11231,12 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load ShipmentVoyage\Lookup ConsignorRowID">
+    design-time-name="Package\Load ShipmentVoyage\Lookup Existing Facts">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:string">true</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[D_Consignor]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load ShipmentVoyage\Lookup Existing Facts 1">
-    <Properties>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q2:string">[dbo].[F_ShipmentVoyage]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q3:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q4:boolean">true</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load ShipmentVoyage\Lookup Existing Facts 2">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">true</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -10866,7 +11246,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
