@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="RAW_to_RDBMS"
   DTS:PackageType="5"
-  DTS:VersionBuild="21"
-  DTS:VersionGUID="{7246E1E5-3334-48EC-83B9-D63D80876D95}">
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{DD91D484-90E7-4B25-9BE9-F30FDD97B57C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
