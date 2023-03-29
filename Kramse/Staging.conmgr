@@ -7,6 +7,10 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
-      DTS:ConnectionString="Data Source=LAPTOP-E1ALBBKP;Initial Catalog=Kramse_Staging;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-Kramse-{233B804A-603C-46F3-A8D4-4415822E3551}Localhost.Kramse_Staging;" />
+      DTS:ConnectionString="Data Source=Localhost;User ID=Kramse;Initial Catalog=Kramse_Staging;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Kramse-{233B804A-603C-46F3-A8D4-4415822E3551}Localhost.Kramse_Staging;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAo0b1W/VW20u7ZFcwLYttVAAAAAACAAAAAAAQZgAAAAEAACAAAABA/KhmgdvXNYczRwcaN4k95Rr27N+K5zH6B78PWRDwKgAAAAAOgAAAAAIAACAAAADwku1shkLp5s4ozn7BZWAx6DRyAbKSID17CXAvoTEJq4AAAADa690z6x55brPgmrTZN/xkkBYgBxhwyIKQv1n+4CgkiNpH+8YgCnOYw8wfW2vGP4T19ocBMFjkrRxGpw92RF8jOLQQfoT2H7QyTeCyuiq8MZlMayDNh6kVvT06OClDDLNsIGODia8RVbfkWI8Z52ZimPhDoPMqxx2f0xSB9xZrfUAAAACvnrZ0oymu1qySgSz0s2OwSBAYxRdkVByIsvxqfw4d9fFv3fe0c0a17p2xqmd0g7Yjlf/qFjcWNhl72DMpq4Ak</DTS:Password>
+    </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>

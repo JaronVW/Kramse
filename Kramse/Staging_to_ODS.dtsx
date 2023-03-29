@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="Staging_to_ODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{CCBD9480-2B60-4454-B303-8AE775AF9D79}">
+  DTS:VersionBuild="38"
+  DTS:VersionGUID="{E223E1D9-312B-403C-A6B2-8B6BD56A48EC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1691,215 +1691,6 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
           version="1">
           <components>
             <component
-              refId="Package\Load ContainerType\ContainerType Destination"
-              componentClassID="Microsoft.OLEDBDestination"
-              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-              description="OLE DB Destination"
-              name="ContainerType Destination"
-              usesDispositions="true"
-              version="4">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[D_ContainerType]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepIdentity">false</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                  name="FastLoadKeepNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                  name="FastLoadOptions"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                  name="FastLoadMaxInsertCommitSize">2147483647</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load ContainerType\ContainerType Destination.Connections[OleDbConnection]"
-                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input]"
-                  errorOrTruncationOperation="Insert"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Destination Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[Id]"
-                      cachedDataType="i4"
-                      cachedName="Id"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Id]" />
-                    <inputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[Type]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="Type"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Type]" />
-                    <inputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[RefrigerationFlag]"
-                      cachedDataType="bool"
-                      cachedName="RefrigerationFlag"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[RefrigerationFlag]"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[RefrigerationFlag]" />
-                    <inputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[PowerFlag]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="PowerFlag"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[PowerFlag]"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[PowerFlag]" />
-                    <inputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[Length]"
-                      cachedDataType="r8"
-                      cachedName="Length"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Length]" />
-                    <inputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[Cubes]"
-                      cachedDataType="r8"
-                      cachedName="Cubes"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Cubes]" />
-                    <inputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[TEU]"
-                      cachedDataType="numeric"
-                      cachedName="TEU"
-                      cachedPrecision="2"
-                      cachedScale="1"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[TEU]"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[TEU]" />
-                    <inputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[EuroPricePerKm]"
-                      cachedDataType="r8"
-                      cachedName="EuroPricePerKm"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[EuroPricePerKm]" />
-                    <inputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].Columns[StartDate]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="StartDate"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
-                      lineageId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Output].Columns[StartDate]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTypeRowId]"
-                      dataType="i4"
-                      name="ContainerTypeRowId" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      dataType="i4"
-                      name="Id" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
-                      dataType="wstr"
-                      length="50"
-                      name="Type" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[RefrigerationFlag]"
-                      dataType="bool"
-                      name="RefrigerationFlag" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[PowerFlag]"
-                      dataType="wstr"
-                      length="50"
-                      name="PowerFlag" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
-                      dataType="r8"
-                      name="Length" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
-                      dataType="r8"
-                      name="Cubes" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[TEU]"
-                      dataType="numeric"
-                      name="TEU"
-                      precision="2"
-                      scale="1" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
-                      dataType="r8"
-                      name="EuroPricePerKm" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
-                      dataType="dbTimeStamp"
-                      name="StartDate" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
-                      dataType="dbTimeStamp"
-                      name="EndDate" />
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load ContainerType\ContainerType Destination.Outputs[OLE DB Destination Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load ContainerType\ContainerType Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load ContainerType\ContainerType Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load ContainerType\ContainerType Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
               refId="Package\Load ContainerType\ContainerType Source"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -2025,17 +1816,6 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]"
                       name="EuroPricePerKm"
                       truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[TEU]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].ExternalColumns[TEU]"
-                      lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[TEU]"
-                      name="TEU"
-                      precision="2"
-                      scale="1"
-                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -2069,12 +1849,6 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       refId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].ExternalColumns[EuroPricePerKm]"
                       dataType="r8"
                       name="EuroPricePerKm" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].ExternalColumns[TEU]"
-                      dataType="numeric"
-                      name="TEU"
-                      precision="2"
-                      scale="1" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -2115,13 +1889,6 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[Cubes]"
                       name="Cubes" />
                     <outputColumn
-                      refId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[TEU]"
-                      dataType="numeric"
-                      lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[TEU]"
-                      name="TEU"
-                      precision="2"
-                      scale="1" />
-                    <outputColumn
                       refId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[EuroPricePerKm]"
                       dataType="r8"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Error Output].Columns[EuroPricePerKm]"
@@ -2144,79 +1911,71 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load ContainerType\Derived Column"
+              refId="Package\Load ContainerType\Derived Column 1"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
               description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
+              name="Derived Column 1"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Load ContainerType\Derived Column.Inputs[Derived Column Input]"
+                  refId="Package\Load ContainerType\Derived Column 1.Inputs[Derived Column Input]"
                   description="Input to the Derived Column Transformation"
                   name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load ContainerType\Derived Column.Inputs[Derived Column Input].Columns[Cubes]"
-                      cachedDataType="r8"
-                      cachedName="Cubes"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Cubes]" />
-                    <inputColumn
-                      refId="Package\Load ContainerType\Derived Column.Inputs[Derived Column Input].Columns[TEU]"
-                      cachedDataType="numeric"
-                      cachedName="TEU"
-                      cachedPrecision="2"
-                      cachedScale="1"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[TEU]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[ROUND](#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Cubes]} / 38.51,1)</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">ROUND(Cubes / 38.51,1)</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load ContainerType\Derived Column.Outputs[Derived Column Output]"
+                  refId="Package\Load ContainerType\Derived Column 1.Outputs[Derived Column Output]"
                   description="Default Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   name="Derived Column Output"
-                  synchronousInputId="Package\Load ContainerType\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Load ContainerType\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Load ContainerType\Derived Column 1.Outputs[Derived Column Output].Columns[EndDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Load ContainerType\Derived Column 1.Outputs[Derived Column Output].Columns[EndDate]"
+                      name="EndDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load ContainerType\Derived Column.Outputs[Derived Column Error Output]"
+                  refId="Package\Load ContainerType\Derived Column 1.Outputs[Derived Column Error Output]"
                   description="Error Output of the Derived Column Transformation"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Derived Column Error Output"
-                  synchronousInputId="Package\Load ContainerType\Derived Column.Inputs[Derived Column Input]">
+                  synchronousInputId="Package\Load ContainerType\Derived Column 1.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load ContainerType\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Load ContainerType\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load ContainerType\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load ContainerType\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load ContainerType\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load ContainerType\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load ContainerType\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load ContainerType\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2248,13 +2007,13 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                   synchronousInputId="Package\Load ContainerType\Derived Column 2.Inputs[Derived Column Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load ContainerType\Derived Column 2.Outputs[Derived Column Output].Columns[EndDate]"
+                      refId="Package\Load ContainerType\Derived Column 2.Outputs[Derived Column Output].Columns[StartDate]"
                       dataType="dbTimeStamp"
-                      description="EndDate"
+                      description="StartDate"
                       errorOrTruncationOperation="Computation"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\Load ContainerType\Derived Column 2.Outputs[Derived Column Output].Columns[EndDate]"
-                      name="EndDate"
+                      lineageId="Package\Load ContainerType\Derived Column 2.Outputs[Derived Column Output].Columns[StartDate]"
+                      name="StartDate"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -2299,72 +2058,193 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load ContainerType\Derived Column 3"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column 3"
-              usesDispositions="true">
+              refId="Package\Load ContainerType\Insert Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="Insert Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[D_ContainerType]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Load ContainerType\Insert Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
               <inputs>
                 <input
-                  refId="Package\Load ContainerType\Derived Column 3.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <externalMetadataColumns />
+                  refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].Columns[Type]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="Type"
+                      externalMetadataColumnId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Type]" />
+                    <inputColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].Columns[RefrigerationFlag]"
+                      cachedDataType="bool"
+                      cachedName="RefrigerationFlag"
+                      externalMetadataColumnId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[RefrigerationFlag]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[RefrigerationFlag]" />
+                    <inputColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].Columns[PowerFlag]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="PowerFlag"
+                      externalMetadataColumnId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PowerFlag]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[PowerFlag]" />
+                    <inputColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].Columns[Length]"
+                      cachedDataType="r8"
+                      cachedName="Length"
+                      externalMetadataColumnId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Length]" />
+                    <inputColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].Columns[Cubes]"
+                      cachedDataType="r8"
+                      cachedName="Cubes"
+                      externalMetadataColumnId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Cubes]" />
+                    <inputColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].Columns[EuroPricePerKm]"
+                      cachedDataType="r8"
+                      cachedName="EuroPricePerKm"
+                      externalMetadataColumnId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[EuroPricePerKm]" />
+                    <inputColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].Columns[StartDate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="StartDate"
+                      externalMetadataColumnId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      lineageId="Package\Load ContainerType\Derived Column 2.Outputs[Derived Column Output].Columns[StartDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerTypeRowId]"
+                      dataType="i4"
+                      name="ContainerTypeRowId" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Type]"
+                      dataType="wstr"
+                      length="50"
+                      name="Type" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[RefrigerationFlag]"
+                      dataType="bool"
+                      name="RefrigerationFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[PowerFlag]"
+                      dataType="wstr"
+                      length="50"
+                      name="PowerFlag" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
+                      dataType="r8"
+                      name="Length" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
+                      dataType="r8"
+                      name="Cubes" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
+                      dataType="r8"
+                      name="EuroPricePerKm" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StartDate]"
+                      dataType="dbTimeStamp"
+                      name="StartDate" />
+                    <externalMetadataColumn
+                      refId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[EndDate]"
+                      dataType="dbTimeStamp"
+                      name="EndDate" />
+                  </externalMetadataColumns>
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Load ContainerType\Derived Column 3.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Output].Columns[StartDate]"
-                      dataType="dbTimeStamp"
-                      description="StartDate"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Output].Columns[StartDate]"
-                      name="StartDate"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(DT_DBTIMESTAMP)(@[System::StartTime])</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
+                  refId="Package\Load ContainerType\Insert Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Load ContainerType\Derived Column 3.Inputs[Derived Column Input]">
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      refId="Package\Load ContainerType\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load ContainerType\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load ContainerType\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load ContainerType\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2373,11 +2253,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load ContainerType\OLE DB Command 1"
+              refId="Package\Load ContainerType\OLE DB Command"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 1"
+              name="OLE DB Command"
               usesDispositions="true"
               version="2">
               <properties>
@@ -2398,7 +2278,7 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load ContainerType\OLE DB Command 1.Connections[OleDbConnection]"
+                  refId="Package\Load ContainerType\OLE DB Command.Connections[OleDbConnection]"
                   connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
                   connectionManagerRefId="Project.ConnectionManagers[ODS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -2406,29 +2286,29 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load ContainerType\OLE DB Command 1.Inputs[OLE DB Command Input]"
+                  refId="Package\Load ContainerType\OLE DB Command.Inputs[OLE DB Command Input]"
                   errorOrTruncationOperation="Command Execution"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Command Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load ContainerType\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[Id]"
+                      refId="Package\Load ContainerType\OLE DB Command.Inputs[OLE DB Command Input].Columns[Id]"
                       cachedDataType="i4"
                       cachedName="Id"
-                      externalMetadataColumnId="Package\Load ContainerType\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      externalMetadataColumnId="Package\Load ContainerType\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Load ContainerType\OLE DB Command 1.Inputs[OLE DB Command Input].Columns[EndDate]"
+                      refId="Package\Load ContainerType\OLE DB Command.Inputs[OLE DB Command Input].Columns[EndDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="EndDate"
-                      externalMetadataColumnId="Package\Load ContainerType\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Load ContainerType\Derived Column 2.Outputs[Derived Column Output].Columns[EndDate]" />
+                      externalMetadataColumnId="Package\Load ContainerType\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Load ContainerType\Derived Column 1.Outputs[Derived Column Output].Columns[EndDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load ContainerType\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      refId="Package\Load ContainerType\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
                       dataType="dbTimeStamp"
                       name="Param_0">
                       <properties>
@@ -2439,7 +2319,7 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       </properties>
                     </externalMetadataColumn>
                     <externalMetadataColumn
-                      refId="Package\Load ContainerType\OLE DB Command 1.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      refId="Package\Load ContainerType\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
                       dataType="i4"
                       name="Param_1">
                       <properties>
@@ -2454,143 +2334,29 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load ContainerType\OLE DB Command 1.Outputs[OLE DB Command Output]"
+                  refId="Package\Load ContainerType\OLE DB Command.Outputs[OLE DB Command Output]"
                   exclusionGroup="1"
                   name="OLE DB Command Output"
-                  synchronousInputId="Package\Load ContainerType\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\Load ContainerType\OLE DB Command.Inputs[OLE DB Command Input]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Load ContainerType\OLE DB Command 1.Outputs[OLE DB Command Error Output]"
+                  refId="Package\Load ContainerType\OLE DB Command.Outputs[OLE DB Command Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Load ContainerType\OLE DB Command 1.Inputs[OLE DB Command Input]">
+                  synchronousInputId="Package\Load ContainerType\OLE DB Command.Inputs[OLE DB Command Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load ContainerType\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      refId="Package\Load ContainerType\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load ContainerType\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load ContainerType\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load ContainerType\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load ContainerType\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load ContainerType\OLE DB Command 1.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Load ContainerType\OLE DB Command 2"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="OLE DB Command 2"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[D_ContainerType] SET [PowerFlag] = ? WHERE [Id] = ? AND [EndDate] IS NULL</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Load ContainerType\OLE DB Command 2.Connections[OleDbConnection]"
-                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Load ContainerType\OLE DB Command 2.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Load ContainerType\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[Id]"
-                      cachedDataType="i4"
-                      cachedName="Id"
-                      externalMetadataColumnId="Package\Load ContainerType\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[Id]" />
-                    <inputColumn
-                      refId="Package\Load ContainerType\OLE DB Command 2.Inputs[OLE DB Command Input].Columns[PowerFlag]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="PowerFlag"
-                      externalMetadataColumnId="Package\Load ContainerType\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[PowerFlag]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="wstr"
-                      length="50"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">1</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\OLE DB Command 2.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Load ContainerType\OLE DB Command 2.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\Load ContainerType\OLE DB Command 2.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Load ContainerType\OLE DB Command 2.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Load ContainerType\OLE DB Command 2.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Load ContainerType\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Load ContainerType\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Load ContainerType\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Load ContainerType\OLE DB Command 2.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load ContainerType\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -2610,7 +2376,7 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Cubes], [EuroPricePerKm], [Id], [Length], [PowerFlag], [RefrigerationFlag], [TEU], [Type],[StartDate],[EndDate] FROM [dbo].[D_ContainerType]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Cubes], [EuroPricePerKm], [Id], [Length], [PowerFlag], [RefrigerationFlag], [Type],[StartDate],[EndDate] FROM [dbo].[D_ContainerType]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -2721,7 +2487,7 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                         <property
                           dataType="System.Int32"
                           name="ColumnType"
-                          typeConverter="ColumnType">2</property>
+                          typeConverter="ColumnType">4</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -2730,21 +2496,6 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       cachedName="RefrigerationFlag"
                       externalMetadataColumnId="Package\Load ContainerType\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[RefrigerationFlag]"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          name="ColumnType"
-                          typeConverter="ColumnType">4</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load ContainerType\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].Columns[TEU]"
-                      cachedDataType="numeric"
-                      cachedName="TEU"
-                      cachedPrecision="2"
-                      cachedScale="1"
-                      externalMetadataColumnId="Package\Load ContainerType\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[TEU]"
-                      lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[TEU]">
                       <properties>
                         <property
                           dataType="System.Int32"
@@ -2794,12 +2545,6 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                       refId="Package\Load ContainerType\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[RefrigerationFlag]"
                       dataType="bool"
                       name="RefrigerationFlag" />
-                    <externalMetadataColumn
-                      refId="Package\Load ContainerType\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[TEU]"
-                      dataType="numeric"
-                      name="TEU"
-                      precision="2"
-                      scale="1" />
                     <externalMetadataColumn
                       refId="Package\Load ContainerType\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Type]"
                       dataType="wstr"
@@ -2868,19 +2613,19 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
               </outputs>
             </component>
             <component
-              refId="Package\Load ContainerType\Union All 1"
+              refId="Package\Load ContainerType\Union All"
               componentClassID="Microsoft.UnionAll"
               contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
               description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
-              name="Union All 1"
+              name="Union All"
               version="1">
               <inputs>
                 <input
-                  refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 1]"
+                  refId="Package\Load ContainerType\Union All.Inputs[Union All Input 1]"
                   name="Union All Input 1">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 1].Columns[Id]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 1].Columns[Id]"
                       cachedDataType="i4"
                       cachedName="Id"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[Id]">
@@ -2889,11 +2634,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Id]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Id]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 1].Columns[Type]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 1].Columns[Type]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Type"
@@ -2903,11 +2648,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Type]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Type]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 1].Columns[RefrigerationFlag]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 1].Columns[RefrigerationFlag]"
                       cachedDataType="bool"
                       cachedName="RefrigerationFlag"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]">
@@ -2916,11 +2661,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[RefrigerationFlag]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[RefrigerationFlag]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 1].Columns[PowerFlag]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 1].Columns[PowerFlag]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="PowerFlag"
@@ -2930,11 +2675,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[PowerFlag]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[PowerFlag]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 1].Columns[Length]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 1].Columns[Length]"
                       cachedDataType="r8"
                       cachedName="Length"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[Length]">
@@ -2943,11 +2688,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Length]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Length]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 1].Columns[Cubes]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 1].Columns[Cubes]"
                       cachedDataType="r8"
                       cachedName="Cubes"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[Cubes]">
@@ -2956,11 +2701,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Cubes]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Cubes]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 1].Columns[EuroPricePerKm]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 1].Columns[EuroPricePerKm]"
                       cachedDataType="r8"
                       cachedName="EuroPricePerKm"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]">
@@ -2969,34 +2714,19 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[EuroPricePerKm]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 1].Columns[TEU]"
-                      cachedDataType="numeric"
-                      cachedName="TEU"
-                      cachedPrecision="2"
-                      cachedScale="1"
-                      lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[TEU]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[TEU]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[EuroPricePerKm]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 2]"
+                  refId="Package\Load ContainerType\Union All.Inputs[Union All Input 2]"
                   hasSideEffects="true"
                   name="Union All Input 2">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 2].Columns[Id]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 2].Columns[Id]"
                       cachedDataType="i4"
                       cachedName="Id"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[Id]">
@@ -3005,11 +2735,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Id]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Id]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 2].Columns[Type]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 2].Columns[Type]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Type"
@@ -3019,11 +2749,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Type]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Type]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 2].Columns[RefrigerationFlag]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 2].Columns[RefrigerationFlag]"
                       cachedDataType="bool"
                       cachedName="RefrigerationFlag"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]">
@@ -3032,11 +2762,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[RefrigerationFlag]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[RefrigerationFlag]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 2].Columns[PowerFlag]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 2].Columns[PowerFlag]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="PowerFlag"
@@ -3046,11 +2776,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[PowerFlag]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[PowerFlag]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 2].Columns[Length]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 2].Columns[Length]"
                       cachedDataType="r8"
                       cachedName="Length"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[Length]">
@@ -3059,11 +2789,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Length]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Length]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 2].Columns[Cubes]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 2].Columns[Cubes]"
                       cachedDataType="r8"
                       cachedName="Cubes"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[Cubes]">
@@ -3072,11 +2802,11 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Cubes]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Cubes]}</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 2].Columns[EuroPricePerKm]"
+                      refId="Package\Load ContainerType\Union All.Inputs[Union All Input 2].Columns[EuroPricePerKm]"
                       cachedDataType="r8"
                       cachedName="EuroPricePerKm"
                       lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]">
@@ -3085,29 +2815,14 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
                           containsID="true"
                           dataType="System.Int32"
                           description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[EuroPricePerKm]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 2].Columns[TEU]"
-                      cachedDataType="numeric"
-                      cachedName="TEU"
-                      cachedPrecision="2"
-                      cachedScale="1"
-                      lineageId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output].Columns[TEU]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="Output column lineage ID"
-                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[TEU]}</property>
+                          name="OutputColumnLineageID">#{Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[EuroPricePerKm]}</property>
                       </properties>
                     </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
                 <input
-                  refId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 3]"
+                  refId="Package\Load ContainerType\Union All.Inputs[Union All Input 3]"
                   dangling="true"
                   hasSideEffects="true"
                   name="Union All Input 3">
@@ -3116,53 +2831,46 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1]"
+                  refId="Package\Load ContainerType\Union All.Outputs[Union All Output 1]"
                   name="Union All Output 1">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Id]"
+                      refId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Id]"
                       dataType="i4"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Id]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Id]"
                       name="Id" />
                     <outputColumn
-                      refId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Type]"
+                      refId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Type]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Type]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Type]"
                       name="Type" />
                     <outputColumn
-                      refId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[RefrigerationFlag]"
+                      refId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[RefrigerationFlag]"
                       dataType="bool"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[RefrigerationFlag]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[RefrigerationFlag]"
                       name="RefrigerationFlag" />
                     <outputColumn
-                      refId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[PowerFlag]"
+                      refId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[PowerFlag]"
                       dataType="wstr"
                       length="50"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[PowerFlag]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[PowerFlag]"
                       name="PowerFlag" />
                     <outputColumn
-                      refId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Length]"
+                      refId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Length]"
                       dataType="r8"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Length]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Length]"
                       name="Length" />
                     <outputColumn
-                      refId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Cubes]"
+                      refId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Cubes]"
                       dataType="r8"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[Cubes]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[Cubes]"
                       name="Cubes" />
                     <outputColumn
-                      refId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[EuroPricePerKm]"
+                      refId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[EuroPricePerKm]"
                       dataType="r8"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[EuroPricePerKm]"
+                      lineageId="Package\Load ContainerType\Union All.Outputs[Union All Output 1].Columns[EuroPricePerKm]"
                       name="EuroPricePerKm" />
-                    <outputColumn
-                      refId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[TEU]"
-                      dataType="numeric"
-                      lineageId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1].Columns[TEU]"
-                      name="TEU"
-                      precision="2"
-                      scale="1" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -3171,40 +2879,30 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Load ContainerType.Paths[Changing Attribute Updates Output]"
-              endId="Package\Load ContainerType\OLE DB Command 2.Inputs[OLE DB Command Input]"
-              name="Changing Attribute Updates Output"
-              startId="Package\Load ContainerType\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
-            <path
               refId="Package\Load ContainerType.Paths[Derived Column Output]"
-              endId="Package\Load ContainerType\OLE DB Command 1.Inputs[OLE DB Command Input]"
+              endId="Package\Load ContainerType\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Load ContainerType\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Load ContainerType.Paths[Derived Column Output1]"
+              endId="Package\Load ContainerType\Insert Destination.Inputs[OLE DB Destination Input]"
               name="Derived Column Output"
               startId="Package\Load ContainerType\Derived Column 2.Outputs[Derived Column Output]" />
             <path
-              refId="Package\Load ContainerType.Paths[Derived Column Output1]"
-              endId="Package\Load ContainerType\Derived Column.Inputs[Derived Column Input]"
-              name="Derived Column Output"
-              startId="Package\Load ContainerType\Derived Column 3.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Load ContainerType.Paths[Derived Column Output2]"
-              endId="Package\Load ContainerType\ContainerType Destination.Inputs[OLE DB Destination Input]"
-              name="Derived Column Output"
-              startId="Package\Load ContainerType\Derived Column.Outputs[Derived Column Output]" />
-            <path
               refId="Package\Load ContainerType.Paths[Historical Attribute Inserts Output]"
-              endId="Package\Load ContainerType\Derived Column 2.Inputs[Derived Column Input]"
+              endId="Package\Load ContainerType\Derived Column 1.Inputs[Derived Column Input]"
               name="Historical Attribute Inserts Output"
               startId="Package\Load ContainerType\Slowly Changing Dimension.Outputs[Historical Attribute Inserts Output]" />
             <path
               refId="Package\Load ContainerType.Paths[New Output]"
-              endId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 1]"
+              endId="Package\Load ContainerType\Union All.Inputs[Union All Input 1]"
               name="New Output"
               startId="Package\Load ContainerType\Slowly Changing Dimension.Outputs[New Output]" />
             <path
               refId="Package\Load ContainerType.Paths[OLE DB Command Output]"
-              endId="Package\Load ContainerType\Union All 1.Inputs[Union All Input 2]"
+              endId="Package\Load ContainerType\Union All.Inputs[Union All Input 2]"
               name="OLE DB Command Output"
-              startId="Package\Load ContainerType\OLE DB Command 1.Outputs[OLE DB Command Output]" />
+              startId="Package\Load ContainerType\OLE DB Command.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\Load ContainerType.Paths[OLE DB Source Output]"
               endId="Package\Load ContainerType\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input]"
@@ -3212,9 +2910,9 @@ WHERE ShipRowId = ? and PortId = ? and DateOfArrival = ?</property>
               startId="Package\Load ContainerType\ContainerType Source.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Load ContainerType.Paths[Union All Output 1]"
-              endId="Package\Load ContainerType\Derived Column 3.Inputs[Derived Column Input]"
+              endId="Package\Load ContainerType\Derived Column 2.Inputs[Derived Column Input]"
               name="Union All Output 1"
-              startId="Package\Load ContainerType\Union All 1.Outputs[Union All Output 1]" />
+              startId="Package\Load ContainerType\Union All.Outputs[Union All Output 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -9224,35 +8922,35 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="195.2,41.6"
+          Size="195,42"
           Id="Package\Calculate NumberOfDays"
           TopLeft="838.82857286851,426.164705665178" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\Load Consignor"
           TopLeft="152,150" />
         <NodeLayout
-          Size="172.8,41.6"
+          Size="173,42"
           Id="Package\Load ContainerType"
           TopLeft="326,151" />
         <NodeLayout
-          Size="156.8,41.6"
+          Size="157,42"
           Id="Package\Load DaysInPort"
           TopLeft="856.666666666667,317.5" />
         <NodeLayout
-          Size="127.2,41.6"
+          Size="127,42"
           Id="Package\Load Item"
           TopLeft="525,149" />
         <NodeLayout
-          Size="127.2,41.6"
+          Size="127,42"
           Id="Package\Load Port"
           TopLeft="831.25,151.5" />
         <NodeLayout
-          Size="124.8,41.6"
+          Size="125,42"
           Id="Package\Load Ship"
           TopLeft="684,151" />
         <NodeLayout
-          Size="184,41.6"
+          Size="184,42"
           Id="Package\Load ShipmentVoyage"
           TopLeft="502,323" />
         <EdgeLayout
@@ -9949,29 +9647,29 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
     design-time-name="Package\Load ContainerType">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="183.2,41.6"
-          Id="Package\Load ContainerType\ContainerType Source"
-          TopLeft="149.1,5.49999999999995" />
-        <NodeLayout
-          Size="208,41.6"
+          Size="208,42"
           Id="Package\Load ContainerType\Slowly Changing Dimension"
-          TopLeft="136.7,107.1" />
+          TopLeft="247,107.5" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Load ContainerType\ContainerType Source"
+          TopLeft="259.5,5.5" />
         <EdgeLayout
           Id="Package\Load ContainerType.Paths[OLE DB Source Output]"
-          TopLeft="240.7,47.1">
+          TopLeft="351,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9981,63 +9679,63 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Load ContainerType\Derived Column 2"
-          TopLeft="17.5,208.7" />
+          Size="163,42"
+          Id="Package\Load ContainerType\Derived Column 1"
+          TopLeft="126.5,209.5" />
         <EdgeLayout
           Id="Package\Load ContainerType.Paths[Historical Attribute Inserts Output]"
-          TopLeft="190.7,148.7">
+          TopLeft="317.666666666667,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-92,60"
+              EndConnector="-109.666666666667,60"
               Start="0,0"
-              End="-92,52.5">
+              End="-109.666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.506329113924" />
+                    End="0,20.2748091603054" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.506329113924"
-                    Point2="0,20.506329113924"
-                    Point3="-4,20.506329113924" />
+                    Point1="0,20.2748091603054"
+                    Point2="0,24.2748091603054"
+                    Point3="-4,24.2748091603054" />
                   <mssgle:LineSegment
-                    End="-88,20.506329113924" />
+                    End="-105.666666666667,24.2748091603054" />
                   <mssgle:CubicBezierSegment
-                    Point1="-88,20.506329113924"
-                    Point2="-92,20.506329113924"
-                    Point3="-92,24.506329113924" />
+                    Point1="-105.666666666667,24.2748091603054"
+                    Point2="-109.666666666667,24.2748091603054"
+                    Point3="-109.666666666667,28.2748091603054" />
                   <mssgle:LineSegment
-                    End="-92,52.5" />
+                    End="-109.666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-121.05638671875,25.506329113924,150.1127734375,11.609375"
+              BoundingBox="-129.889720052083,29.2748091603054,150.1127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Load ContainerType\OLE DB Command 1"
-          TopLeft="5.50000000000004,310.3" />
+          Size="166,42"
+          Id="Package\Load ContainerType\OLE DB Command"
+          TopLeft="124,311.5" />
         <EdgeLayout
           Id="Package\Load ContainerType.Paths[Derived Column Output]"
-          TopLeft="95.7,250.3">
+          TopLeft="207.5,251.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10047,71 +9745,71 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="129.6,41.6"
-          Id="Package\Load ContainerType\Union All 1"
-          TopLeft="175.9,411.9" />
+          Size="121,42"
+          Id="Package\Load ContainerType\Union All"
+          TopLeft="290.5,413.5" />
         <EdgeLayout
           Id="Package\Load ContainerType.Paths[New Output]"
-          TopLeft="240.7,148.7">
+          TopLeft="384.333333333333,149.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="20.2666666666667,263.2"
+              EndConnector="-14.5,264"
               Start="0,0"
-              End="20.2666666666667,255.7">
+              End="-14.5,256.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,151.994146341463" />
+                    End="0,127.110663672268" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,151.994146341463"
-                    Point2="0,155.994146341463"
-                    Point3="4,155.994146341463" />
+                    Point1="0,127.110663672268"
+                    Point2="0,131.110663672268"
+                    Point3="-4,131.110663672268" />
                   <mssgle:LineSegment
-                    End="16.2666666666667,155.994146341463" />
+                    End="-10.5,131.110663672268" />
                   <mssgle:CubicBezierSegment
-                    Point1="16.2666666666667,155.994146341463"
-                    Point2="20.2666666666667,155.994146341463"
-                    Point3="20.2666666666667,159.994146341463" />
+                    Point1="-10.5,131.110663672268"
+                    Point2="-14.5,131.110663672268"
+                    Point3="-14.5,135.110663672268" />
                   <mssgle:LineSegment
-                    End="20.2666666666667,255.7" />
+                    End="-14.5,256.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-16.9580533854167,160.994146341463,54.1827734375,11.43359375"
+              BoundingBox="-34.34138671875,136.110663672268,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Load ContainerType.Paths[OLE DB Command Output]"
-          TopLeft="92.7,351.9">
+          TopLeft="207,353.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="127.733333333333,59.9999999999998"
+              EndConnector="125.166666666667,60"
               Start="0,0"
-              End="127.733333333333,52.4999999999998">
+              End="125.166666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.560975609756" />
+                    End="0,31.5301794453507" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,31.560975609756"
-                    Point2="0,35.560975609756"
-                    Point3="4,35.560975609756" />
+                    Point1="0,31.5301794453507"
+                    Point2="0,35.5301794453507"
+                    Point3="4,35.5301794453507" />
                   <mssgle:LineSegment
-                    End="123.733333333333,35.560975609756" />
+                    End="121.166666666667,35.5301794453507" />
                   <mssgle:CubicBezierSegment
-                    Point1="123.733333333333,35.560975609756"
-                    Point2="127.733333333333,35.560975609756"
-                    Point3="127.733333333333,39.560975609756" />
+                    Point1="121.166666666667,35.5301794453507"
+                    Point2="125.166666666667,35.5301794453507"
+                    Point3="125.166666666667,39.5301794453507" />
                   <mssgle:LineSegment
-                    End="127.733333333333,52.4999999999998" />
+                    End="125.166666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10121,23 +9819,23 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="162.4,41.6"
-          Id="Package\Load ContainerType\Derived Column 3"
-          TopLeft="159.5,513.5" />
+          Size="163,42"
+          Id="Package\Load ContainerType\Derived Column 2"
+          TopLeft="269.5,515.5" />
         <EdgeLayout
           Id="Package\Load ContainerType.Paths[Union All Output 1]"
-          TopLeft="240.7,453.5">
+          TopLeft="351,455.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,59.9999999999999"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,52.4999999999999">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.4999999999999" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10147,113 +9845,23 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="203.2,41.6"
-          Id="Package\Load ContainerType\ContainerType Destination"
-          TopLeft="159.5,615.1" />
-        <NodeLayout
-          Size="174.4,41.6"
-          Id="Package\Load ContainerType\OLE DB Command 2"
-          TopLeft="301.5,208.7" />
-        <EdgeLayout
-          Id="Package\Load ContainerType.Paths[Changing Attribute Updates Output]"
-          TopLeft="290.7,148.7">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="98,59.9999999999999"
-              Start="0,0"
-              End="98,52.4999999999999">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,16.506329113924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,16.506329113924"
-                    Point2="0,20.506329113924"
-                    Point3="4,20.506329113924" />
-                  <mssgle:LineSegment
-                    End="94,20.506329113924" />
-                  <mssgle:CubicBezierSegment
-                    Point1="94,20.506329113924"
-                    Point2="98,20.506329113924"
-                    Point3="98,24.506329113924" />
-                  <mssgle:LineSegment
-                    End="98,52.4999999999999" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-29.53390625,25.506329113924,157.0678125,11.6630859375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Load ContainerType\Derived Column"
-          TopLeft="488.571429611469,570.952941080619" />
+          Size="163,42"
+          Id="Package\Load ContainerType\Insert Destination"
+          TopLeft="269.5,617.5" />
         <EdgeLayout
           Id="Package\Load ContainerType.Paths[Derived Column Output1]"
-          TopLeft="321.9,534.299999999999">
+          TopLeft="351,557.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="166.671429611469,57.452941080619"
+              EndConnector="0,60"
               Start="0,0"
-              End="159.171429611469,57.452941080619">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="79.3357148057344,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="79.3357148057344,0"
-                    Point2="83.3357148057344,0"
-                    Point3="83.3357148057344,4" />
-                  <mssgle:LineSegment
-                    End="83.3357148057344,53.452941080619" />
-                  <mssgle:CubicBezierSegment
-                    Point1="83.3357148057344,53.452941080619"
-                    Point2="83.3357148057344,57.452941080619"
-                    Point3="87.3357148057344,57.452941080619" />
-                  <mssgle:LineSegment
-                    End="159.171429611469,57.452941080619" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Load ContainerType.Paths[Derived Column Output2]"
-          TopLeft="488.571429611469,597.352941080619">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-125.871429611469,38.547058919381"
-              Start="0,0"
-              End="-118.371429611469,38.547058919381">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-49.1457147248423,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-49.1457147248423,0"
-                    Point2="-53.1457147248423,0"
-                    Point3="-53.1457147248423,4" />
-                  <mssgle:LineSegment
-                    End="-53.1457147248423,34.547058919381" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-53.1457147248423,34.547058919381"
-                    Point2="-53.1457147248423,38.547058919381"
-                    Point3="-57.1457147248423,38.547058919381" />
-                  <mssgle:LineSegment
-                    End="-118.371429611469,38.547058919381" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10265,6 +9873,82 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load ContainerType\Slowly Changing Dimension">
+    <Properties>
+      <Property>
+        <Name>SCDMetadata</Name>
+        <Value
+          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionID&gt;{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}&lt;/ConnectionID&gt;
+  &lt;TableName&gt;[dbo].[D_ContainerType]&lt;/TableName&gt;
+  &lt;InputToColumnsCollection&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Cubes]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Cubes&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;EuroPricePerKm&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Id]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Id&lt;/ColumnName&gt;
+      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
+      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Length]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Length&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[PowerFlag]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;PowerFlag&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;RefrigerationFlag&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+    &lt;InputColumnToDBColumn&gt;
+      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Type]&lt;/IdentificationString&gt;
+      &lt;ColumnName&gt;Type&lt;/ColumnName&gt;
+      &lt;KeyType&gt;None&lt;/KeyType&gt;
+      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
+    &lt;/InputColumnToDBColumn&gt;
+  &lt;/InputToColumnsCollection&gt;
+  &lt;GeneratedComponentsIdentificationStrings&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 1&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Union All&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 2&lt;/anyType&gt;
+    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
+  &lt;/GeneratedComponentsIdentificationStrings&gt;
+  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
+  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
+  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
+  &lt;CurrentIndicatorColumn /&gt;
+  &lt;InferredIndicatorColumn /&gt;
+  &lt;ValueCurrent /&gt;
+  &lt;ValueExpired /&gt;
+  &lt;StartDateColumn&gt;StartDate&lt;/StartDateColumn&gt;
+  &lt;EndDateColumn&gt;EndDate&lt;/EndDateColumn&gt;
+  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
+  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
+&lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load ContainerType\ContainerType Source">
     <Properties>
@@ -11542,102 +11226,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load ContainerType\Slowly Changing Dimension">
-    <Properties>
-      <Property>
-        <Name>SCDMetadata</Name>
-        <Value
-          type="q2:string">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SCDWizardMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;ConnectionID&gt;{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}&lt;/ConnectionID&gt;
-  &lt;TableName&gt;[dbo].[D_ContainerType]&lt;/TableName&gt;
-  &lt;InputToColumnsCollection&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Cubes]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Cubes&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[EuroPricePerKm]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;EuroPricePerKm&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;HistoricalAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Id]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Id&lt;/ColumnName&gt;
-      &lt;KeyType&gt;BusinessKey&lt;/KeyType&gt;
-      &lt;ChangeType&gt;None&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Length]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Length&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[PowerFlag]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;PowerFlag&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[RefrigerationFlag]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;RefrigerationFlag&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[TEU]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;TEU&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-    &lt;InputColumnToDBColumn&gt;
-      &lt;IdentificationString&gt;ContainerType Source.Outputs[OLE DB Source Output].Columns[Type]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;Type&lt;/ColumnName&gt;
-      &lt;KeyType&gt;None&lt;/KeyType&gt;
-      &lt;ChangeType&gt;FixedAttribute&lt;/ChangeType&gt;
-    &lt;/InputColumnToDBColumn&gt;
-  &lt;/InputToColumnsCollection&gt;
-  &lt;GeneratedComponentsIdentificationStrings&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 2&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Union All 1&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Derived Column 3&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;Insert Destination&lt;/anyType&gt;
-    &lt;anyType xsi:type="xsd:string"&gt;OLE DB Command 2&lt;/anyType&gt;
-  &lt;/GeneratedComponentsIdentificationStrings&gt;
-  &lt;FailFixedAttribute&gt;true&lt;/FailFixedAttribute&gt;
-  &lt;FailChangeAttribute&gt;false&lt;/FailChangeAttribute&gt;
-  &lt;UseStartEndDate&gt;true&lt;/UseStartEndDate&gt;
-  &lt;CurrentIndicatorColumn /&gt;
-  &lt;InferredIndicatorColumn /&gt;
-  &lt;ValueCurrent /&gt;
-  &lt;ValueExpired /&gt;
-  &lt;StartDateColumn&gt;StartDate&lt;/StartDateColumn&gt;
-  &lt;EndDateColumn&gt;EndDate&lt;/EndDateColumn&gt;
-  &lt;DateVariable&gt;System::StartTime&lt;/DateVariable&gt;
-  &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
-&lt;/SCDWizardMetadata&gt;</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load ContainerType\ContainerType Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
