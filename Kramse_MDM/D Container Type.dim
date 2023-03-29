@@ -1,4 +1,4 @@
-﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="8c79e89f-ec06-4276-81fb-6cf2d4441341" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="20c02bca-d29e-4871-b977-a3218eda6a36" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
   <ID>D Container Type</ID>
   <Name>D Container Type</Name>
   <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-2012" scrolltop="-2127" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7916" y="9081" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1726" scrolltop="-4297" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="7345" y="13420" backcolor="2632756" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
             </font>
@@ -47,11 +47,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-2012</Value>
+      <Value>-1726</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-2127</Value>
+      <Value>-4297</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -68,73 +68,92 @@
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
-  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="a538aa75-73b5-4f90-9aa0-b8b7affe5386">
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="eda72b29-d178-4b20-a227-e066824aa58c">
     <DataSourceViewID>Kramse ODS</DataSourceViewID>
   </Source>
   <UnknownMember>Visible</UnknownMember>
-  <ErrorConfiguration dwd:design-time-name="ef0201c1-700c-4aa2-bf92-e99009207902">
+  <ErrorConfiguration dwd:design-time-name="385a63ae-a963-4a93-987b-582e4541c9fa">
     <KeyNotFound>ReportAndStop</KeyNotFound>
     <KeyDuplicate>ReportAndStop</KeyDuplicate>
     <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
   </ErrorConfiguration>
   <CurrentStorageMode>Molap</CurrentStorageMode>
   <Attributes>
-    <Attribute dwd:design-time-name="f7b29baf-fb9c-41c1-8311-04597e79d7e6">
+    <Attribute dwd:design-time-name="21dcb551-2312-4fb1-bc19-50d85a56a0f5">
       <ID>Container Type Row Id</ID>
       <Name>Container Type Row Id</Name>
       <Usage>Key</Usage>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="a091b179-0de4-4917-9c54-ba4d572ee712">
+        <KeyColumn dwd:design-time-name="c37b16e4-be79-456a-b22f-662ed2b7da10">
           <DataType>Integer</DataType>
           <NullProcessing>UnknownMember</NullProcessing>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="1d584436-96ac-4777-ada7-f15dc132202a">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="493cc7d8-b2a3-44cf-be09-2bb75b05ebd7">
             <TableID>dbo_D_ContainerType</TableID>
             <ColumnID>ContainerTypeRowId</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="08f5d898-dc37-4e2c-88d1-51aea63926d4">
+        <AttributeRelationship dwd:design-time-name="900f33de-337d-4312-a4dd-62de128ca285">
+          <AttributeID>Id</AttributeID>
+          <Name>Id_</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="8ac094f1-fd44-40ff-a901-a6d49cdfce75">
           <AttributeID>Type</AttributeID>
           <Name>Type</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="bcbf7242-7d48-4eee-854f-6bc571d02cca">
+        <AttributeRelationship dwd:design-time-name="fe8f43b3-28ed-4cf0-93e5-aecae05b5039">
           <AttributeID>Refrigeration Flag</AttributeID>
           <Name>Refrigeration Flag</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="2e3bdf50-d982-4440-82be-5dd19b10b0ec">
+        <AttributeRelationship dwd:design-time-name="9a1e4559-3a12-471a-9a18-5f02a985b195">
           <AttributeID>Power Flag</AttributeID>
           <Name>Power Flag</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="df9503ae-6cd9-40da-8cbc-a170e1e71e7a">
+        <AttributeRelationship dwd:design-time-name="bc8aa76f-5dd2-403d-a88e-7c5204b99f21">
           <AttributeID>Length</AttributeID>
           <Name>Length</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="2a3f83b6-8ef3-404e-9dd0-5a00b1e553f0">
+        <AttributeRelationship dwd:design-time-name="a73d74fc-e688-47eb-9cd0-9b1985412240">
           <AttributeID>Cubes</AttributeID>
           <Name>Cubes</Name>
         </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="148a31a7-af0c-478f-8c24-5b7a6e9f1f31">
-          <AttributeID>Euro Price Per Km</AttributeID>
-          <Name>Euro Price Per Km</Name>
-        </AttributeRelationship>
-        <AttributeRelationship dwd:design-time-name="382cc802-4e62-476b-8841-4679bd8c2e53">
+        <AttributeRelationship dwd:design-time-name="5646631c-c9e1-4ad3-94aa-3faa2b80dd88">
           <AttributeID>TEU</AttributeID>
           <Name>TEU</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="dd460f16-4ad0-49a2-b177-640d1bec4e29">
+          <AttributeID>Euro Price Per Km</AttributeID>
+          <Name>Euro Price Per Km</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="c54ccfa7-22b0-483f-a7f0-78c55c3a04db">
+    <Attribute dwd:design-time-name="f3dbc043-675f-4724-b82c-69bcf063c7c9">
+      <ID>Id</ID>
+      <Name>Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="517ce8f4-e183-4f39-ba3c-89aeea9aa011">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="4c24f6db-9ada-43b1-ab33-6cf33751a53a">
+            <TableID>dbo_D_ContainerType</TableID>
+            <ColumnID>Id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f38074ac-46e5-4a2a-ac82-8a30c75d462c">
       <ID>Type</ID>
       <Name>Type</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="c35b7163-106b-4fd1-8d27-41b5ae931274">
+        <KeyColumn dwd:design-time-name="4611e07b-b0d7-4b24-b37c-8340e38fe70f">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="65d092e9-b414-4f05-a20f-5b93a938a8bb">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="af04231b-0e68-47e4-83ed-8ec3e658d87e">
             <TableID>dbo_D_ContainerType</TableID>
             <ColumnID>Type</ColumnID>
           </Source>
@@ -143,13 +162,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="cc59a5b8-3553-4ead-a547-8678a667ab6a">
+    <Attribute dwd:design-time-name="c1092d42-2845-42a3-acee-eac55070d89e">
       <ID>Refrigeration Flag</ID>
       <Name>Refrigeration Flag</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="3f867213-959a-401f-abb1-7f7be61b7e32">
+        <KeyColumn dwd:design-time-name="4f50f109-3475-4ea0-a92c-bd2123f38e50">
           <DataType>Boolean</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5978947d-8691-4dac-ba43-3b082187816d">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="231b8483-270f-4765-b89a-a0de7c01bac7">
             <TableID>dbo_D_ContainerType</TableID>
             <ColumnID>RefrigerationFlag</ColumnID>
           </Source>
@@ -158,14 +177,14 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="4c745977-0f21-404f-93d0-023eef5eb8d0">
+    <Attribute dwd:design-time-name="14b93a28-9e19-4275-aa5c-3fbda2ad9898">
       <ID>Power Flag</ID>
       <Name>Power Flag</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="db611c9d-bf72-4c8f-b942-ef2ca359b00d">
+        <KeyColumn dwd:design-time-name="1b891d2a-dee8-47d8-ab15-8c7100aade34">
           <DataType>WChar</DataType>
           <DataSize>50</DataSize>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="27704ddd-0e1f-4dda-8638-36061a4fecb5">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="58a60373-c6ef-4456-a995-617da7ba05fb">
             <TableID>dbo_D_ContainerType</TableID>
             <ColumnID>PowerFlag</ColumnID>
           </Source>
@@ -174,13 +193,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="85fe4e0b-0268-40f5-a737-eea201f4653c">
+    <Attribute dwd:design-time-name="e623fdc7-ce02-4400-b4b2-975d369e0d39">
       <ID>Length</ID>
       <Name>Length</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="92192d71-5134-4560-a999-f296ae12e600">
+        <KeyColumn dwd:design-time-name="de7de1f5-0f6f-447d-b863-7a89eecad222">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="8d2082a0-7c66-4966-b685-3445207a14bb">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="98812c4e-a37e-45c5-90c2-33bcf916604f">
             <TableID>dbo_D_ContainerType</TableID>
             <ColumnID>Length</ColumnID>
           </Source>
@@ -189,13 +208,13 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="7242fcfd-4794-48a5-b595-4092880bf118">
+    <Attribute dwd:design-time-name="59f36b4d-1392-4fe5-bc3f-3b9b7801400b">
       <ID>Cubes</ID>
       <Name>Cubes</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="d136217e-56fe-4b22-b1b7-e6bca2e0c54f">
+        <KeyColumn dwd:design-time-name="e273ebd2-482d-410f-9f7d-dee381ae5de9">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="e85aa146-8159-434a-98fb-31826f69de48">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="441c58c0-4041-461e-98c8-6e2ae12d7ebb">
             <TableID>dbo_D_ContainerType</TableID>
             <ColumnID>Cubes</ColumnID>
           </Source>
@@ -204,30 +223,30 @@
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="6d60a0de-e9ed-429d-bd54-2406d40cbab1">
-      <ID>Euro Price Per Km</ID>
-      <Name>Euro Price Per Km</Name>
+    <Attribute dwd:design-time-name="ce517271-2a03-434c-8346-d04b078951f9">
+      <ID>TEU</ID>
+      <Name>TEU</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="6bd34b4a-e07a-4b9f-9e0e-86fe2a19dfe6">
+        <KeyColumn dwd:design-time-name="4fc21c10-88a1-4d14-ac27-7bbc061235e4">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="92bf0c40-b12b-48f3-b65f-a33f2dae7cb0">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="95801399-cfce-4362-805b-4a087380feb7">
             <TableID>dbo_D_ContainerType</TableID>
-            <ColumnID>EuroPricePerKm</ColumnID>
+            <ColumnID>TEU</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
-    <Attribute dwd:design-time-name="8d32621f-e1aa-44e7-9a3e-f1e24d3ff905">
-      <ID>TEU</ID>
-      <Name>TEU</Name>
+    <Attribute dwd:design-time-name="60ddf7fd-fa79-4683-843d-c661d5cd6074">
+      <ID>Euro Price Per Km</ID>
+      <Name>Euro Price Per Km</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="66e4b00e-70ae-451d-acc3-620b1cedcaa2">
+        <KeyColumn dwd:design-time-name="4068876a-8c34-4f61-a66c-1d7ac5b48dd3">
           <DataType>Double</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="8157decc-cafe-4980-8b29-608158e061eb">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0dd3ba9d-e5e1-46d7-8762-2f93655a113b">
             <TableID>dbo_D_ContainerType</TableID>
-            <ColumnID>TEU</ColumnID>
+            <ColumnID>EuroPricePerKm</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>

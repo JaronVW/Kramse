@@ -20,10 +20,6 @@
   </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>D Time.dim</Name>
-      <FullPath>D Time.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>D Ship.dim</Name>
       <FullPath>D Ship.dim</FullPath>
     </ProjectItem>
@@ -43,11 +39,15 @@
       <Name>D Item.dim</Name>
       <FullPath>D Item.dim</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>D Time.dim</Name>
+      <FullPath>D Time.dim</FullPath>
+    </ProjectItem>
   </Dimensions>
   <DataSources>
     <ProjectItem>
-      <Name>Kramse ODS.ds</Name>
-      <FullPath>Kramse ODS.ds</FullPath>
+      <Name>Kramse ODS 1.ds</Name>
+      <FullPath>Kramse ODS 1.ds</FullPath>
     </ProjectItem>
   </DataSources>
   <DataSourceViews>
@@ -62,15 +62,15 @@
       <Options>
         <ConnectionMappings>
           <ConfigurationSetting>
-            <Id>Kramse ODS</Id>
-            <Name>Kramse ODS</Name>
-            <Value xsi:type="xsd:string">Provider=MSOLEDBSQL.1;Data Source=LAPTOP-E1ALBBKP;Integrated Security=SSPI;Initial Catalog=Kramse_ODS</Value>
+            <Id>Kramse ODS 1</Id>
+            <Name>Kramse ODS 1</Name>
+            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=Localhost;Integrated Security=SSPI;Initial Catalog=Kramse_ODS</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>
           <ConfigurationSetting>
-            <Id>Kramse ODS</Id>
-            <Name>Kramse ODS</Name>
+            <Id>Kramse ODS 1</Id>
+            <Name>Kramse ODS 1</Name>
             <Value xsi:type="xsd:int">0</Value>
           </ConfigurationSetting>
         </ConnectionSecurityMappings>
