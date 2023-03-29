@@ -11,8 +11,8 @@
   DTS:LocaleID="2057"
   DTS:ObjectName="Data_Cleanup"
   DTS:PackageType="5"
-  DTS:VersionBuild="70"
-  DTS:VersionGUID="{4D0FB098-F722-45EC-AD72-DE1226A454EF}">
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{F4AD868D-CB05-4A77-9FDE-0EB2880C023F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -25,7 +25,7 @@
         <DTS:ConnectionManager
           DTS:ConnectRetryCount="0"
           DTS:ConnectRetryInterval="0"
-          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\aecha\OneDrive - Avans Hogeschool\~Jaar 2\~Periode 3\Project BI\Kramse\Bronnen\Countries.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
+          DTS:ConnectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\timot\Desktop\Kramse project\Countries.xlsx;Extended Properties=&quot;EXCEL 12.0 XML;HDR=YES&quot;;" />
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
@@ -151,6 +151,80 @@
                           name="AggregationComparisonFlags">0</property>
                       </properties>
                     </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fix Consignor Country Data\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Fix Consignor Country Data\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fix Consignor Country Data\Derived Column.Inputs[Derived Column Input].Columns[Discount]"
+                      cachedDataType="r8"
+                      cachedName="Discount"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Fix Consignor Country Data\OLE DB Source Consigner.Outputs[OLE DB Source Output].Columns[Discount]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\Fix Consignor Country Data\OLE DB Source Consigner.Outputs[OLE DB Source Output].Columns[Discount]}) ? 0 : #{Package\Fix Consignor Country Data\OLE DB Source Consigner.Outputs[OLE DB Source Output].Columns[Discount]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(Discount) ? 0 : Discount</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fix Consignor Country Data\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Fix Consignor Country Data\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix Consignor Country Data\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Fix Consignor Country Data\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix Consignor Country Data\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix Consignor Country Data\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix Consignor Country Data\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix Consignor Country Data\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -768,6 +842,120 @@ where [refTable].[ISO] = ?</property>
                       refId="Package\Fix Consignor Country Data\Lookup ISO Codes.Outputs[Lookup Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Fix Consignor Country Data\Lookup ISO Codes.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Fix Consignor Country Data\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE Consignor
+SET Discount = ?
+WHERE Id = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Fix Consignor Country Data\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[RDBMS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Fix Consignor Country Data\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fix Consignor Country Data\OLE DB Command.Inputs[OLE DB Command Input].Columns[Discount]"
+                      cachedDataType="r8"
+                      cachedName="Discount"
+                      externalMetadataColumnId="Package\Fix Consignor Country Data\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Fix Consignor Country Data\OLE DB Source Consigner.Outputs[OLE DB Source Output].Columns[Discount]" />
+                    <inputColumn
+                      refId="Package\Fix Consignor Country Data\OLE DB Command.Inputs[OLE DB Command Input].Columns[Id]"
+                      cachedDataType="i4"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\Fix Consignor Country Data\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Fix Consignor Country Data\OLE DB Source Consigner.Outputs[OLE DB Source Output].Columns[Id]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Fix Consignor Country Data\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="r8"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Fix Consignor Country Data\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fix Consignor Country Data\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Fix Consignor Country Data\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fix Consignor Country Data\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Fix Consignor Country Data\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fix Consignor Country Data\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Fix Consignor Country Data\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fix Consignor Country Data\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Fix Consignor Country Data\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -1567,6 +1755,11 @@ set Country = ?
               name="Aggregate Output 1"
               startId="Package\Fix Consignor Country Data\Aggregate.Outputs[Aggregate Output 1]" />
             <path
+              refId="Package\Fix Consignor Country Data.Paths[Derived Column Output]"
+              endId="Package\Fix Consignor Country Data\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Fix Consignor Country Data\Derived Column.Outputs[Derived Column Output]" />
+            <path
               refId="Package\Fix Consignor Country Data.Paths[Lookup Match Output]"
               endId="Package\Fix Consignor Country Data\Union All.Inputs[Union All Input 1]"
               name="Lookup Match Output"
@@ -1607,8 +1800,13 @@ set Country = ?
               name="Lookup No Match Output"
               startId="Package\Fix Consignor Country Data\Lookup conversion values.Outputs[Lookup No Match Output]" />
             <path
-              refId="Package\Fix Consignor Country Data.Paths[OLE DB Source Output]"
+              refId="Package\Fix Consignor Country Data.Paths[OLE DB Command Output]"
               endId="Package\Fix Consignor Country Data\Lookup English names.Inputs[Lookup Input]"
+              name="OLE DB Command Output"
+              startId="Package\Fix Consignor Country Data\OLE DB Command.Outputs[OLE DB Command Output]" />
+            <path
+              refId="Package\Fix Consignor Country Data.Paths[OLE DB Source Output]"
+              endId="Package\Fix Consignor Country Data\Derived Column.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Fix Consignor Country Data\OLE DB Source Consigner.Outputs[OLE DB Source Output]" />
             <path
@@ -7785,31 +7983,31 @@ and ContainerNr = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="163.2,41.6"
+          Size="163,42"
           Id="Package\Execute SQL Task"
           TopLeft="334.155844155844,47.0779220779221" />
         <NodeLayout
-          Size="208,41.6"
+          Size="208,42"
           Id="Package\Fix Consignor Country Data"
           TopLeft="609.909090909089,246.96103896104" />
         <NodeLayout
-          Size="206.4,41.6"
+          Size="206,42"
           Id="Package\Fix Container Country Data"
           TopLeft="917,249" />
         <NodeLayout
-          Size="180,41.6"
+          Size="180,42"
           Id="Package\Fix Port Country Data"
           TopLeft="328.571428571429,247.857142857143" />
         <NodeLayout
-          Size="180.8,41.6"
+          Size="181,42"
           Id="Package\Fix Ship Country Data"
           TopLeft="58.3766233766233,246.48051948052" />
         <NodeLayout
-          Size="148.8,41.6"
+          Size="149,42"
           Id="Package\Load Countries"
           TopLeft="344.545455065475,136.072574419321" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159,42"
           Id="Package\Split ContainerNr"
           TopLeft="663,113" />
         <EdgeLayout
@@ -8001,128 +8199,52 @@ and ContainerNr = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="235,42"
-          Id="Package\Fix Consignor Country Data\OLE DB Command Update values"
-          TopLeft="834,443" />
-        <NodeLayout
-          Size="171,42"
-          Id="Package\Fix Consignor Country Data\OLE DB Destination"
-          TopLeft="643,705" />
-        <NodeLayout
-          Size="200,42"
-          Id="Package\Fix Consignor Country Data\OLE DB Source Consigner"
-          TopLeft="322,86" />
-        <NodeLayout
-          Size="178,42"
-          Id="Package\Fix Consignor Country Data\Lookup Dutch names"
-          TopLeft="304,352" />
-        <NodeLayout
           Size="166,42"
           Id="Package\Fix Consignor Country Data\Lookup ISO Codes"
-          TopLeft="340,467" />
+          TopLeft="340,487" />
         <NodeLayout
-          Size="121,42"
-          Id="Package\Fix Consignor Country Data\Union All"
-          TopLeft="693,349" />
-        <NodeLayout
-          Size="127,42"
-          Id="Package\Fix Consignor Country Data\Aggregate"
-          TopLeft="670,607" />
+          Size="154,42"
+          Id="Package\Fix Consignor Country Data\Derived Column"
+          TopLeft="113,92" />
         <NodeLayout
           Size="200,42"
           Id="Package\Fix Consignor Country Data\Lookup conversion values"
-          TopLeft="322,603" />
+          TopLeft="322,623" />
         <NodeLayout
           Size="184,42"
           Id="Package\Fix Consignor Country Data\Lookup English names"
-          TopLeft="330,211" />
-        <EdgeLayout
-          Id="Package\Fix Consignor Country Data.Paths[Lookup Match Output1]"
-          TopLeft="482,371.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="211,0"
-              Start="0,0"
-              End="203.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="203.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="53.55861328125,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Consignor Country Data.Paths[Lookup Match Output]"
-          TopLeft="451.333333333333,253">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="302.166666666667,96"
-              Start="0,0"
-              End="302.166666666667,88.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,34.8965517241379" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,34.8965517241379"
-                    Point2="0,38.8965517241379"
-                    Point3="4,38.8965517241379" />
-                  <mssgle:LineSegment
-                    End="298.166666666667,38.8965517241379" />
-                  <mssgle:CubicBezierSegment
-                    Point1="298.166666666667,38.8965517241379"
-                    Point2="302.166666666667,38.8965517241379"
-                    Point3="302.166666666667,42.8965517241379" />
-                  <mssgle:LineSegment
-                    End="302.166666666667,88.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="102.891946614584,43.8965517241379,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fix Consignor Country Data.Paths[Aggregate Output 1]"
-          TopLeft="731,649">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,56"
-              Start="0,0"
-              End="0,48.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,48.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="330,231" />
+        <NodeLayout
+          Size="200,42"
+          Id="Package\Fix Consignor Country Data\OLE DB Source Consigner"
+          TopLeft="322,11" />
+        <NodeLayout
+          Size="121,42"
+          Id="Package\Fix Consignor Country Data\Union All"
+          TopLeft="693,369" />
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Fix Consignor Country Data\OLE DB Command"
+          TopLeft="330,130" />
+        <NodeLayout
+          Size="235,42"
+          Id="Package\Fix Consignor Country Data\OLE DB Command Update values"
+          TopLeft="834,463" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Fix Consignor Country Data\OLE DB Destination"
+          TopLeft="643,725" />
+        <NodeLayout
+          Size="127,42"
+          Id="Package\Fix Consignor Country Data\Aggregate"
+          TopLeft="670,627" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Fix Consignor Country Data\Lookup Dutch names"
+          TopLeft="304,372" />
         <EdgeLayout
           Id="Package\Fix Consignor Country Data.Paths[Union All Output 1]"
-          TopLeft="781.75,391">
+          TopLeft="781.75,411">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8151,38 +8273,80 @@ and ContainerNr = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fix Consignor Country Data.Paths[OLE DB Source Output]"
-          TopLeft="422,128">
+          TopLeft="422,53">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,83"
+              EndConnector="-232,39"
               Start="0,0"
-              End="0,75.5">
+              End="-232,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,75.5" />
+                    End="0,15.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.5"
+                    Point2="0,19.5"
+                    Point3="-4,19.5" />
+                  <mssgle:LineSegment
+                    End="-228,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-228,19.5"
+                    Point2="-232,19.5"
+                    Point3="-232,23.5" />
+                  <mssgle:LineSegment
+                    End="-232,31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Consignor Country Data.Paths[OLE DB Command Output]"
+          TopLeft="413,172">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9,59"
+              Start="0,0"
+              End="9,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,25.5"
+                    Point2="0,29.5"
+                    Point3="4,29.5" />
+                  <mssgle:LineSegment
+                    End="5,29.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5,29.5"
+                    Point2="9,29.5"
+                    Point3="9,33.5" />
+                  <mssgle:LineSegment
+                    End="9,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fix Consignor Country Data.Paths[Lookup No Match Output3]"
-          TopLeft="522,626">
+          TopLeft="522,646">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8206,7 +8370,7 @@ and ContainerNr = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fix Consignor Country Data.Paths[Lookup No Match Output2]"
-          TopLeft="422.5,509">
+          TopLeft="422.5,529">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8230,7 +8394,7 @@ and ContainerNr = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fix Consignor Country Data.Paths[Lookup No Match Output1]"
-          TopLeft="394.833333333333,394">
+          TopLeft="394.833333333333,414">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8254,7 +8418,7 @@ and ContainerNr = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fix Consignor Country Data.Paths[Lookup No Match Output]"
-          TopLeft="392.833333333333,253">
+          TopLeft="392.833333333333,273">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8278,7 +8442,7 @@ and ContainerNr = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fix Consignor Country Data.Paths[Lookup Match Output3]"
-          TopLeft="497,603">
+          TopLeft="497,623">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8314,7 +8478,7 @@ and ContainerNr = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Fix Consignor Country Data.Paths[Lookup Match Output2]"
-          TopLeft="449.333333333333,467">
+          TopLeft="449.333333333333,487">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -8348,58 +8512,125 @@ and ContainerNr = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Consignor Country Data.Paths[Lookup Match Output1]"
+          TopLeft="482,391.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="211,0"
+              Start="0,0"
+              End="203.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="203.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="53.55861328125,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Consignor Country Data.Paths[Lookup Match Output]"
+          TopLeft="451.333333333333,273">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="302.166666666667,96"
+              Start="0,0"
+              End="302.166666666667,88.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.8965517241379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.8965517241379"
+                    Point2="0,38.8965517241379"
+                    Point3="4,38.8965517241379" />
+                  <mssgle:LineSegment
+                    End="298.166666666667,38.8965517241379" />
+                  <mssgle:CubicBezierSegment
+                    Point1="298.166666666667,38.8965517241379"
+                    Point2="302.166666666667,38.8965517241379"
+                    Point3="302.166666666667,42.8965517241379" />
+                  <mssgle:LineSegment
+                    End="302.166666666667,88.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="102.891946614584,43.8965517241379,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Consignor Country Data.Paths[Derived Column Output]"
+          TopLeft="267,113">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="63,38"
+              Start="0,0"
+              End="55.5,38">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="27.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.5,0"
+                    Point2="31.5,0"
+                    Point3="31.5,4" />
+                  <mssgle:LineSegment
+                    End="31.5,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="31.5,34"
+                    Point2="31.5,38"
+                    Point3="35.5,38" />
+                  <mssgle:LineSegment
+                    End="55.5,38" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fix Consignor Country Data.Paths[Aggregate Output 1]"
+          TopLeft="731,669">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fix Consignor Country Data\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fix Consignor Country Data\OLE DB Source Consigner">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Fix Consignor Country Data\Lookup Dutch names">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:string">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[Countries]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Fix Consignor Country Data\Lookup ISO Codes">
     <Properties>
@@ -8469,45 +8700,94 @@ and ContainerNr = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Consignor Country Data\OLE DB Source Consigner">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Consignor Country Data\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Fix Consignor Country Data\Lookup Dutch names">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[Countries]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Fix Container Country Data">
     <LayoutInfo>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="235.2,41.6"
+          Size="235,42"
           Id="Package\Fix Container Country Data\OLE DB Command Update values"
           TopLeft="590,417" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171,42"
           Id="Package\Fix Container Country Data\OLE DB Destination"
           TopLeft="399,679" />
         <NodeLayout
-          Size="200,41.6"
+          Size="200,42"
           Id="Package\Fix Container Country Data\OLE DB Source Consigner"
           TopLeft="73,59" />
         <NodeLayout
-          Size="177.6,41.6"
+          Size="178,42"
           Id="Package\Fix Container Country Data\Lookup Dutch names"
           TopLeft="93,311" />
         <NodeLayout
-          Size="168,41.6"
+          Size="168,42"
           Id="Package\Fix Container Country Data\Lookup ISO names"
           TopLeft="86,185" />
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Fix Container Country Data\Union All"
           TopLeft="500,253" />
         <NodeLayout
-          Size="127.2,41.6"
+          Size="127,42"
           Id="Package\Fix Container Country Data\Aggregate"
           TopLeft="426,581" />
         <NodeLayout
-          Size="200,41.6"
+          Size="200,42"
           Id="Package\Fix Container Country Data\Lookup conversion values"
           TopLeft="78,577" />
         <NodeLayout
-          Size="184,41.6"
+          Size="184,42"
           Id="Package\Fix Container Country Data\Lookup English names"
           TopLeft="96,441" />
         <EdgeLayout
@@ -8900,7 +9180,7 @@ and ContainerNr = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q4:boolean">false</Value>
+          type="q4:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -8969,7 +9249,7 @@ and ContainerNr = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q4:boolean">false</Value>
+          type="q4:string">false</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -8979,39 +9259,39 @@ and ContainerNr = ?</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="120.8,41.6"
+          Size="121,42"
           Id="Package\Fix Port Country Data\Union All"
           TopLeft="534.615384615385,310" />
         <NodeLayout
-          Size="235.2,41.6"
+          Size="235,42"
           Id="Package\Fix Port Country Data\OLE DB Command Update values"
           TopLeft="510.801087801088,473.560994560995" />
         <NodeLayout
-          Size="171.2,41.6"
+          Size="171,42"
           Id="Package\Fix Port Country Data\OLE DB Destination"
           TopLeft="88.0380730380728,637.942501942502" />
         <NodeLayout
-          Size="172.8,41.6"
+          Size="173,42"
           Id="Package\Fix Port Country Data\OLE DB Source Port"
           TopLeft="115.272727272727,60" />
         <NodeLayout
-          Size="225.6,41.6"
+          Size="226,42"
           Id="Package\Fix Port Country Data\Lookup and replace ISO names"
           TopLeft="66.181818181818,393.181818181818" />
         <NodeLayout
-          Size="179.2,41.6"
+          Size="179,42"
           Id="Package\Fix Port Country Data\Lookup wrong values"
           TopLeft="112.363636363636,147.454545454545" />
         <NodeLayout
-          Size="127.2,41.6"
+          Size="127,42"
           Id="Package\Fix Port Country Data\Aggregate"
           TopLeft="112.307692307692,570" />
         <NodeLayout
-          Size="235.2,41.6"
+          Size="235,42"
           Id="Package\Fix Port Country Data\Lookup and replace dutch names"
           TopLeft="60,273.363636363636" />
         <NodeLayout
-          Size="176.8,41.6"
+          Size="177,42"
           Id="Package\Fix Port Country Data\Lookup faulty names"
           TopLeft="85.5034965034962,499.692307692308" />
         <EdgeLayout
@@ -9525,9 +9805,7 @@ and ContainerNr = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9549,9 +9827,7 @@ and ContainerNr = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -9837,9 +10113,7 @@ and ContainerNr = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -9954,7 +10228,7 @@ and ContainerNr = ?</property>
     design-time-name="Package\Load Countries">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170,42"
           Id="Package\Load Countries\OLE DB Destination"
@@ -9994,9 +10268,7 @@ and ContainerNr = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -10032,7 +10304,7 @@ and ContainerNr = ?</property>
     design-time-name="Package\Split ContainerNr">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="154,42"
           Id="Package\Split ContainerNr\Derived Column"
@@ -10076,9 +10348,7 @@ and ContainerNr = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10112,9 +10382,7 @@ and ContainerNr = ?</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

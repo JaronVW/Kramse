@@ -7,6 +7,8 @@ Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Kramse", "Kramse\Kramse.dtp
 EndProject
 Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Kramse_MDM", "Kramse_MDM\Kramse_MDM.dwproj", "{7CBA9D96-E1A5-4353-A720-5C7EB6C9E626}"
 EndProject
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Test", "Test\Test.dwproj", "{2452516C-5CEA-46EA-81A1-41B61B934086}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Development|Default = Development|Default
@@ -17,6 +19,9 @@ Global
 		{7CBA9D96-E1A5-4353-A720-5C7EB6C9E626}.Development|Default.ActiveCfg = Development
 		{7CBA9D96-E1A5-4353-A720-5C7EB6C9E626}.Development|Default.Build.0 = Development
 		{7CBA9D96-E1A5-4353-A720-5C7EB6C9E626}.Development|Default.Deploy.0 = Development
+		{2452516C-5CEA-46EA-81A1-41B61B934086}.Development|Default.ActiveCfg = Development
+		{2452516C-5CEA-46EA-81A1-41B61B934086}.Development|Default.Build.0 = Development
+		{2452516C-5CEA-46EA-81A1-41B61B934086}.Development|Default.Deploy.0 = Development
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

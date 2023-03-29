@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="RDBMS_to_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="20"
-  DTS:VersionGUID="{3FDCE01E-FFC0-4306-BC8A-D8C0DA19B98F}">
+  DTS:VersionBuild="23"
+  DTS:VersionGUID="{DA225383-4CD8-4618-8C34-CF8EF63AA40A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -4245,6 +4245,13 @@
                       cachedName="PortIdFrom"
                       externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
                       lineageId="Package\Load ShipmentVoyage\Merge VoyagePort.Outputs[Merge Join Output].Columns[PortIdFrom]" />
+                    <inputColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].Columns[ContainerNr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ContainerNr"
+                      externalMetadataColumnId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
+                      lineageId="Package\Load ShipmentVoyage\Merge VoyagePort.Outputs[Merge Join Output].Columns[ContainerNr]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4316,6 +4323,11 @@
                       refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[PortIdFrom]"
                       dataType="i4"
                       name="PortIdFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Load ShipmentVoyage\ShipmentVoyage Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      name="ContainerNr" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6329,31 +6341,31 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="163.2,41.6"
+          Size="163,42"
           Id="Package\Execute SQL Task"
           TopLeft="416,49" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\Load Consignor"
           TopLeft="249,245" />
         <NodeLayout
-          Size="172.8,41.6"
+          Size="173,42"
           Id="Package\Load ContainerType"
           TopLeft="415,242" />
         <NodeLayout
-          Size="127.2,41.6"
+          Size="127,42"
           Id="Package\Load Item"
           TopLeft="85,251" />
         <NodeLayout
-          Size="124,41.6"
+          Size="124,42"
           Id="Package\Load Port"
           TopLeft="852,246" />
         <NodeLayout
-          Size="124.8,41.6"
+          Size="125,42"
           Id="Package\Load Ship"
           TopLeft="672,244" />
         <NodeLayout
-          Size="184,41.6"
+          Size="184,42"
           Id="Package\Load ShipmentVoyage"
           TopLeft="405,423" />
         <EdgeLayout
@@ -7023,59 +7035,59 @@
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="107.2,41.6"
+          Size="107,42"
           Id="Package\Load ShipmentVoyage\Sort 2"
           TopLeft="524,272" />
         <NodeLayout
-          Size="97.6,41.6"
+          Size="98,42"
           Id="Package\Load ShipmentVoyage\Sort"
           TopLeft="529,101" />
         <NodeLayout
-          Size="159.2,41.6"
+          Size="159,42"
           Id="Package\Load ShipmentVoyage\Load VoyagePort"
           TopLeft="131,497" />
         <NodeLayout
-          Size="183.2,41.6"
+          Size="183,42"
           Id="Package\Load ShipmentVoyage\Merge ShipmentDetail"
           TopLeft="493,193" />
         <NodeLayout
-          Size="107.2,41.6"
+          Size="107,42"
           Id="Package\Load ShipmentVoyage\Sort 3"
           TopLeft="353,335" />
         <NodeLayout
-          Size="123.2,41.6"
+          Size="123,42"
           Id="Package\Load ShipmentVoyage\Shipment"
           TopLeft="521,22" />
         <NodeLayout
-          Size="145.6,41.6"
+          Size="146,42"
           Id="Package\Load ShipmentVoyage\Merge Voyage"
           TopLeft="503,342" />
         <NodeLayout
-          Size="164.8,41.6"
+          Size="165,42"
           Id="Package\Load ShipmentVoyage\Merge VoyagePort"
           TopLeft="504,514" />
         <NodeLayout
-          Size="107.2,41.6"
+          Size="107,42"
           Id="Package\Load ShipmentVoyage\Sort 4"
           TopLeft="351,507" />
         <NodeLayout
-          Size="107.2,41.6"
+          Size="107,42"
           Id="Package\Load ShipmentVoyage\Sort 5"
           TopLeft="528,428" />
         <NodeLayout
-          Size="214.4,41.6"
+          Size="214,42"
           Id="Package\Load ShipmentVoyage\ShipmentVoyage Destination"
           TopLeft="480,622" />
         <NodeLayout
-          Size="140,41.6"
+          Size="140,42"
           Id="Package\Load ShipmentVoyage\Load Voyage"
           TopLeft="136,331" />
         <NodeLayout
-          Size="176,41.6"
+          Size="176,42"
           Id="Package\Load ShipmentVoyage\Load ShipmentDetail"
           TopLeft="148,186" />
         <NodeLayout
-          Size="107.2,41.6"
+          Size="107,42"
           Id="Package\Load ShipmentVoyage\Sort 1"
           TopLeft="359,189" />
         <EdgeLayout

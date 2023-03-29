@@ -1,0 +1,552 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="069d0a87-13c5-4ae7-b886-d762b20fd023" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Kramse ODS</ID>
+  <Name>Kramse ODS</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="1550cec3-e80e-4744-be26-e8d5fbc49bb8">
+      <ID>Date Of Departure</ID>
+      <Name>Date Of Departure</Name>
+      <DimensionID>D Time</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="b5275fd5-8935-4c1d-a37c-d82593e1f453">
+          <AttributeID>PK Date</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="568055eb-5c15-4bb0-a512-f9478ffd0c42">
+      <ID>D Ship</ID>
+      <Name>D Ship</Name>
+      <DimensionID>D Ship</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="5e809bbc-67c0-4e13-9976-a5a435c3a153">
+          <AttributeID>Ship Row Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="0b14f338-2d4b-40b2-ae45-c136042efccb">
+      <ID>Date Of Arrival</ID>
+      <Name>Date Of Arrival</Name>
+      <DimensionID>D Time</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ac708fd3-5b93-403e-9b73-dedcbcb4d928">
+          <AttributeID>PK Date</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="332ee2e8-1089-4122-bd9a-2e70e8762a5c">
+      <ID>D Container Type</ID>
+      <Name>D Container Type</Name>
+      <DimensionID>D Container Type</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="c8d8d648-e2e5-4574-8ba5-35743594aadf">
+          <AttributeID>Container Type Row Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="566faaab-7351-4871-8ac0-ebd0e675e48d">
+      <ID>D Consignor</ID>
+      <Name>D Consignor</Name>
+      <DimensionID>D Consignor</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="eec6b0ed-3c32-49b8-85f7-3f037c5a1791">
+          <AttributeID>Consignor Row Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="6d0fb5e2-5529-4df4-8cd0-2d046b126a3d">
+      <ID>Port Id From</ID>
+      <Name>Port Id From</Name>
+      <DimensionID>D Port</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="e5fc0558-d492-4f75-99de-1ad626a70639">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="00bcb32d-9ad4-48d3-b800-6ff160a2b863">
+      <ID>Leg Date Arrival</ID>
+      <Name>Leg Date Arrival</Name>
+      <DimensionID>D Time</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="fc28acc2-a8b7-434d-9596-41b1cd6314ae">
+          <AttributeID>PK Date</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="bcac5936-15af-4dc6-b276-8af1be395cf7">
+      <ID>Port Id End</ID>
+      <Name>Port Id End</Name>
+      <DimensionID>D Port</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f2699b1a-9e24-4fec-bf5f-c19ed75d025d">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="9a6696cd-6316-4784-9129-868f0528ce85">
+      <ID>Port Id Start</ID>
+      <Name>Port Id Start</Name>
+      <DimensionID>D Port</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="ff0b35fc-cdf5-407c-a72f-59dcec732c87">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="12916aba-75c4-4dd6-89f8-35ba7b6b9110">
+      <ID>Port Id To</ID>
+      <Name>Port Id To</Name>
+      <DimensionID>D Port</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="42116e77-4940-4f68-991d-ff5b10a12d47">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="6cedba83-cb07-46b3-87c4-6c3da59062c9">
+      <ID>Leg Date Depart</ID>
+      <Name>Leg Date Depart</Name>
+      <DimensionID>D Time</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="57528aee-7f06-4260-bf59-f66d7b41119a">
+          <AttributeID>PK Date</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="b6ddabf8-19e4-4956-b3a0-e105b6e2f686">
+      <ID>D Port</ID>
+      <Name>D Port</Name>
+      <DimensionID>D Port</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f60d198b-83d2-4ed0-91fc-12416e8d377e">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="0e6137e0-b93b-46f7-be62-18e894fa3588">
+      <ID>D Item</ID>
+      <Name>D Item</Name>
+      <DimensionID>D Item</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="99b3deaf-c2bd-4c44-a843-f8f0c4efab3b">
+          <AttributeID>Id</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="df6e78cb-48d2-4d42-861a-159ec6767250">
+      <ID>F Days In Port</ID>
+      <Name>F Days In Port</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="1fad349a-7e00-46f2-8475-6d37bcd23095">
+          <ID>Number Of Days</ID>
+          <Name>Number Of Days</Name>
+          <Source dwd:design-time-name="dd7817b9-0caa-4eee-90ec-e34180a38d4a">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="0240f673-0c52-4d37-8eb8-c4498b573e5c">
+              <TableID>dbo_F_DaysInPort</TableID>
+              <ColumnID>NumberOfDays</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="c468aa40-e39e-438f-9834-0d726fafbbdb">
+          <ID>F Days In Port Count</ID>
+          <Name>F Days In Port Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="53d69eea-2ace-47e7-a199-7605c2c513cd">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="7f94b2fa-ddba-4122-870f-ba1cf0c6b9b7">
+              <TableID>dbo_F_DaysInPort</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="8b642d1e-62ae-4299-84cc-cc92d38adf86">
+          <CubeDimensionID>Date Of Departure</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="22dba61e-e496-4aa8-85f3-3a493e34cadc">
+              <AttributeID>PK Date</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d9037eb1-12c3-4cee-be70-6cc55d42645f">
+                  <DataType>Date</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f44db683-7bfc-4557-be06-88b90634300d">
+                    <TableID>dbo_F_DaysInPort</TableID>
+                    <ColumnID>DateOfDeparture</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="10d93b94-3031-47f8-bf68-1a52703eab0c">
+          <CubeDimensionID>D Ship</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="44af0321-49fa-4c83-8e84-2416badcaf2b">
+              <AttributeID>Ship Row Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0df2ada6-4c20-4a87-b217-f38c2f6ee29c">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="c9249300-3b21-4263-abb0-f8a888b9569a">
+                    <TableID>dbo_F_DaysInPort</TableID>
+                    <ColumnID>ShipRowId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="9e47b3b3-5d9b-4983-abac-0858aadb65c1">
+          <CubeDimensionID>Date Of Arrival</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d806502d-7469-4b15-9efa-49c583fa4907">
+              <AttributeID>PK Date</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="415593fb-b112-4f63-bd63-5ae05b627691">
+                  <DataType>Date</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="52bda4d9-e51d-4281-8c70-d608bb6a0b38">
+                    <TableID>dbo_F_DaysInPort</TableID>
+                    <ColumnID>DateOfArrival</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0d28b8ad-11c0-4899-a47e-c60dfbe73d64">
+          <CubeDimensionID>D Port</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="65ee171f-31b5-4c02-be9f-2a2939cf1480">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f881b57b-4f3c-41ad-b451-a1f9a1cbefa5">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="038857c2-06c1-43b7-9ac5-4d376ced6358">
+                    <TableID>dbo_F_DaysInPort</TableID>
+                    <ColumnID>PortId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+    <MeasureGroup dwd:design-time-name="63c9f3ea-2983-45f1-9dae-30d10ff83c2c">
+      <ID>F Shipment Voyage</ID>
+      <Name>F Shipment Voyage</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="2125c1f2-12ce-454d-b72f-4044b8f284b5">
+          <ID>Container From</ID>
+          <Name>Container From</Name>
+          <Source dwd:design-time-name="73a8afd2-5612-4427-978a-bef278314671">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="0fd0fb5e-547b-4c43-bf6d-1845dd94980a">
+              <TableID>dbo_F_ShipmentVoyage</TableID>
+              <ColumnID>ContainerFrom</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="27035c12-7107-4091-ba98-a52116fbfb11">
+          <ID>Container To</ID>
+          <Name>Container To</Name>
+          <Source dwd:design-time-name="4fdfcc8e-ce7a-4a35-b702-0f86f907967c">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="1e2cae28-abbb-41a4-926f-6b9571122df4">
+              <TableID>dbo_F_ShipmentVoyage</TableID>
+              <ColumnID>ContainerTo</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="6862ad70-6937-435b-875d-7ca3a2723e1f">
+          <ID>Number Containers</ID>
+          <Name>Number Containers</Name>
+          <Source dwd:design-time-name="21ee85d2-b5da-41f8-a402-793072078cca">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="0e5eda8f-4b06-47d0-b8fb-34fe484eb70b">
+              <TableID>dbo_F_ShipmentVoyage</TableID>
+              <ColumnID>NumberContainers</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="73ee7e31-8b2c-4bf5-a5b7-94747a3be0a5">
+          <ID>Distance</ID>
+          <Name>Distance</Name>
+          <Source dwd:design-time-name="944221ad-a787-4724-851d-c386c168c83d">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="35a31cc8-3cc8-4194-8963-edb4b4ae9b7a">
+              <TableID>dbo_F_ShipmentVoyage</TableID>
+              <ColumnID>Distance</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="29b0c70e-a71c-4b4c-9903-106dd08d0e18">
+          <ID>F Shipment Voyage Count</ID>
+          <Name>F Shipment Voyage Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="ef6728d5-26f9-4319-b615-af0b7cf1341e">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="66579399-22f7-492b-ba5c-dc8d8866fe09">
+              <TableID>dbo_F_ShipmentVoyage</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e164f433-94bd-414e-a939-9ac23b15bf1e">
+          <CubeDimensionID>D Container Type</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d1b8ef64-7a0b-412c-9566-8644313f98bd">
+              <AttributeID>Container Type Row Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="cd0a9b6a-075e-4b94-9453-443d8edb930c">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6f59ed45-fd03-4e70-8f1e-aff4dd118b9b">
+                    <TableID>dbo_F_ShipmentVoyage</TableID>
+                    <ColumnID>ContainerTypeRowId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="01838ba2-ef77-4241-9b6c-cce33585f564">
+          <CubeDimensionID>D Ship</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="52f47372-d9e7-4ec3-93db-5cd7eb21caff">
+              <AttributeID>Ship Row Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="6da68f33-c50e-44b4-9804-2ef1385e4a42">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="9f3e97ff-41c0-470b-b4f4-567e202433d4">
+                    <TableID>dbo_F_ShipmentVoyage</TableID>
+                    <ColumnID>ShipRowId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="4a9799a5-4d38-41e9-9d3e-67d1ebded951">
+          <CubeDimensionID>D Consignor</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="4494ec5d-5938-41a9-ab58-637911a33b1f">
+              <AttributeID>Consignor Row Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="4db55ab9-f42f-4fda-9c10-148844dc8a53">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="fe7aff68-734b-42f0-9db9-4db9c619b257">
+                    <TableID>dbo_F_ShipmentVoyage</TableID>
+                    <ColumnID>ConsignorRowId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="5c995ab4-0b06-463a-b582-9b36c717867a">
+          <CubeDimensionID>D Item</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6c991b65-9268-49fe-a8aa-2b8a2173445a">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="54d63461-e6c2-4995-aa85-905904b70351">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="6b461123-ee49-4e13-b618-b4c9466c7ba5">
+                    <TableID>dbo_F_ShipmentVoyage</TableID>
+                    <ColumnID>ItemId</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="922e3c9a-b670-400d-8f5e-59f63424f098">
+          <CubeDimensionID>Port Id From</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="086d58f5-1521-49c0-b985-675072a080f3">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="424263df-54ec-4f24-aa05-fb6b6718ccaf">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="4f6a841a-2312-49ff-80b5-ee1ed5e1f1a1">
+                    <TableID>dbo_F_ShipmentVoyage</TableID>
+                    <ColumnID>PortIdFrom</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1795564f-2d12-4c01-a3a5-2d227bf7ee73">
+          <CubeDimensionID>Leg Date Arrival</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2179061d-f918-4f50-8335-614d423e8a80">
+              <AttributeID>PK Date</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="58d492b0-55e8-48a4-9e57-28379c26afb1">
+                  <DataType>Date</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="12d6b4ba-e901-445b-9949-dbbe03e62b76">
+                    <TableID>dbo_F_ShipmentVoyage</TableID>
+                    <ColumnID>LegDateArrival</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="959ec999-3033-4170-9398-57f809f0870d">
+          <CubeDimensionID>Port Id End</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="6837b51d-8882-4399-bd63-8b66110bcd28">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="20e01071-ac68-4d7b-8861-5ff65fb8076b">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="0af4c3dc-e478-4e71-869a-ac5c4b7274df">
+                    <TableID>dbo_F_ShipmentVoyage</TableID>
+                    <ColumnID>PortIdEnd</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="71bafe28-f473-4507-ade9-b30e03e73f49">
+          <CubeDimensionID>Port Id Start</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="e1a90733-b621-4a54-9d3c-e7888b0d7581">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="935ae5c4-05fc-4c4f-a04f-55bbbecf352c">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="ce292799-1f66-4068-b245-c451c746f90d">
+                    <TableID>dbo_F_ShipmentVoyage</TableID>
+                    <ColumnID>PortIdStart</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="c6b44864-a578-4b7c-9e2f-0415002569ed">
+          <CubeDimensionID>Port Id To</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="562e6b73-e735-49e3-bab8-be9e431bc928">
+              <AttributeID>Id</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="78732539-9a4d-461b-b1e7-a1cfa33d6a2a">
+                  <DataType>Integer</DataType>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="435db5ce-0135-4617-b172-b29795b10bfe">
+                    <TableID>dbo_F_ShipmentVoyage</TableID>
+                    <ColumnID>PortIdTo</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="60dbc6c0-e532-451a-b1d0-fb5bf0721d53">
+          <CubeDimensionID>Leg Date Depart</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="4442a0f5-5356-49aa-bdb5-a66f854f28dc">
+              <AttributeID>PK Date</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="3b32aba3-574d-4e9d-a56f-710506837e1a">
+                  <DataType>Date</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="811b7949-df16-499f-bd99-0a527fed8814">
+                    <TableID>dbo_F_ShipmentVoyage</TableID>
+                    <ColumnID>LegDateDepart</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="c5913d02-ce56-4ff8-a505-d8bec778c85c">
+    <DataSourceViewID>Kramse ODS</DataSourceViewID>
+  </Source>
+</Cube>
