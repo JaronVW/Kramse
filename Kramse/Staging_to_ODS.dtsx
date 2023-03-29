@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="Staging_to_ODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="41"
-  DTS:VersionGUID="{2782C468-941F-4833-A488-5A554C72024D}">
+  DTS:VersionBuild="43"
+  DTS:VersionGUID="{D6D7C746-B151-40AF-8154-B7D47308A00C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -10307,35 +10307,39 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="195.2,41.6"
+          Size="176,42"
+          Id="Package\Calculate LoadFactor"
+          TopLeft="511.65714362957,432.79999981768" />
+        <NodeLayout
+          Size="195,42"
           Id="Package\Calculate NumberOfDays"
           TopLeft="838.82857286851,426.164705665178" />
         <NodeLayout
-          Size="152,41.6"
+          Size="152,42"
           Id="Package\Load Consignor"
           TopLeft="152,150" />
         <NodeLayout
-          Size="172.8,41.6"
+          Size="173,42"
           Id="Package\Load ContainerType"
           TopLeft="326,151" />
         <NodeLayout
-          Size="156.8,41.6"
+          Size="157,42"
           Id="Package\Load DaysInPort"
           TopLeft="856.666666666667,317.5" />
         <NodeLayout
-          Size="127.2,41.6"
+          Size="127,42"
           Id="Package\Load Item"
           TopLeft="525,149" />
         <NodeLayout
-          Size="127.2,41.6"
+          Size="127,42"
           Id="Package\Load Port"
           TopLeft="831.25,151.5" />
         <NodeLayout
-          Size="124.8,41.6"
+          Size="125,42"
           Id="Package\Load Ship"
           TopLeft="684,151" />
         <NodeLayout
-          Size="184,41.6"
+          Size="184,42"
           Id="Package\Load ShipmentVoyage"
           TopLeft="502,323" />
         <EdgeLayout
@@ -10586,10 +10590,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Calculate LoadFactor"
-          TopLeft="511.65714362957,432.79999981768" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
           TopLeft="596.828571814785,364.6">
@@ -10615,6 +10615,189 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Calculate LoadFactor">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="180.8,41.6"
+          Id="Package\Calculate LoadFactor\Lookup Max TEU Ship"
+          TopLeft="496.999992594123,116.999998256564" />
+        <NodeLayout
+          Size="216.8,41.6"
+          Id="Package\Calculate LoadFactor\ShipmentVoyage Source ODS"
+          TopLeft="477.999992877245,31.9999995231628" />
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\Calculate LoadFactor\Update ShipmentVoyage"
+          TopLeft="492.999992653727,405.799996110797" />
+        <NodeLayout
+          Size="206.4,41.6"
+          Id="Package\Calculate LoadFactor\Lookup TEU ContainerType"
+          TopLeft="479.999992847443,199.999997019768" />
+        <NodeLayout
+          Size="176,42.4"
+          Id="Package\Calculate LoadFactor\Calculate LoadFactor"
+          TopLeft="500.999992534518,302.999995484948" />
+        <EdgeLayout
+          Id="Package\Calculate LoadFactor.Paths[OLE DB Source Output]"
+          TopLeft="586.899992735684,73.5999995231628">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43.3999987334013"
+              Start="0,0"
+              End="0,35.8999987334013">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.8999987334013" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calculate LoadFactor.Paths[Lookup Match Output1]"
+          TopLeft="586.099992690981,241.599997019768">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.3999984651805"
+              Start="0,0"
+              End="0,53.8999984651805">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.8999984651805" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,21.1453117325902,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calculate LoadFactor.Paths[Lookup Match Output]"
+          TopLeft="585.299992720783,158.599998256564">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41.3999987632037"
+              Start="0,0"
+              End="0,33.8999987632037">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.8999987632037" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,11.1453118816018,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calculate LoadFactor.Paths[Derived Column Output]"
+          TopLeft="589.599992594123,345.399995484948">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.4000006258487"
+              Start="0,0"
+              End="0,52.9000006258487">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.9000006258487" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calculate LoadFactor\Lookup TEU ContainerType">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[D_ContainerType]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calculate LoadFactor\ShipmentVoyage Source ODS">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calculate LoadFactor\Lookup Max TEU Ship">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[D_Ship]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Calculate NumberOfDays">
     <LayoutInfo>
@@ -11060,39 +11243,39 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="162.4,41.6"
+          Size="162,42"
           Id="Package\Load ContainerType\Derived Column 3"
           TopLeft="159.5,513.5" />
         <NodeLayout
-          Size="152.8,41.6"
+          Size="153,42"
           Id="Package\Load ContainerType\Derived Column"
           TopLeft="488.571429611469,570.952941080619" />
         <NodeLayout
-          Size="208,41.6"
+          Size="208,42"
           Id="Package\Load ContainerType\Slowly Changing Dimension"
           TopLeft="136.7,107.1" />
         <NodeLayout
-          Size="174.4,41.6"
+          Size="174,42"
           Id="Package\Load ContainerType\OLE DB Command 2"
           TopLeft="301.5,208.7" />
         <NodeLayout
-          Size="183.2,41.6"
+          Size="183,42"
           Id="Package\Load ContainerType\ContainerType Source"
           TopLeft="149.1,5.49999999999995" />
         <NodeLayout
-          Size="174.4,41.6"
+          Size="174,42"
           Id="Package\Load ContainerType\OLE DB Command 1"
           TopLeft="5.50000000000004,310.3" />
         <NodeLayout
-          Size="162.4,41.6"
+          Size="162,42"
           Id="Package\Load ContainerType\Derived Column 2"
           TopLeft="17.5,208.7" />
         <NodeLayout
-          Size="203.2,41.6"
+          Size="203,42"
           Id="Package\Load ContainerType\ContainerType Destination"
           TopLeft="159.5,615.1" />
         <NodeLayout
-          Size="129.6,41.6"
+          Size="130,42"
           Id="Package\Load ContainerType\Union All 1"
           TopLeft="175.9,411.9" />
         <EdgeLayout
@@ -12517,6 +12700,10 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           Id="Package\Load ShipmentVoyage\Lookup ConsignorRowID"
           TopLeft="519,138" />
         <NodeLayout
+          Size="192.8,41.6"
+          Id="Package\Load ShipmentVoyage\ShipmentVoyage Source"
+          TopLeft="524,26" />
+        <NodeLayout
           Size="213.6,41.6"
           Id="Package\Load ShipmentVoyage\ShipmentVoyage Destination"
           TopLeft="512.285714805735,557.882352852749" />
@@ -12524,10 +12711,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           Size="215.2,41.6"
           Id="Package\Load ShipmentVoyage\Lookup ContainerTypeRowId"
           TopLeft="507,240" />
-        <NodeLayout
-          Size="192.8,41.6"
-          Id="Package\Load ShipmentVoyage\ShipmentVoyage Source"
-          TopLeft="524,26" />
         <NodeLayout
           Size="167.2,41.6"
           Id="Package\Load ShipmentVoyage\Lookup ShipRowId 1"
@@ -12555,7 +12738,9 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -12681,6 +12866,19 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
+    design-time-name="Package\Load ShipmentVoyage\ShipmentVoyage Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load ShipmentVoyage\ShipmentVoyage Destination">
     <Properties>
       <Property>
@@ -12717,19 +12915,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load ShipmentVoyage\ShipmentVoyage Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\Load ShipmentVoyage\Lookup Existing Facts">
     <Properties>
       <Property>
@@ -12746,185 +12931,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Calculate LoadFactor">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="216.8,41.6"
-          Id="Package\Calculate LoadFactor\ShipmentVoyage Source ODS"
-          TopLeft="477.999992877245,31.9999995231628" />
-        <NodeLayout
-          Size="176,42.4"
-          Id="Package\Calculate LoadFactor\Calculate LoadFactor"
-          TopLeft="500.999992534518,302.999995484948" />
-        <NodeLayout
-          Size="180.8,41.6"
-          Id="Package\Calculate LoadFactor\Lookup Max TEU Ship"
-          TopLeft="496.999992594123,116.999998256564" />
-        <EdgeLayout
-          Id="Package\Calculate LoadFactor.Paths[OLE DB Source Output]"
-          TopLeft="586.899992735684,73.5999995231628">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.3999987334013"
-              Start="0,0"
-              End="0,35.8999987334013">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.8999987334013" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="206.4,41.6"
-          Id="Package\Calculate LoadFactor\Lookup TEU ContainerType"
-          TopLeft="479.999992847443,199.999997019768" />
-        <EdgeLayout
-          Id="Package\Calculate LoadFactor.Paths[Lookup Match Output]"
-          TopLeft="585.299992720783,158.599998256564">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41.3999987632037"
-              Start="0,0"
-              End="0,33.8999987632037">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.8999987632037" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,11.1453118816018,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Calculate LoadFactor.Paths[Lookup Match Output1]"
-          TopLeft="586.099992690981,241.599997019768">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,61.3999984651805"
-              Start="0,0"
-              End="0,53.8999984651805">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,53.8999984651805" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,21.1453117325902,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="194.4,41.6"
-          Id="Package\Calculate LoadFactor\Update ShipmentVoyage"
-          TopLeft="492.999992653727,405.799996110797" />
-        <EdgeLayout
-          Id="Package\Calculate LoadFactor.Paths[Derived Column Output]"
-          TopLeft="589.599992594123,345.399995484948">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60.4000006258487"
-              Start="0,0"
-              End="0,52.9000006258487">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.9000006258487" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Calculate LoadFactor\ShipmentVoyage Source ODS">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Calculate LoadFactor\Lookup Max TEU Ship">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[D_Ship]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Calculate LoadFactor\Lookup TEU ContainerType">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[D_ContainerType]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
