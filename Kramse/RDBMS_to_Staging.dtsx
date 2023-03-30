@@ -12,7 +12,7 @@
   DTS:ObjectName="RDBMS_to_Staging"
   DTS:PackageType="5"
   DTS:VersionBuild="27"
-  DTS:VersionGUID="{1F3B5202-A190-461F-9B5D-0886D9C3C0C4}">
+  DTS:VersionGUID="{09523030-C48B-4356-91BC-2CDFB8EFFB84}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
