@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="RDBMS_to_Staging"
   DTS:PackageType="5"
-  DTS:VersionBuild="27"
-  DTS:VersionGUID="{09523030-C48B-4356-91BC-2CDFB8EFFB84}">
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{1E6A2EAD-CFFA-47B4-B11F-A1AE33B177CE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -558,21 +558,27 @@
                       name="PowerFlag" />
                     <externalMetadataColumn
                       refId="Package\Load ContainerType\ContainerType destination.Inputs[OLE DB Destination Input].ExternalColumns[Length]"
-                      dataType="r8"
-                      name="Length" />
+                      dataType="numeric"
+                      name="Length"
+                      precision="6"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\Load ContainerType\ContainerType destination.Inputs[OLE DB Destination Input].ExternalColumns[Cubes]"
-                      dataType="r8"
-                      name="Cubes" />
+                      dataType="numeric"
+                      name="Cubes"
+                      precision="6"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\Load ContainerType\ContainerType destination.Inputs[OLE DB Destination Input].ExternalColumns[EuroPricePerKm]"
-                      dataType="r8"
-                      name="EuroPricePerKm" />
+                      dataType="numeric"
+                      name="EuroPricePerKm"
+                      precision="4"
+                      scale="1" />
                     <externalMetadataColumn
                       refId="Package\Load ContainerType\ContainerType destination.Inputs[OLE DB Destination Input].ExternalColumns[TEU]"
                       dataType="numeric"
                       name="TEU"
-                      precision="2"
+                      precision="4"
                       scale="1" />
                   </externalMetadataColumns>
                 </input>
@@ -6763,7 +6769,7 @@
     design-time-name="Package\Load ContainerType">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="150.4,41.6"
           Id="Package\Load ContainerType\Load Container"
@@ -6803,7 +6809,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-8.47556640625,75.5,30.9511328125,9.6025390625"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
