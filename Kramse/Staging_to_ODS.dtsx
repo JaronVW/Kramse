@@ -7,16 +7,1097 @@
   DTS:CreatorName="DESKTOP-GL58MB9\timot"
   DTS:DTSID="{78FE4990-EC5D-460A-A416-3BED87FC3A93}"
   DTS:ExecutableType="Microsoft.Package"
-  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LastModifiedProductVersion="16.0.5131.0"
   DTS:LocaleID="8192"
   DTS:ObjectName="Staging_to_ODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="43"
-  DTS:VersionGUID="{42CF39EE-35E9-433A-9920-D125DD0D61DF}">
+  DTS:VersionBuild="46"
+  DTS:VersionGUID="{6E5F7F93-F5ED-4CAA-A73D-C54CC75620A6}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Calculate Impropely Stocked Containers"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B67A7492-3F30-44DA-A584-D10FB0E48F33}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Calculate Impropely Stocked Containers"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Check if item is stored correctly"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Inputs[Derived Column Input].Columns[ContainerFrom]"
+                      cachedDataType="i4"
+                      cachedName="ContainerFrom"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerFrom]" />
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Inputs[Derived Column Input].Columns[ContainerTo]"
+                      cachedDataType="i4"
+                      cachedName="ContainerTo"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTo]" />
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Inputs[Derived Column Input].Columns[IncorrectlyStoredContainers]"
+                      cachedDataType="i4"
+                      cachedName="IncorrectlyStoredContainers"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[IncorrectlyStoredContainers]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">#{Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output].Columns[ContainerType]} == #{Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Match Output].Columns[ItemStorageType]} ? 0 : (#{Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTo]} - #{Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerFrom]} + 1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ContainerType == ItemStorageType ? 0 : (ContainerTo - ContainerFrom + 1)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Inputs[Derived Column Input].Columns[ContainerType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ContainerType"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output].Columns[ContainerType]" />
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Inputs[Derived Column Input].Columns[ItemStorageType]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ItemStorageType"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Match Output].Columns[ItemStorageType]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup ContainerType"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[D_ContainerType]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[D_ContainerType]) [refTable]
+where [refTable].[ContainerTypeRowId] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ContainerTypeRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Type" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RefrigerationFlag" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PowerFlag" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Length" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Cubes" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TEU" dataType="DT_NUMERIC" length="0" precision="2" scale="1" codePage="0"/&gt;&lt;referenceColumn name="EuroPricePerKm" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StartDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EndDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTypeRowId]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Connections[OleDbConnection]"
+                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Inputs[Lookup Input].Columns[ContainerTypeRowId]"
+                      cachedDataType="i4"
+                      cachedName="ContainerTypeRowId"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTypeRowId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">ContainerTypeRowId</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output].Columns[ContainerType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output].Columns[ContainerType]"
+                      name="ContainerType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">Type</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup ItemStorageType"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[D_Item]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[D_Item]) [refTable]
+where [refTable].[Id] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Description" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Category" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MFGR" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StorageType" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="HazardFlag" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ItemId]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Connections[OleDbConnection]"
+                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Inputs[Lookup Input].Columns[ItemId]"
+                      cachedDataType="i4"
+                      cachedName="ItemId"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ItemId]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">Id</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Match Output].Columns[ItemStorageType]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Copy Column"
+                      length="50"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Match Output].Columns[ItemStorageType]"
+                      name="ItemStorageType"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">StorageType</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="ShipmentVoyage"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[F_ShipmentVoyage]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Connections[OleDbConnection]"
+                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ShipmentId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ShipmentId]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ShipmentId]"
+                      name="ShipmentId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ShipRowId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ShipRowId]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ShipRowId]"
+                      name="ShipRowId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerFrom]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ContainerFrom]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerFrom]"
+                      name="ContainerFrom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ContainerTo]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTo]"
+                      name="ContainerTo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[LoadFactor]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[LoadFactor]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[LoadFactor]"
+                      name="LoadFactor"
+                      precision="4"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerNr]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ContainerNr]"
+                      length="50"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerNr]"
+                      name="ContainerNr"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ConsignorRowId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ConsignorRowId]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ConsignorRowId]"
+                      name="ConsignorRowId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ItemId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ItemId]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ItemId]"
+                      name="ItemId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[NumberContainers]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[NumberContainers]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[NumberContainers]"
+                      name="NumberContainers"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTypeRowId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ContainerTypeRowId]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTypeRowId]"
+                      name="ContainerTypeRowId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[PortIdFrom]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[PortIdFrom]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[PortIdFrom]"
+                      name="PortIdFrom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[PortIdTo]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[PortIdTo]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[PortIdTo]"
+                      name="PortIdTo"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[Distance]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[Distance]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[Distance]"
+                      name="Distance"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[VoyageId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[VoyageId]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[VoyageId]"
+                      name="VoyageId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[LegDateDepart]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[LegDateDepart]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[LegDateDepart]"
+                      name="LegDateDepart"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[LegDateArrival]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[LegDateArrival]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[LegDateArrival]"
+                      name="LegDateArrival"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[PortIdStart]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[PortIdStart]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[PortIdStart]"
+                      name="PortIdStart"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[PortIdEnd]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[PortIdEnd]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[PortIdEnd]"
+                      name="PortIdEnd"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[IncorrectlyStoredContainers]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[IncorrectlyStoredContainers]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[IncorrectlyStoredContainers]"
+                      name="IncorrectlyStoredContainers"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ShipmentId]"
+                      dataType="i4"
+                      name="ShipmentId" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ShipRowId]"
+                      dataType="i4"
+                      name="ShipRowId" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ContainerFrom]"
+                      dataType="i4"
+                      name="ContainerFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ContainerTo]"
+                      dataType="i4"
+                      name="ContainerTo" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[LoadFactor]"
+                      dataType="numeric"
+                      name="LoadFactor"
+                      precision="4"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      name="ContainerNr" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ConsignorRowId]"
+                      dataType="i4"
+                      name="ConsignorRowId" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ItemId]"
+                      dataType="i4"
+                      name="ItemId" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[NumberContainers]"
+                      dataType="i4"
+                      name="NumberContainers" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[ContainerTypeRowId]"
+                      dataType="i4"
+                      name="ContainerTypeRowId" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[PortIdFrom]"
+                      dataType="i4"
+                      name="PortIdFrom" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[PortIdTo]"
+                      dataType="i4"
+                      name="PortIdTo" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[Distance]"
+                      dataType="i4"
+                      name="Distance" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[VoyageId]"
+                      dataType="i4"
+                      name="VoyageId" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[LegDateDepart]"
+                      dataType="dbTimeStamp"
+                      name="LegDateDepart" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[LegDateArrival]"
+                      dataType="dbTimeStamp"
+                      name="LegDateArrival" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[PortIdStart]"
+                      dataType="i4"
+                      name="PortIdStart" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[PortIdEnd]"
+                      dataType="i4"
+                      name="PortIdEnd" />
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].ExternalColumns[IncorrectlyStoredContainers]"
+                      dataType="i4"
+                      name="IncorrectlyStoredContainers" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ShipmentId]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ShipmentId]"
+                      name="ShipmentId" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ShipRowId]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ShipRowId]"
+                      name="ShipRowId" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ContainerFrom]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ContainerFrom]"
+                      name="ContainerFrom" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ContainerTo]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ContainerTo]"
+                      name="ContainerTo" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[LoadFactor]"
+                      dataType="numeric"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[LoadFactor]"
+                      name="LoadFactor"
+                      precision="4"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ContainerNr]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ContainerNr]"
+                      name="ContainerNr" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ConsignorRowId]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ConsignorRowId]"
+                      name="ConsignorRowId" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ItemId]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ItemId]"
+                      name="ItemId" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[NumberContainers]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[NumberContainers]"
+                      name="NumberContainers" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ContainerTypeRowId]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ContainerTypeRowId]"
+                      name="ContainerTypeRowId" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[PortIdFrom]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[PortIdFrom]"
+                      name="PortIdFrom" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[PortIdTo]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[PortIdTo]"
+                      name="PortIdTo" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[Distance]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[Distance]"
+                      name="Distance" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[VoyageId]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[VoyageId]"
+                      name="VoyageId" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[LegDateDepart]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[LegDateDepart]"
+                      name="LegDateDepart" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[LegDateArrival]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[LegDateArrival]"
+                      name="LegDateArrival" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[PortIdStart]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[PortIdStart]"
+                      name="PortIdStart" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[PortIdEnd]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[PortIdEnd]"
+                      name="PortIdEnd" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[IncorrectlyStoredContainers]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[IncorrectlyStoredContainers]"
+                      name="IncorrectlyStoredContainers" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update ShipmentVoyage"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update F_ShipmentVoyage 
+set IncorrectlyStoredContainers = ? 
+where ShipmentId = ? 
+and VoyageId = ? 
+and PortIdFrom = ? 
+and PortIdTo = ? 
+and ContainerNr = ? </property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Connections[OleDbConnection]"
+                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].Columns[IncorrectlyStoredContainers]"
+                      cachedDataType="i4"
+                      cachedName="IncorrectlyStoredContainers"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[IncorrectlyStoredContainers]" />
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].Columns[ShipmentId]"
+                      cachedDataType="i4"
+                      cachedName="ShipmentId"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ShipmentId]" />
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].Columns[VoyageId]"
+                      cachedDataType="i4"
+                      cachedName="VoyageId"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[VoyageId]" />
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].Columns[PortIdFrom]"
+                      cachedDataType="i4"
+                      cachedName="PortIdFrom"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[PortIdFrom]" />
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].Columns[PortIdTo]"
+                      cachedDataType="i4"
+                      cachedName="PortIdTo"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[PortIdTo]" />
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].Columns[ContainerNr]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="ContainerNr"
+                      externalMetadataColumnId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      lineageId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerNr]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="i4"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="i4"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
+                      dataType="i4"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
+                      dataType="wstr"
+                      length="50"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Calculate Impropely Stocked Containers.Paths[Derived Column Output]"
+              endId="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage.Inputs[OLE DB Command Input]"
+              name="Derived Column Output"
+              startId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Calculate Impropely Stocked Containers.Paths[Lookup Match Output]"
+              endId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Inputs[Lookup Input]"
+              name="Lookup Match Output"
+              startId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Calculate Impropely Stocked Containers.Paths[Lookup Match Output1]"
+              endId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Inputs[Derived Column Input]"
+              name="Lookup Match Output"
+              startId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Calculate Impropely Stocked Containers.Paths[OLE DB Source Output]"
+              endId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Inputs[Lookup Input]"
+              name="OLE DB Source Output"
+              startId="Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Calculate LoadFactor"
       DTS:CreationName="Microsoft.Pipeline"
@@ -869,6 +1950,349 @@ where [refTable].[ContainerTypeRowId] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Sum LoadFactor and GroupBy"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Inputs[Aggregate Input 1].Columns[LoadFactor]"
+                      cachedDataType="numeric"
+                      cachedName="LoadFactor"
+                      cachedPrecision="4"
+                      cachedScale="2"
+                      lineageId="Package\Calculate LoadFactor\ShipmentVoyage Source ODS.Outputs[OLE DB Source Output].Columns[LoadFactor]" />
+                    <inputColumn
+                      refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Inputs[Aggregate Input 1].Columns[ShipRowId]"
+                      cachedDataType="i4"
+                      cachedName="ShipRowId"
+                      lineageId="Package\Calculate LoadFactor\ShipmentVoyage Source ODS.Outputs[OLE DB Source Output].Columns[ShipRowId]" />
+                    <inputColumn
+                      refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Inputs[Aggregate Input 1].Columns[PortIdFrom]"
+                      cachedDataType="i4"
+                      cachedName="PortIdFrom"
+                      lineageId="Package\Calculate LoadFactor\ShipmentVoyage Source ODS.Outputs[OLE DB Source Output].Columns[PortIdFrom]" />
+                    <inputColumn
+                      refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Inputs[Aggregate Input 1].Columns[LegDateDepart]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LegDateDepart"
+                      lineageId="Package\Calculate LoadFactor\ShipmentVoyage Source ODS.Outputs[OLE DB Source Output].Columns[LegDateDepart]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[LoadFactor]"
+                      dataType="numeric"
+                      lineageId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[LoadFactor]"
+                      name="LoadFactor"
+                      precision="4"
+                      scale="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Calculate LoadFactor\ShipmentVoyage Source ODS.Outputs[OLE DB Source Output].Columns[LoadFactor]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[ShipRowId]"
+                      dataType="i4"
+                      lineageId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[ShipRowId]"
+                      name="ShipRowId">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Calculate LoadFactor\ShipmentVoyage Source ODS.Outputs[OLE DB Source Output].Columns[ShipRowId]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[PortIdFrom]"
+                      dataType="i4"
+                      lineageId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[PortIdFrom]"
+                      name="PortIdFrom">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Calculate LoadFactor\ShipmentVoyage Source ODS.Outputs[OLE DB Source Output].Columns[PortIdFrom]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[LegDateDepart]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[LegDateDepart]"
+                      name="LegDateDepart">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Calculate LoadFactor\ShipmentVoyage Source ODS.Outputs[OLE DB Source Output].Columns[LegDateDepart]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Calculate LoadFactor\Update DaysInPort"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="Update DaysInPort"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update F_DaysInPort 
+set LoadFactor = ? 
+where ShipRowId = ? 
+and PortId = ? 
+and DateOfDeparture = ? </property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Calculate LoadFactor\Update DaysInPort.Connections[OleDbConnection]"
+                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].Columns[LoadFactor]"
+                      cachedDataType="numeric"
+                      cachedName="LoadFactor"
+                      cachedPrecision="4"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      lineageId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[LoadFactor]" />
+                    <inputColumn
+                      refId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].Columns[ShipRowId]"
+                      cachedDataType="i4"
+                      cachedName="ShipRowId"
+                      externalMetadataColumnId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      lineageId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[ShipRowId]" />
+                    <inputColumn
+                      refId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].Columns[PortIdFrom]"
+                      cachedDataType="i4"
+                      cachedName="PortIdFrom"
+                      externalMetadataColumnId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      lineageId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[PortIdFrom]" />
+                    <inputColumn
+                      refId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].Columns[LegDateDepart]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="LegDateDepart"
+                      externalMetadataColumnId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      lineageId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1].Columns[LegDateDepart]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
+                      dataType="numeric"
+                      name="Param_0"
+                      precision="4"
+                      scale="2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
+                      dataType="i4"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
+                      dataType="i4"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">17</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
+                      dataType="dbTimeStamp"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Calculate LoadFactor\Update DaysInPort.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Calculate LoadFactor\Update DaysInPort.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Calculate LoadFactor\Update DaysInPort.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Calculate LoadFactor\Update DaysInPort.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Calculate LoadFactor\Update DaysInPort.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Calculate LoadFactor\Update DaysInPort.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Calculate LoadFactor\Update ShipmentVoyage"
               componentClassID="Microsoft.OLEDBCommand"
               contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
@@ -1063,6 +2487,11 @@ and ContainerNr = ? </property>
           </components>
           <paths>
             <path
+              refId="Package\Calculate LoadFactor.Paths[Aggregate Output 1]"
+              endId="Package\Calculate LoadFactor\Update DaysInPort.Inputs[OLE DB Command Input]"
+              name="Aggregate Output 1"
+              startId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Outputs[Aggregate Output 1]" />
+            <path
               refId="Package\Calculate LoadFactor.Paths[Derived Column Output]"
               endId="Package\Calculate LoadFactor\Update ShipmentVoyage.Inputs[OLE DB Command Input]"
               name="Derived Column Output"
@@ -1077,6 +2506,11 @@ and ContainerNr = ? </property>
               endId="Package\Calculate LoadFactor\Calculate LoadFactor.Inputs[Derived Column Input]"
               name="Lookup Match Output"
               startId="Package\Calculate LoadFactor\Lookup TEU ContainerType.Outputs[Lookup Match Output]" />
+            <path
+              refId="Package\Calculate LoadFactor.Paths[OLE DB Command Output]"
+              endId="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy.Inputs[Aggregate Input 1]"
+              name="OLE DB Command Output"
+              startId="Package\Calculate LoadFactor\Update ShipmentVoyage.Outputs[OLE DB Command Output]" />
             <path
               refId="Package\Calculate LoadFactor.Paths[OLE DB Source Output]"
               endId="Package\Calculate LoadFactor\Lookup Max TEU Ship.Inputs[Lookup Input]"
@@ -10238,6 +11672,14 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Load ShipmentVoyage" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{13BC7214-C75A-4BC0-8BD5-5DCB3710E984}"
+      DTS:From="Package\Load ShipmentVoyage"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\Calculate Impropely Stocked Containers" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{367F5E8F-9B7F-402E-95C4-22B0886FCEB4}"
@@ -10293,6 +11735,14 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
       DTS:To="Package\Calculate LoadFactor" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{A36F7477-C789-4006-A468-9FC2F44BDD88}"
+      DTS:From="Package\Load DaysInPort"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Calculate LoadFactor" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -10309,7 +11759,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         <NodeLayout
           Size="176,41.6"
           Id="Package\Calculate LoadFactor"
-          TopLeft="511.65714362957,432.79999981768" />
+          TopLeft="630.228572453406,433.564705699363" />
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\Calculate NumberOfDays"
@@ -10592,18 +12042,102 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="596.828571814785,364.6">
+          TopLeft="594,364.6">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,68.19999981768"
+              EndConnector="96.2285724534059,68.9647056993626"
               Start="0,0"
-              End="0,60.69999981768">
+              End="96.2285724534059,61.4647056993626">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,60.69999981768" />
+                    End="0,37.006041226648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,37.006041226648"
+                    Point2="0,41.006041226648"
+                    Point3="4,41.006041226648" />
+                  <mssgle:LineSegment
+                    End="92.2285724534059,41.006041226648" />
+                  <mssgle:CubicBezierSegment
+                    Point1="92.2285724534059,41.006041226648"
+                    Point2="96.2285724534059,41.006041226648"
+                    Point3="96.2285724534059,45.006041226648" />
+                  <mssgle:LineSegment
+                    End="96.2285724534059,61.4647056993626" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="910.266666666667,359.1">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-164.038094213261,74.4647056993626"
+              Start="0,0"
+              End="-164.038094213261,66.9647056993626">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.2829402856184" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.2829402856184"
+                    Point2="0,37.2829402856184"
+                    Point3="-4,37.2829402856184" />
+                  <mssgle:LineSegment
+                    End="-160.038094213261,37.2829402856184" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-160.038094213261,37.2829402856184"
+                    Point2="-164.038094213261,37.2829402856184"
+                    Point3="-164.038094213261,41.2829402856184" />
+                  <mssgle:LineSegment
+                    End="-164.038094213261,66.9647056993626" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="265.6,41.6"
+          Id="Package\Calculate Impropely Stocked Containers"
+          TopLeft="348.200000053218,433.105882161237" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="564.666666666667,364.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-83.6666666134482,68.505882161237"
+              Start="0,0"
+              End="-83.6666666134482,61.005882161237">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7566936342943" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7566936342943"
+                    Point2="0,27.7566936342943"
+                    Point3="-4,27.7566936342943" />
+                  <mssgle:LineSegment
+                    End="-79.6666666134482,27.7566936342943" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-79.6666666134482,27.7566936342943"
+                    Point2="-83.6666666134482,27.7566936342943"
+                    Point3="-83.6666666134482,31.7566936342943" />
+                  <mssgle:LineSegment
+                    End="-83.6666666134482,61.005882161237" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10659,9 +12193,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -10731,9 +12263,59 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="218.4,41.6"
+          Id="Package\Calculate LoadFactor\Sum LoadFactor and GroupBy"
+          TopLeft="473.928572437441,498.970587797927" />
+        <EdgeLayout
+          Id="Package\Calculate LoadFactor.Paths[OLE DB Command Output]"
+          TopLeft="586.664282545584,447.399996110797">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51.5705916871297"
+              Start="0,0"
+              End="0,44.0705916871297">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.0705916871297" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167.2,41.6"
+          Id="Package\Calculate LoadFactor\Update DaysInPort"
+          TopLeft="497.142858201144,584.870587735255" />
+        <EdgeLayout
+          Id="Package\Calculate LoadFactor.Paths[Aggregate Output 1]"
+          TopLeft="581.935715319292,540.570587797927">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.2999999373279"
+              Start="0,0"
+              End="0,36.7999999373279">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.7999999373279" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -11560,6 +13142,19 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load ContainerType\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load DaysInPort">
     <LayoutInfo>
@@ -12184,6 +13779,19 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
   &lt;DateVariable /&gt;
   &lt;EnableInferredSupport&gt;false&lt;/EnableInferredSupport&gt;
 &lt;/SCDWizardMetadata&gt;</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Port\Insert Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -12819,8 +14427,128 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Calculate Impropely Stocked Containers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Calculate Impropely Stocked Containers\ShipmentVoyage"
+          TopLeft="342.999994888902,65.9999990165234" />
+        <NodeLayout
+          Size="184,41.6"
+          Id="Package\Calculate Impropely Stocked Containers\Lookup ContainerType"
+          TopLeft="327.999995112419,139.999997913837" />
+        <EdgeLayout
+          Id="Package\Calculate Impropely Stocked Containers.Paths[OLE DB Source Output]"
+          TopLeft="420.899995000661,107.599999016523">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.399998897314"
+              Start="0,0"
+              End="0,24.899998897314">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.899998897314" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="197.6,41.6"
+          Id="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType"
+          TopLeft="326.99999512732,228.999996587634" />
+        <EdgeLayout
+          Id="Package\Calculate Impropely Stocked Containers.Paths[Lookup Match Output]"
+          TopLeft="422.89999511987,181.599997913837">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47.3999986737967"
+              Start="0,0"
+              End="0,39.8999986737967">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.8999986737967" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,14.1453118368984,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="226.4,42.4"
+          Id="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly"
+          TopLeft="312.999995335937,320.999995216727" />
+        <EdgeLayout
+          Id="Package\Calculate Impropely Stocked Containers.Paths[Lookup Match Output1]"
+          TopLeft="425.999995231628,270.599996587634">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.3999986290932"
+              Start="0,0"
+              End="0,42.8999986290932">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.8999986290932" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,15.6453118145466,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="194.4,41.6"
+          Id="Package\Calculate Impropely Stocked Containers\Update ShipmentVoyage"
+          TopLeft="321.999995201826,400.599994650483" />
+        <EdgeLayout
+          Id="Package\Calculate Impropely Stocked Containers.Paths[Derived Column Output]"
+          TopLeft="422.699995268881,363.399995216727">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.1999994337557"
+              Start="0,0"
+              End="0,29.6999994337557">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.6999994337557" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load ContainerType\Insert Destination">
+    design-time-name="Package\Calculate Impropely Stocked Containers\ShipmentVoyage">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -12833,15 +14561,48 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Port\Insert Destination">
+    design-time-name="Package\Calculate Impropely Stocked Containers\Lookup ContainerType">
     <Properties>
       <Property>
-        <Name>DataSourceViewID</Name>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[D_ContainerType]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[D_Item]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
