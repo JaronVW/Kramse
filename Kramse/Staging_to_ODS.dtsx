@@ -11,1151 +11,12 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="Staging_to_ODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="54"
-  DTS:VersionGUID="{B27B5C46-E272-4AB3-AE75-AA7639922BF3}">
+  DTS:VersionBuild="55"
+  DTS:VersionGUID="{16295560-DB78-46E6-82D7-2BBBD8BFFBF5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
   <DTS:Executables>
-    <DTS:Executable
-      DTS:refId="Package\Calculate Fuel Consumption"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{927AAE58-7425-4BA3-986A-2B53C840D50B}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Calculate Fuel Consumption"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Calculate TEU of all Containers"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input].Columns[ContainerFrom]"
-                      cachedDataType="i4"
-                      cachedName="ContainerFrom"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerFrom]" />
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input].Columns[ContainerTo]"
-                      cachedDataType="i4"
-                      cachedName="ContainerTo"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]" />
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input].Columns[TEU]"
-                      cachedDataType="numeric"
-                      cachedName="TEU"
-                      cachedPrecision="2"
-                      cachedScale="1"
-                      lineageId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Match Output].Columns[TEU]" />
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input].Columns[SpeedInKnots]"
-                      cachedDataType="i4"
-                      cachedName="SpeedInKnots"
-                      lineageId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Match Output].Columns[SpeedInKnots]" />
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input].Columns[FuelConsumption]"
-                      cachedDataType="numeric"
-                      cachedName="FuelConsumption"
-                      cachedPrecision="18"
-                      cachedScale="2"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[FuelConsumption]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">((#{Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]} - #{Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerFrom]} + 1) * #{Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Match Output].Columns[TEU]} * 10 * [POWER](#{Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Match Output].Columns[SpeedInKnots]},2 / 3) * 0.7 / 2252) * (0.1727 * [POWER](#{Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Match Output].Columns[SpeedInKnots]},2) - (0.217 * #{Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Match Output].Columns[SpeedInKnots]})) * [DATEDIFF]("day",#{Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LegDateDepart]},#{Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LegDateArrival]})</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">((ContainerTo - ContainerFrom + 1) * TEU * 10 * POWER(SpeedInKnots,2 / 3) * 0.7 / 2252) * (0.1727 * POWER(SpeedInKnots,2) - (0.217 * SpeedInKnots)) * DATEDIFF("day",LegDateDepart,LegDateArrival)</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input].Columns[LegDateDepart]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="LegDateDepart"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LegDateDepart]" />
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input].Columns[LegDateArrival]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="LegDateArrival"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LegDateArrival]" />
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="F_ShipmentVoyage Source"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[F_ShipmentVoyage]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Connections[OleDbConnection]"
-                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipmentId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ShipmentId]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipmentId]"
-                      name="ShipmentId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipRowId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ShipRowId]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipRowId]"
-                      name="ShipRowId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerFrom]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerFrom]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerFrom]"
-                      name="ContainerFrom"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerTo]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTo]"
-                      name="ContainerTo"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LoadFactor]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[LoadFactor]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LoadFactor]"
-                      name="LoadFactor"
-                      precision="4"
-                      scale="2"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerNr]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerNr]"
-                      length="50"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerNr]"
-                      name="ContainerNr"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ConsignorRowId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ConsignorRowId]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ConsignorRowId]"
-                      name="ConsignorRowId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ItemId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ItemId]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ItemId]"
-                      name="ItemId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[NumberContainers]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[NumberContainers]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[NumberContainers]"
-                      name="NumberContainers"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTypeRowId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerTypeRowId]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTypeRowId]"
-                      name="ContainerTypeRowId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdFrom]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[PortIdFrom]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdFrom]"
-                      name="PortIdFrom"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdTo]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[PortIdTo]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdTo]"
-                      name="PortIdTo"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[Distance]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[Distance]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[Distance]"
-                      name="Distance"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[VoyageId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[VoyageId]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[VoyageId]"
-                      name="VoyageId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LegDateDepart]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[LegDateDepart]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LegDateDepart]"
-                      name="LegDateDepart"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LegDateArrival]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[LegDateArrival]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[LegDateArrival]"
-                      name="LegDateArrival"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdStart]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[PortIdStart]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdStart]"
-                      name="PortIdStart"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdEnd]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[PortIdEnd]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdEnd]"
-                      name="PortIdEnd"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[NumberOfDaysVoyage]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[NumberOfDaysVoyage]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[NumberOfDaysVoyage]"
-                      name="NumberOfDaysVoyage"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[IncorrectlyStoredContainers]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[IncorrectlyStoredContainers]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[IncorrectlyStoredContainers]"
-                      name="IncorrectlyStoredContainers"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[FuelConsumption]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[FuelConsumption]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[FuelConsumption]"
-                      name="FuelConsumption"
-                      precision="18"
-                      scale="2"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ShipmentId]"
-                      dataType="i4"
-                      name="ShipmentId" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ShipRowId]"
-                      dataType="i4"
-                      name="ShipRowId" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerFrom]"
-                      dataType="i4"
-                      name="ContainerFrom" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerTo]"
-                      dataType="i4"
-                      name="ContainerTo" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[LoadFactor]"
-                      dataType="numeric"
-                      name="LoadFactor"
-                      precision="4"
-                      scale="2" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerNr]"
-                      dataType="wstr"
-                      length="50"
-                      name="ContainerNr" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ConsignorRowId]"
-                      dataType="i4"
-                      name="ConsignorRowId" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ItemId]"
-                      dataType="i4"
-                      name="ItemId" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[NumberContainers]"
-                      dataType="i4"
-                      name="NumberContainers" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[ContainerTypeRowId]"
-                      dataType="i4"
-                      name="ContainerTypeRowId" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[PortIdFrom]"
-                      dataType="i4"
-                      name="PortIdFrom" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[PortIdTo]"
-                      dataType="i4"
-                      name="PortIdTo" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[Distance]"
-                      dataType="i4"
-                      name="Distance" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[VoyageId]"
-                      dataType="i4"
-                      name="VoyageId" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[LegDateDepart]"
-                      dataType="dbTimeStamp"
-                      name="LegDateDepart" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[LegDateArrival]"
-                      dataType="dbTimeStamp"
-                      name="LegDateArrival" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[PortIdStart]"
-                      dataType="i4"
-                      name="PortIdStart" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[PortIdEnd]"
-                      dataType="i4"
-                      name="PortIdEnd" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[NumberOfDaysVoyage]"
-                      dataType="i4"
-                      name="NumberOfDaysVoyage" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[IncorrectlyStoredContainers]"
-                      dataType="i4"
-                      name="IncorrectlyStoredContainers" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].ExternalColumns[FuelConsumption]"
-                      dataType="numeric"
-                      name="FuelConsumption"
-                      precision="18"
-                      scale="2" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ShipmentId]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ShipmentId]"
-                      name="ShipmentId" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ShipRowId]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ShipRowId]"
-                      name="ShipRowId" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerFrom]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerFrom]"
-                      name="ContainerFrom" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerTo]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerTo]"
-                      name="ContainerTo" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[LoadFactor]"
-                      dataType="numeric"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[LoadFactor]"
-                      name="LoadFactor"
-                      precision="4"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerNr]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerNr]"
-                      name="ContainerNr" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ConsignorRowId]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ConsignorRowId]"
-                      name="ConsignorRowId" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ItemId]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ItemId]"
-                      name="ItemId" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[NumberContainers]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[NumberContainers]"
-                      name="NumberContainers" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerTypeRowId]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ContainerTypeRowId]"
-                      name="ContainerTypeRowId" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[PortIdFrom]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[PortIdFrom]"
-                      name="PortIdFrom" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[PortIdTo]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[PortIdTo]"
-                      name="PortIdTo" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[Distance]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[Distance]"
-                      name="Distance" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[VoyageId]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[VoyageId]"
-                      name="VoyageId" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[LegDateDepart]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[LegDateDepart]"
-                      name="LegDateDepart" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[LegDateArrival]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[LegDateArrival]"
-                      name="LegDateArrival" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[PortIdStart]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[PortIdStart]"
-                      name="PortIdStart" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[PortIdEnd]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[PortIdEnd]"
-                      name="PortIdEnd" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[NumberOfDaysVoyage]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[NumberOfDaysVoyage]"
-                      name="NumberOfDaysVoyage" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[IncorrectlyStoredContainers]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[IncorrectlyStoredContainers]"
-                      name="IncorrectlyStoredContainers" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[FuelConsumption]"
-                      dataType="numeric"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[FuelConsumption]"
-                      name="FuelConsumption"
-                      precision="18"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Calculate Fuel Consumption\Lookup Ship"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup Ship"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[D_Ship]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[D_Ship]) [refTable]
-where [refTable].[ShipRowId] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ShipRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Shipname" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MaxTEU" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SpeedInKnots" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SpeedInKmH" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Country" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Yearcost" dataType="DT_CY" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Length" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Width" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WeightInTonnes" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StartDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EndDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipRowId]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Calculate Fuel Consumption\Lookup Ship.Connections[OleDbConnection]"
-                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Calculate Fuel Consumption\Lookup Ship.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Lookup Ship.Inputs[Lookup Input].Columns[ShipRowId]"
-                      cachedDataType="i4"
-                      cachedName="ShipRowId"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipRowId]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">ShipRowId</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Calculate Fuel Consumption\Lookup Ship.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Match Output].Columns[SpeedInKnots]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Match Output].Columns[SpeedInKnots]"
-                      name="SpeedInKnots"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">SpeedInKnots</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Calculate Fuel Consumption\Lookup Ship.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Calculate Fuel Consumption\Lookup Ship.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Calculate Fuel Consumption\Lookup TEU Containers"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
-              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
-              name="Lookup TEU Containers"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the SQL statement that generates the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[D_ContainerType]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[D_ContainerType]) [refTable]
-where [refTable].[ContainerTypeRowId] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of connection used to access the reference dataset."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the cache type of the lookup table."
-                  name="CacheType"
-                  typeConverter="CacheType">1</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ContainerTypeRowId" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Id" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Type" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="RefrigerationFlag" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="PowerFlag" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Length" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Cubes" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TEU" dataType="DT_NUMERIC" length="0" precision="2" scale="1" codePage="0"/&gt;&lt;referenceColumn name="EuroPricePerKm" dataType="DT_R8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="StartDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EndDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  name="ParameterMap">#{Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTypeRowId]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Connections[OleDbConnection]"
-                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
-                  description="Connection manager used to access lookup data."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Inputs[Lookup Input]"
-                  name="Lookup Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Inputs[Lookup Input].Columns[ContainerTypeRowId]"
-                      cachedDataType="i4"
-                      cachedName="ContainerTypeRowId"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerTypeRowId]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins."
-                          name="JoinToReferenceColumn">ContainerTypeRowId</property>
-                        <property
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Match Output]"
-                  errorOrTruncationOperation="Lookup"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Lookup Match Output"
-                  synchronousInputId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Match Output].Columns[TEU]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Copy Column"
-                      lineageId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Match Output].Columns[TEU]"
-                      name="TEU"
-                      precision="2"
-                      scale="1"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied."
-                          name="CopyFromReferenceColumn">TEU</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup No Match Output]"
-                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
-                  exclusionGroup="1"
-                  name="Lookup No Match Output"
-                  synchronousInputId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Inputs[Lookup Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Lookup Error Output"
-                  synchronousInputId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Inputs[Lookup Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="Update F_ShipmentVoyage"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">update F_ShipmentVoyage 
-set FuelConsumption= ?
-where VoyageId = ? 
-and ShipmentId = ? 
-and PortIdFrom = ? 
-and PortIdTo = ? 
-and ContainerNr = ? </property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Connections[OleDbConnection]"
-                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].Columns[FuelConsumption]"
-                      cachedDataType="numeric"
-                      cachedName="FuelConsumption"
-                      cachedPrecision="18"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[FuelConsumption]" />
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].Columns[VoyageId]"
-                      cachedDataType="i4"
-                      cachedName="VoyageId"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[VoyageId]" />
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].Columns[ShipmentId]"
-                      cachedDataType="i4"
-                      cachedName="ShipmentId"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ShipmentId]" />
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].Columns[PortIdFrom]"
-                      cachedDataType="i4"
-                      cachedName="PortIdFrom"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdFrom]" />
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].Columns[PortIdTo]"
-                      cachedDataType="i4"
-                      cachedName="PortIdTo"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[PortIdTo]" />
-                    <inputColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].Columns[ContainerNr]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="ContainerNr"
-                      externalMetadataColumnId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      lineageId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output].Columns[ContainerNr]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="numeric"
-                      name="Param_0"
-                      precision="18"
-                      scale="2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">81</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_2]"
-                      dataType="i4"
-                      name="Param_2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_3]"
-                      dataType="i4"
-                      name="Param_3">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_4]"
-                      dataType="i4"
-                      name="Param_4">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input].ExternalColumns[Param_5]"
-                      dataType="wstr"
-                      length="50"
-                      name="Param_5">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">1</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Calculate Fuel Consumption.Paths[Derived Column Output]"
-              endId="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Calculate Fuel Consumption.Paths[Lookup Match Output]"
-              endId="Package\Calculate Fuel Consumption\Lookup Ship.Inputs[Lookup Input]"
-              name="Lookup Match Output"
-              startId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Calculate Fuel Consumption.Paths[Lookup Match Output1]"
-              endId="Package\Calculate Fuel Consumption\Calculate TEU of all Containers.Inputs[Derived Column Input]"
-              name="Lookup Match Output"
-              startId="Package\Calculate Fuel Consumption\Lookup Ship.Outputs[Lookup Match Output]" />
-            <path
-              refId="Package\Calculate Fuel Consumption.Paths[OLE DB Source Output]"
-              endId="Package\Calculate Fuel Consumption\Lookup TEU Containers.Inputs[Lookup Input]"
-              name="OLE DB Source Output"
-              startId="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Calculate Impropely Stocked Containers"
       DTS:CreationName="Microsoft.Pipeline"
@@ -14431,22 +13292,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       DTS:ObjectName="Constraint 12"
       DTS:To="Package\Calculate weight" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
-      DTS:CreationName=""
-      DTS:DTSID="{1EE96237-4DD8-4097-A960-54BEF44CABDC}"
-      DTS:From="Package\Load ShipmentVoyage"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 13"
-      DTS:To="Package\Calculate Fuel Consumption" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 14]"
-      DTS:CreationName=""
-      DTS:DTSID="{79B104B1-1261-41D9-8BB6-038E45A10E8E}"
-      DTS:From="Package\Calculate weight"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 14"
-      DTS:To="Package\Calculate Fuel Consumption" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{367F5E8F-9B7F-402E-95C4-22B0886FCEB4}"
@@ -14526,46 +13371,54 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         <NodeLayout
           Size="265.6,41.6"
           Id="Package\Calculate Impropely Stocked Containers"
-          TopLeft="52.247618470832,438.713725293576" />
+          TopLeft="61.7374144094005,327.066666567909" />
         <NodeLayout
           Size="176,41.6"
           Id="Package\Calculate LoadFactor"
-          TopLeft="788.56190612379,431.525490014876" />
+          TopLeft="598.05170163661,329.819607751083" />
         <NodeLayout
           Size="195.2,41.6"
           Id="Package\Calculate NumberOfDays"
-          TopLeft="962.552382614823,432.027450758078" />
+          TopLeft="794.899321033443,325.733333204189" />
+        <NodeLayout
+          Size="230.4,42.4"
+          Id="Package\Calculate NumberOfDaysVoyage"
+          TopLeft="347.34693951492,326.92549004906" />
+        <NodeLayout
+          Size="156,41.6"
+          Id="Package\Calculate weight"
+          TopLeft="584.432653554309,211.576470534611" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\Load Consignor"
-          TopLeft="152,150" />
+          TopLeft="40.7755099673138,42.9411765644295" />
         <NodeLayout
           Size="172.8,41.6"
           Id="Package\Load ContainerType"
-          TopLeft="326,151" />
+          TopLeft="214.775509967314,43.9411765644295" />
         <NodeLayout
           Size="156.8,41.6"
           Id="Package\Load DaysInPort"
-          TopLeft="856.666666666667,317.5" />
+          TopLeft="745.44217663398,210.441176564429" />
         <NodeLayout
           Size="127.2,41.6"
           Id="Package\Load Item"
-          TopLeft="518.749999986695,149" />
+          TopLeft="407.525509954009,41.9411765644295" />
         <NodeLayout
           Size="127.2,41.6"
           Id="Package\Load Port"
-          TopLeft="831.25,151.5" />
+          TopLeft="720.025509967313,44.4411765644295" />
         <NodeLayout
           Size="124.8,41.6"
           Id="Package\Load Ship"
-          TopLeft="684,151" />
+          TopLeft="572.775509967313,43.9411765644295" />
         <NodeLayout
           Size="184,41.6"
           Id="Package\Load ShipmentVoyage"
-          TopLeft="486.107142823311,326.823529408413" />
+          TopLeft="374.882652790625,219.764705972842" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="228,191.6">
+          TopLeft="116.775509967314,84.5411765644294">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14599,7 +13452,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="412.4,192.6">
+          TopLeft="301.175509967314,85.5411765644294">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14633,30 +13486,86 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="525.307142823311,368.423529408413">
+          TopLeft="422.882652790625,261.364705972842">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-340.259524352479,70.2901958851631"
+              EndConnector="-228.345238381224,65.7019605950671"
               Start="0,0"
-              End="-340.259524352479,62.7901958851631">
+              End="-228.345238381224,58.2019605950671">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,17.0013390144695" />
+                    End="0,18.5263864897373" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,17.0013390144695"
-                    Point2="0,21.0013390144695"
-                    Point3="-4,21.0013390144695" />
+                    Point1="0,18.5263864897373"
+                    Point2="0,22.5263864897373"
+                    Point3="-4,22.5263864897373" />
                   <mssgle:LineSegment
-                    End="-336.259524352479,21.0013390144695" />
+                    End="-224.345238381224,22.5263864897373" />
                   <mssgle:CubicBezierSegment
-                    Point1="-336.259524352479,21.0013390144695"
-                    Point2="-340.259524352479,21.0013390144695"
-                    Point3="-340.259524352479,25.0013390144695" />
+                    Point1="-224.345238381224,22.5263864897373"
+                    Point2="-228.345238381224,22.5263864897373"
+                    Point3="-228.345238381224,26.5263864897373" />
                   <mssgle:LineSegment
-                    End="-340.259524352479,62.7901958851631" />
+                    End="-228.345238381224,58.2019605950671" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="464.714796152772,261.364705972842">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65.5607840762183"
+              Start="0,0"
+              End="0,58.0607840762183">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.0607840762183" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="635.175509967313,85.5411765644294">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="27.2571435869957,126.035293970182"
+              Start="0,0"
+              End="27.2571435869957,118.535293970182">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70.3352940339943" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70.3352940339943"
+                    Point2="0,74.3352940339943"
+                    Point3="4,74.3352940339943" />
+                  <mssgle:LineSegment
+                    End="23.2571435869957,74.3352940339943" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.2571435869957,74.3352940339943"
+                    Point2="27.2571435869957,74.3352940339943"
+                    Point3="27.2571435869957,78.3352940339943" />
+                  <mssgle:LineSegment
+                    End="27.2571435869957,118.535293970182" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14667,7 +13576,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="580.228571405003,190.6">
+          TopLeft="469.004081372316,83.5411765644294">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14689,7 +13598,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="717.2,192.6">
+          TopLeft="605.975509967313,85.5411765644294">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14723,7 +13632,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="874.983333333333,193.1">
+          TopLeft="763.758843300646,86.0411765644294">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14757,7 +13666,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="914.583333333333,193.5">
+          TopLeft="803.358843300646,86.4411765644294">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14791,7 +13700,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="766,193">
+          TopLeft="654.775509967313,85.9411765644294">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -14802,17 +13711,17 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,58.4473351825252" />
+                    End="0,45.4473351939202" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,58.4473351825252"
-                    Point2="0,62.4473351825252"
-                    Point3="4,62.4473351825252" />
+                    Point1="0,45.4473351939202"
+                    Point2="0,49.4473351939202"
+                    Point3="4,49.4473351939202" />
                   <mssgle:LineSegment
-                    End="140.333333333333,62.4473351825252" />
+                    End="140.333333333333,49.4473351939202" />
                   <mssgle:CubicBezierSegment
-                    Point1="140.333333333333,62.4473351825252"
-                    Point2="144.333333333333,62.4473351825252"
-                    Point3="144.333333333333,66.4473351825252" />
+                    Point1="140.333333333333,49.4473351939202"
+                    Point2="144.333333333333,49.4473351939202"
+                    Point3="144.333333333333,53.4473351939202" />
                   <mssgle:LineSegment
                     End="144.333333333333,117" />
                 </mssgle:SegmentCollection>
@@ -14825,30 +13734,30 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="959.866666666667,359.1">
+          TopLeft="848.64217663398,252.041176564429">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="100.285715948156,72.9274507580783"
+              EndConnector="43.8571443994628,73.6921566397605"
               Start="0,0"
-              End="100.285715948156,65.4274507580783">
+              End="43.8571443994628,66.1921566397605">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,25.6129648532803" />
+                    End="0,25.9234817870542" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.6129648532803"
-                    Point2="0,29.6129648532803"
-                    Point3="4,29.6129648532803" />
+                    Point1="0,25.9234817870542"
+                    Point2="0,29.9234817870542"
+                    Point3="4,29.9234817870542" />
                   <mssgle:LineSegment
-                    End="96.2857159481564,29.6129648532803" />
+                    End="39.8571443994628,29.9234817870542" />
                   <mssgle:CubicBezierSegment
-                    Point1="96.2857159481564,29.6129648532803"
-                    Point2="100.285715948156,29.6129648532803"
-                    Point3="100.285715948156,33.6129648532803" />
+                    Point1="39.8571443994628,29.9234817870542"
+                    Point2="43.8571443994628,29.9234817870542"
+                    Point3="43.8571443994628,33.9234817870542" />
                   <mssgle:LineSegment
-                    End="100.285715948156,65.4274507580783" />
+                    End="43.8571443994628,66.1921566397605" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14859,30 +13768,30 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="630.907142823311,368.423529408413">
+          TopLeft="510.882652790624,261.364705972842">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="217.654763300478,63.1019606064628"
+              EndConnector="147.169048845986,68.4549017782415"
               Start="0,0"
-              End="217.654763300478,55.6019606064628">
+              End="147.169048845986,60.9549017782415">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2682531337021" />
+                    End="0,25.6750313127353" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2682531337021"
-                    Point2="0,24.2682531337021"
-                    Point3="4,24.2682531337021" />
+                    Point1="0,25.6750313127353"
+                    Point2="0,29.6750313127353"
+                    Point3="4,29.6750313127353" />
                   <mssgle:LineSegment
-                    End="213.654763300478,24.2682531337021" />
+                    End="143.169048845986,29.6750313127353" />
                   <mssgle:CubicBezierSegment
-                    Point1="213.654763300478,24.2682531337021"
-                    Point2="217.654763300478,24.2682531337021"
-                    Point3="217.654763300478,28.2682531337021" />
+                    Point1="143.169048845986,29.6750313127353"
+                    Point2="147.169048845986,29.6750313127353"
+                    Point3="147.169048845986,33.6750313127353" />
                   <mssgle:LineSegment
-                    End="217.654763300478,55.6019606064628" />
+                    End="147.169048845986,60.9549017782415" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14893,166 +13802,30 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="907.414286395228,359.1">
+          TopLeft="799.04217663398,252.041176564429">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,72.4254900148761"
+              EndConnector="-84.9904749973699,77.7784311866545"
               Start="0,0"
-              End="0,64.9254900148761">
+              End="-84.9904749973699,70.2784311866545">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,64.9254900148761" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="230.4,41.6"
-          Id="Package\Calculate NumberOfDaysVoyage"
-          TopLeft="323.571429260227,434.749019366314" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="560.507142823311,368.423529408413">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-121.735713563084,66.3254899579005"
-              Start="0,0"
-              End="-121.735713563084,58.8254899579005">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.6551469523305" />
+                    End="0,34.9420542014704" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,25.6551469523305"
-                    Point2="0,29.6551469523305"
-                    Point3="-4,29.6551469523305" />
+                    Point1="0,34.9420542014704"
+                    Point2="0,38.9420542014704"
+                    Point3="-4,38.9420542014704" />
                   <mssgle:LineSegment
-                    End="-117.735713563084,29.6551469523305" />
+                    End="-80.9904749973699,38.9420542014704" />
                   <mssgle:CubicBezierSegment
-                    Point1="-117.735713563084,29.6551469523305"
-                    Point2="-121.735713563084,29.6551469523305"
-                    Point3="-121.735713563084,33.6551469523305" />
+                    Point1="-80.9904749973699,38.9420542014704"
+                    Point2="-84.9904749973699,38.9420542014704"
+                    Point3="-84.9904749973699,42.9420542014704" />
                   <mssgle:LineSegment
-                    End="-121.735713563084,58.8254899579005" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Calculate weight"
-          TopLeft="695.657143586996,318.635293970182" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="746.4,192.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="27.2571435869957,126.035293970182"
-              Start="0,0"
-              End="27.2571435869957,118.535293970182">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,70.3352940339943" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,70.3352940339943"
-                    Point2="0,74.3352940339943"
-                    Point3="4,74.3352940339943" />
-                  <mssgle:LineSegment
-                    End="23.2571435869957,74.3352940339943" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.2571435869957,74.3352940339943"
-                    Point2="27.2571435869957,74.3352940339943"
-                    Point3="27.2571435869957,78.3352940339943" />
-                  <mssgle:LineSegment
-                    End="27.2571435869957,118.535293970182" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="208.8,41.6"
-          Id="Package\Calculate Fuel Consumption"
-          TopLeft="569.523810736176,430.784313347891" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="595.707142823311,368.423529408413">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="44.7500012461984,62.3607839394779"
-              Start="0,0"
-              End="44.7500012461984,54.8607839394779">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,29.8886851818957" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,29.8886851818957"
-                    Point2="0,33.8886851818957"
-                    Point3="4,33.8886851818957" />
-                  <mssgle:LineSegment
-                    End="40.7500012461984,33.8886851818957" />
-                  <mssgle:CubicBezierSegment
-                    Point1="40.7500012461984,33.8886851818957"
-                    Point2="44.7500012461984,33.8886851818957"
-                    Point3="44.7500012461984,37.8886851818957" />
-                  <mssgle:LineSegment
-                    End="44.7500012461984,54.8607839394779" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 14]"
-          TopLeft="773.657143586996,360.235293970182">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-66.2666661841527,70.5490193777088"
-              Start="0,0"
-              End="-66.2666661841527,63.0490193777088">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,38.0075149602631" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,38.0075149602631"
-                    Point2="0,42.0075149602631"
-                    Point3="-4,42.0075149602631" />
-                  <mssgle:LineSegment
-                    End="-62.2666661841527,42.0075149602631" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-62.2666661841527,42.0075149602631"
-                    Point2="-66.2666661841527,42.0075149602631"
-                    Point3="-66.2666661841527,46.0075149602631" />
-                  <mssgle:LineSegment
-                    End="-66.2666661841527,63.0490193777088" />
+                    End="-84.9904749973699,70.2784311866545" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15540,6 +14313,212 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Calculate NumberOfDays\F_DaysInPort source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Calculate NumberOfDaysVoyage">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\Calculate NumberOfDaysVoyage\NumberOfDays calculation"
+          TopLeft="67.1428571580624,152.117645042681" />
+        <NodeLayout
+          Size="176,41.6"
+          Id="Package\Calculate NumberOfDaysVoyage\F_DaysInPort source"
+          TopLeft="79.999999701976,60" />
+        <NodeLayout
+          Size="178.4,41.6"
+          Id="Package\Calculate NumberOfDaysVoyage\Update F_DaysInPort"
+          TopLeft="81.9999997573237,232.999996328179" />
+        <EdgeLayout
+          Id="Package\Calculate NumberOfDaysVoyage.Paths[OLE DB Source Output]"
+          TopLeft="168.171428430019,101.6">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50.5176450426812"
+              Start="0,0"
+              End="0,43.0176450426812">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.0176450426812" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Calculate NumberOfDaysVoyage.Paths[Derived Column Output]"
+          TopLeft="169.771428457693,193.717645042681">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.2823512854978"
+              Start="0,0"
+              End="0,31.7823512854978">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.7823512854978" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calculate NumberOfDaysVoyage\F_DaysInPort source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Calculate weight">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148.8,41.6"
+          Id="Package\Calculate weight\Update D_Ship"
+          TopLeft="396.333327427506,196.77777484556" />
+        <NodeLayout
+          Size="157.6,41.6"
+          Id="Package\Calculate weight\Calculate Weight"
+          TopLeft="397.555549631516,116.111109380921" />
+        <EdgeLayout
+          Id="Package\Calculate weight.Paths[Derived Column Output]"
+          TopLeft="473.544438529511,157.711109380921">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.0666654646397"
+              Start="0,0"
+              End="0,31.5666654646397">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.5666654646397" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Calculate weight\D_Ship Source"
+          TopLeft="405.999993950128,46.9999992996454" />
+        <EdgeLayout
+          Id="Package\Calculate weight.Paths[OLE DB Source Output]"
+          TopLeft="477.977771790822,88.5999992996454">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.5111100812754"
+              Start="0,0"
+              End="0,20.0111100812754">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.0111100812754" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="152.8,41.6"
+          Id="Package\Calculate weight\Derived Column"
+          TopLeft="395.222216332952,263.444440518816" />
+        <EdgeLayout
+          Id="Package\Calculate weight.Paths[OLE DB Command Output]"
+          TopLeft="471.177771880229,238.37777484556">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25.0666656732558"
+              Start="0,0"
+              End="0,17.5666656732558">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5666656732558" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="232.8,42.4"
+          Id="Package\Calculate weight\Update D_Ship FuelConsumption"
+          TopLeft="350.888883660237,333.933329871297" />
+        <EdgeLayout
+          Id="Package\Calculate weight.Paths[Derived Column Output1]"
+          TopLeft="469.455549996595,305.044440518816">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28.8888893524805"
+              Start="0,0"
+              End="0,21.3888893524805">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.3888893524805" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Calculate weight\D_Ship Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -17511,391 +16490,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q4:string">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Calculate NumberOfDaysVoyage">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="202.4,41.6"
-          Id="Package\Calculate NumberOfDaysVoyage\NumberOfDays calculation"
-          TopLeft="67.1428571580624,152.117645042681" />
-        <NodeLayout
-          Size="176,41.6"
-          Id="Package\Calculate NumberOfDaysVoyage\F_DaysInPort source"
-          TopLeft="79.999999701976,60" />
-        <NodeLayout
-          Size="178.4,41.6"
-          Id="Package\Calculate NumberOfDaysVoyage\Update F_DaysInPort"
-          TopLeft="81.9999997573237,232.999996328179" />
-        <EdgeLayout
-          Id="Package\Calculate NumberOfDaysVoyage.Paths[OLE DB Source Output]"
-          TopLeft="168.171428430019,101.6">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,50.5176450426812"
-              Start="0,0"
-              End="0,43.0176450426812">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.0176450426812" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Calculate NumberOfDaysVoyage.Paths[Derived Column Output]"
-          TopLeft="169.771428457693,193.717645042681">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.2823512854978"
-              Start="0,0"
-              End="0,31.7823512854978">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.7823512854978" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Calculate NumberOfDaysVoyage\F_DaysInPort source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Calculate weight">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="148.8,41.6"
-          Id="Package\Calculate weight\Update D_Ship"
-          TopLeft="396.333327427506,196.77777484556" />
-        <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\Calculate weight\Calculate Weight"
-          TopLeft="397.555549631516,116.111109380921" />
-        <EdgeLayout
-          Id="Package\Calculate weight.Paths[Derived Column Output]"
-          TopLeft="473.544438529511,157.711109380921">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.0666654646397"
-              Start="0,0"
-              End="0,31.5666654646397">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5666654646397" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="147.2,41.6"
-          Id="Package\Calculate weight\D_Ship Source"
-          TopLeft="405.999993950128,46.9999992996454" />
-        <EdgeLayout
-          Id="Package\Calculate weight.Paths[OLE DB Source Output]"
-          TopLeft="477.977771790822,88.5999992996454">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.5111100812754"
-              Start="0,0"
-              End="0,20.0111100812754">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.0111100812754" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Calculate weight\Derived Column"
-          TopLeft="395.222216332952,263.444440518816" />
-        <EdgeLayout
-          Id="Package\Calculate weight.Paths[OLE DB Command Output]"
-          TopLeft="471.177771880229,238.37777484556">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25.0666656732558"
-              Start="0,0"
-              End="0,17.5666656732558">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5666656732558" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="232.8,42.4"
-          Id="Package\Calculate weight\Update D_Ship FuelConsumption"
-          TopLeft="350.888883660237,333.933329871297" />
-        <EdgeLayout
-          Id="Package\Calculate weight.Paths[Derived Column Output1]"
-          TopLeft="469.455549996595,305.044440518816">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.8888893524805"
-              Start="0,0"
-              End="0,21.3888893524805">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.3888893524805" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Calculate weight\D_Ship Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Calculate Fuel Consumption">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="204,41.6"
-          Id="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source"
-          TopLeft="366.999994531274,21.9999996721745" />
-        <NodeLayout
-          Size="188,41.6"
-          Id="Package\Calculate Fuel Consumption\Lookup TEU Containers"
-          TopLeft="381.999994307756,106.999998405576" />
-        <EdgeLayout
-          Id="Package\Calculate Fuel Consumption.Paths[OLE DB Source Output]"
-          TopLeft="472.499994419515,63.5999996721745">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,43.3999987334013"
-              Start="0,0"
-              End="0,35.8999987334013">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,35.8999987334013" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="223.2,41.6"
-          Id="Package\Calculate Fuel Consumption\Calculate TEU of all Containers"
-          TopLeft="368.090903605927,278.909086753021" />
-        <NodeLayout
-          Size="136,41.6"
-          Id="Package\Calculate Fuel Consumption\Lookup Ship"
-          TopLeft="412.99999384582,184.399997287989" />
-        <EdgeLayout
-          Id="Package\Calculate Fuel Consumption.Paths[Lookup Match Output]"
-          TopLeft="478.499994076788,148.599998405576">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,35.799998882413"
-              Start="0,0"
-              End="0,28.299998882413">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,28.299998882413" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,8.34531194120649,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Calculate Fuel Consumption.Paths[Lookup Match Output1]"
-          TopLeft="480.345448725874,225.999997287989">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,52.9090894650328"
-              Start="0,0"
-              End="0,45.4090894650328">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,45.4090894650328" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,16.8998572325164,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="205.6,41.6"
-          Id="Package\Calculate Fuel Consumption\Update F_ShipmentVoyage"
-          TopLeft="375.454539859837,349.81817704981" />
-        <EdgeLayout
-          Id="Package\Calculate Fuel Consumption.Paths[Derived Column Output]"
-          TopLeft="478.972721732882,320.509086753022">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,29.3090902967888"
-              Start="0,0"
-              End="0,21.8090902967888">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.8090902967888" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Calculate Fuel Consumption\F_ShipmentVoyage Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Calculate Fuel Consumption\Lookup TEU Containers">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[D_ContainerType]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Calculate Fuel Consumption\Lookup Ship">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[D_Ship]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
