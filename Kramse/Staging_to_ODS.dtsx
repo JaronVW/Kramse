@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="Staging_to_ODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="46"
-  DTS:VersionGUID="{6E5F7F93-F5ED-4CAA-A73D-C54CC75620A6}">
+  DTS:VersionBuild="47"
+  DTS:VersionGUID="{A5B22528-DFE1-4A26-8E90-1C06FEF5B7F7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -68,13 +68,13 @@
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Expression"
-                          name="Expression">#{Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output].Columns[ContainerType]} == #{Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Match Output].Columns[ItemStorageType]} ? 0 : (#{Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTo]} - #{Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerFrom]} + 1)</property>
+                          name="Expression">#{Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output].Columns[ContainerType]} == #{Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Match Output].Columns[ItemStorageType]} ? 0 : #{Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Match Output].Columns[ItemStorageType]} == "Refrigerated" ? #{Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output].Columns[RefrigerationFlag]} ==  TRUE  ? 0 : (#{Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTo]} - #{Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerFrom]} + 1) : (#{Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerTo]} - #{Package\Calculate Impropely Stocked Containers\ShipmentVoyage.Outputs[OLE DB Source Output].Columns[ContainerFrom]} + 1)</property>
                         <property
                           containsID="true"
                           dataType="System.String"
                           description="Derived Column Friendly Expression"
                           expressionType="Notify"
-                          name="FriendlyExpression">ContainerType == ItemStorageType ? 0 : (ContainerTo - ContainerFrom + 1)</property>
+                          name="FriendlyExpression">ContainerType == ItemStorageType ? 0 : ItemStorageType == "Refrigerated" ? RefrigerationFlag ==  TRUE  ? 0 : (ContainerTo - ContainerFrom + 1) : (ContainerTo - ContainerFrom + 1)</property>
                       </properties>
                     </inputColumn>
                     <inputColumn
@@ -89,6 +89,11 @@
                       cachedLength="50"
                       cachedName="ItemStorageType"
                       lineageId="Package\Calculate Impropely Stocked Containers\Lookup ItemStorageType.Outputs[Lookup Match Output].Columns[ItemStorageType]" />
+                    <inputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Check if item is stored correctly.Inputs[Derived Column Input].Columns[RefrigerationFlag]"
+                      cachedDataType="bool"
+                      cachedName="RefrigerationFlag"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output].Columns[RefrigerationFlag]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -158,7 +163,7 @@ where [refTable].[ContainerTypeRowId] = ?</property>
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
                   name="CacheType"
-                  typeConverter="CacheType">1</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
@@ -249,6 +254,20 @@ where [refTable].[ContainerTypeRowId] = ?</property>
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied."
                           name="CopyFromReferenceColumn">Type</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output].Columns[RefrigerationFlag]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Copy Column"
+                      lineageId="Package\Calculate Impropely Stocked Containers\Lookup ContainerType.Outputs[Lookup Match Output].Columns[RefrigerationFlag]"
+                      name="RefrigerationFlag"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn">RefrigerationFlag</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
