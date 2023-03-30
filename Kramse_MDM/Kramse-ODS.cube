@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="23" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-4930" scrolltop="5663" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="15600" y="11091" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="23" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="1822" scrolltop="8458" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="15600" y="11091" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
             </font>
@@ -398,11 +398,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-4930</Value>
+      <Value>1822</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>5663</Value>
+      <Value>8458</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -428,7 +428,39 @@
         <Attribute dwd:design-time-name="dc03ea83-570b-4057-8b03-a0cc355ef67d">
           <AttributeID>PK Date</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="193c0e39-d948-4113-aad1-77c44e7f7eea">
+          <AttributeID>Date Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="dfe8a7b0-da99-43c6-9b29-946b21624d8a">
+          <AttributeID>Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b5d49537-2b94-4203-89d0-47ad30e73b46">
+          <AttributeID>Year Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="10fc25b9-3beb-4b2f-ae5f-77f4373bd8c5">
+          <AttributeID>Quarter</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2ed4fbcc-fa74-482c-8dd7-22503725acff">
+          <AttributeID>Quarter Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e88d3138-3b7b-4637-a957-6ebc23730578">
+          <AttributeID>Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5063a473-108d-4c1f-9ef0-7b477a151bf7">
+          <AttributeID>Month Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3bcd1413-a661-4b71-b189-7ce664a6f5dc">
+          <AttributeID>Week</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1d611e2c-749a-4190-bff1-d0b2d24a0e57">
+          <AttributeID>Week Name</AttributeID>
+        </Attribute>
       </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="883b7439-6631-4242-9aa9-1ab3c83ab622">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="2fec5858-4ab6-4899-93fd-54a80872b436">
       <ID>D Ship</ID>
@@ -437,6 +469,30 @@
       <Attributes>
         <Attribute dwd:design-time-name="3fb5fa71-ef2f-42e6-806f-d0f0160f94d2">
           <AttributeID>Ship Row Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="40d459fc-9ae4-40dc-90d8-4ac90cee668f">
+          <AttributeID>Shipname</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="24226bfd-4fa4-48af-8505-d02434cb78b6">
+          <AttributeID>Max TEU</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1326068d-0377-419f-8d37-3b46ed14b508">
+          <AttributeID>Speed In Knots</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="6eb8cc41-b111-479a-9f05-b1b56169a60e">
+          <AttributeID>Speed In Km H</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="59d33543-0fbc-4b7d-ab63-7fce0a0b17f4">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="16c23a15-3bea-4c61-9f21-234ec5a623a8">
+          <AttributeID>Yearcost</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="611d7b37-0ddb-4725-8c27-3a23d306ed38">
+          <AttributeID>Length</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="97a93963-ef4d-4f08-af28-a4ad59f0ffa0">
+          <AttributeID>Width</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
@@ -448,7 +504,39 @@
         <Attribute dwd:design-time-name="58cf3f16-90c3-43cc-8131-2aedfa54229a">
           <AttributeID>PK Date</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="edf0c41f-2487-4edc-967a-ce2197ed6249">
+          <AttributeID>Date Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3c518350-2939-4c23-bab5-71e00030033e">
+          <AttributeID>Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0d48b006-3676-45ae-9564-f2d667badc01">
+          <AttributeID>Year Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e24d7598-b92a-434a-a4e7-9e0f70cc6a75">
+          <AttributeID>Quarter</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="44832116-fea4-4e0c-8070-4584aa482a28">
+          <AttributeID>Quarter Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a51b159a-c663-4451-914a-8f2107df178f">
+          <AttributeID>Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bea14a32-093e-4c87-a9d6-67fd4d939fa4">
+          <AttributeID>Month Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e08deae0-6f05-46bd-bf78-dc2b9716ee56">
+          <AttributeID>Week</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="30f74819-5fd8-46eb-abe9-ce6c16fb7b72">
+          <AttributeID>Week Name</AttributeID>
+        </Attribute>
       </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="fe354a33-fce1-427d-be3c-763e0496b910">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="85719aaa-a087-42d6-a366-c83fac7704f9">
       <ID>D Container Type</ID>
@@ -457,6 +545,27 @@
       <Attributes>
         <Attribute dwd:design-time-name="ff096ed3-114f-46ef-ac83-6beb503533bd">
           <AttributeID>Container Type Row Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="37f63aef-d334-4f55-9e79-b3ddeefdcf36">
+          <AttributeID>Type</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d0ca1241-e6f6-4a37-bdc3-af448de3a787">
+          <AttributeID>Refrigeration Flag</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="615a2260-6ead-408a-a55b-2d1d8e92f2c5">
+          <AttributeID>Power Flag</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e6950811-c3e5-4bd2-977b-ee5df181607e">
+          <AttributeID>Length</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="37313692-11f0-416e-81d2-5c1c1b850706">
+          <AttributeID>Cubes</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="dd2206a0-30d1-4845-a1fd-46ebeba2fca0">
+          <AttributeID>TEU</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="603f0d92-1846-48f1-b1db-bd58f33fab1e">
+          <AttributeID>Euro Price Per Km</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
@@ -468,6 +577,15 @@
         <Attribute dwd:design-time-name="e93c968f-ed47-4acd-9e7c-2578eda00830">
           <AttributeID>Consignor Row Id</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="827de256-c370-4b4a-a91d-de17a194b3b7">
+          <AttributeID>Consignor</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1a6a925e-9d27-45f4-bed6-cff3315d2708">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ad428851-de4a-4a97-8e05-6c475154a7bc">
+          <AttributeID>Discount</AttributeID>
+        </Attribute>
       </Attributes>
     </Dimension>
     <Dimension dwd:design-time-name="c4da830c-b76b-4d3e-9199-c2730542cc03">
@@ -477,6 +595,21 @@
       <Attributes>
         <Attribute dwd:design-time-name="d56f6c8a-cc44-421e-97b9-0b5f546342f9">
           <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="358b1824-b216-49d7-9cd5-3c11e565e79a">
+          <AttributeID>Port Order</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a61b9c0a-3f05-42bc-ada0-a4518b6551aa">
+          <AttributeID>Port Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="dea60026-bb52-4d2c-b3fa-b4a1c7b078a5">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4c6bd594-1e1c-4643-ab01-b222f578d489">
+          <AttributeID>Distance From Oslo</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e808358e-2750-4bed-b481-4fd41304e5b6">
+          <AttributeID>Distance From Piraeus</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
@@ -488,7 +621,39 @@
         <Attribute dwd:design-time-name="447025fe-4847-4f80-8963-178a0ff93587">
           <AttributeID>PK Date</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="661ebc6f-76fe-4bbe-a18e-d9a609be32e3">
+          <AttributeID>Date Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4b7fb67a-d3ac-4a5e-b2d4-43b30c57f60c">
+          <AttributeID>Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e7e33a1b-876d-4a1f-a91f-cfcae1cbc5de">
+          <AttributeID>Year Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="f61acb61-7001-4581-bb59-e44ef0b7a4fd">
+          <AttributeID>Quarter</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="874f0252-1862-4e92-8699-0d70f04ebd8b">
+          <AttributeID>Quarter Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3d39301d-0e3a-4277-9168-6ee86336a462">
+          <AttributeID>Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3370ef21-b705-4283-891d-2384650ec8cc">
+          <AttributeID>Month Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="142d8677-65e9-4753-8614-095003f43b90">
+          <AttributeID>Week</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="13f85d66-3421-4f06-ac20-6bee1070b113">
+          <AttributeID>Week Name</AttributeID>
+        </Attribute>
       </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="fdfd68cf-d991-468b-a0a6-f2e69a61c6f3">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="62febda5-1282-40a8-8988-ccdaca20acab">
       <ID>Port Id End</ID>
@@ -497,6 +662,21 @@
       <Attributes>
         <Attribute dwd:design-time-name="aa784671-f432-4264-a976-26350839d228">
           <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a8596a6a-425c-46f0-92bb-3b74e849c546">
+          <AttributeID>Port Order</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a0677681-b084-4618-b784-11c576790980">
+          <AttributeID>Port Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7da2ef28-044e-4130-9aee-defc2081eb77">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4a7b38d0-827c-4f9c-a2ef-e759b268e26f">
+          <AttributeID>Distance From Oslo</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="43c18bbd-33a5-4d65-9b2a-a10f5fca98c9">
+          <AttributeID>Distance From Piraeus</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
@@ -508,6 +688,21 @@
         <Attribute dwd:design-time-name="45c5a8e5-bcd5-4340-afa3-72c362ea58c8">
           <AttributeID>Id</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="4ddc154d-3794-437d-a317-f488fcccd4e5">
+          <AttributeID>Port Order</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5617bf9d-6c9e-44e8-ae40-900125f0e448">
+          <AttributeID>Port Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8c4aaad4-482d-4f24-8ce1-7787f27f9786">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="4f27fb68-ab4e-488e-9799-4adc46791bb1">
+          <AttributeID>Distance From Oslo</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b23573ef-8167-4ddd-a606-6e1b850d4a6c">
+          <AttributeID>Distance From Piraeus</AttributeID>
+        </Attribute>
       </Attributes>
     </Dimension>
     <Dimension dwd:design-time-name="38b378c9-9f3b-4999-bdb0-1ebf357bbb1f">
@@ -517,6 +712,21 @@
       <Attributes>
         <Attribute dwd:design-time-name="464cad23-08a4-4258-b26b-0db71d873d76">
           <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="544c9d3f-88c3-43f6-911b-63b012798049">
+          <AttributeID>Port Order</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="64f4161a-0671-49d5-bb01-e2e7a5e0c096">
+          <AttributeID>Port Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="b6708c42-3e4f-4bdd-ae62-da3ef31b9506">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2f0ab4b2-d48c-4cbf-8517-23eb88d9c558">
+          <AttributeID>Distance From Oslo</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="906bf095-22fb-42c0-9814-e6bcdbee6542">
+          <AttributeID>Distance From Piraeus</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
@@ -528,7 +738,39 @@
         <Attribute dwd:design-time-name="7d4596fd-f15f-427d-9e8e-021ce837f414">
           <AttributeID>PK Date</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="a2a6dbf6-551a-4d1e-9b44-af46fd5be968">
+          <AttributeID>Date Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="37920dfb-e5a8-436d-a5d6-ba42e6162957">
+          <AttributeID>Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8185e60a-e042-40ab-b2a3-3eecbaf863dc">
+          <AttributeID>Year Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="dd2946aa-85cf-4df7-9976-a935921439b3">
+          <AttributeID>Quarter</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="092f18a8-b3d3-4634-82ea-364f6babc07b">
+          <AttributeID>Quarter Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c33d4ba5-0f18-46c2-b86b-d5fd0c2bec63">
+          <AttributeID>Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d730eadc-881c-44a2-b63f-b7e7568f3a7c">
+          <AttributeID>Month Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="cdc1a80e-f991-440f-90b0-2eed9bc21733">
+          <AttributeID>Week</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8def3837-3dc3-4f1c-b54f-48be33c2030a">
+          <AttributeID>Week Name</AttributeID>
+        </Attribute>
       </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="36cd2d21-55c4-43ef-b799-c2fbe29df684">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="4f369605-d201-4fff-b7c1-400b2d33958d">
       <ID>D Port</ID>
@@ -537,6 +779,21 @@
       <Attributes>
         <Attribute dwd:design-time-name="246e5336-ba4d-4d0a-b009-f00ac14b8bcb">
           <AttributeID>Id</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e76a2086-78ec-4e28-9ec6-0231022aee50">
+          <AttributeID>Port Order</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c1cda111-14f5-42d9-8dcb-c65c87b5ad95">
+          <AttributeID>Port Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="7d73ddc5-fc6d-480d-85e0-c655d0f6b6c3">
+          <AttributeID>Country</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c05a85a8-3bf6-46e7-9043-9dcf831d85a0">
+          <AttributeID>Distance From Oslo</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e20d530b-b454-4b1f-adcd-4f3ed0fe607f">
+          <AttributeID>Distance From Piraeus</AttributeID>
         </Attribute>
       </Attributes>
     </Dimension>
@@ -548,7 +805,64 @@
         <Attribute dwd:design-time-name="898c2adc-4dfe-4082-a835-cb92edf3e722">
           <AttributeID>Id</AttributeID>
         </Attribute>
+        <Attribute dwd:design-time-name="ae4059c9-551c-4abd-9b0a-d31fa6e77b1f">
+          <AttributeID>Description</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e9712e96-dc78-48f5-b65b-27c601268683">
+          <AttributeID>Category</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="2022cd79-e9d6-42cf-951e-69824af64d08">
+          <AttributeID>Manufacturer</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="ffc613dc-ac99-4909-9f20-c68580ddff79">
+          <AttributeID>Storage Type</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="33988ff1-0af8-4a26-9679-464dee9228c5">
+          <AttributeID>Hazard Flag</AttributeID>
+        </Attribute>
       </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="53adc577-dfe5-4688-ac13-24e251e851d9">
+      <ID>D Time</ID>
+      <Name>D Time</Name>
+      <DimensionID>D Time</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="9bc08a5d-d458-485b-bb46-f2ccd2e53420">
+          <AttributeID>PK Date</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fe69ec92-feda-4c46-9412-195cbb7b1df8">
+          <AttributeID>Date Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="cba976c1-f6ee-4955-9ef5-9d4ce46eaa78">
+          <AttributeID>Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8a7c52cf-0286-4b9e-b70a-b7bae429e5ad">
+          <AttributeID>Year Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="60b287ff-0967-4e31-b53b-73cc85efac7d">
+          <AttributeID>Quarter</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="88a4af3c-8c13-4d5d-8d01-2936092d7ec4">
+          <AttributeID>Quarter Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="3a07d016-3125-4d69-aae8-43aa48464353">
+          <AttributeID>Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="5a4a0e3c-4090-452d-96f1-941323dac8e7">
+          <AttributeID>Month Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="653a5f60-27bd-4979-a4d2-bc6436e5b013">
+          <AttributeID>Week</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="fe7d78d4-3f28-45c6-b68a-2811d2c63ebd">
+          <AttributeID>Week Name</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="014e01e8-6728-461c-a4ae-8d1c8f27c0ef">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
     </Dimension>
   </Dimensions>
   <MeasureGroups>
