@@ -11,8 +11,8 @@
   DTS:LocaleID="8192"
   DTS:ObjectName="Staging_to_ODS"
   DTS:PackageType="5"
-  DTS:VersionBuild="55"
-  DTS:VersionGUID="{16295560-DB78-46E6-82D7-2BBBD8BFFBF5}">
+  DTS:VersionBuild="57"
+  DTS:VersionGUID="{E9A678F1-EA12-4EA3-836F-5C16EE380FE7}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -3758,800 +3758,6 @@ and ContainerNr = ? </property>
               endId="Package\Calculate NumberOfDaysVoyage\NumberOfDays calculation.Inputs[Derived Column Input]"
               name="OLE DB Source Output"
               startId="Package\Calculate NumberOfDaysVoyage\F_DaysInPort source.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Calculate weight"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:DTSID="{31F4ED85-68E7-4DD8-A5EE-70175D46B093}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Calculate weight"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Calculate weight\Calculate Weight"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Calculate Weight"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Calculate weight\Calculate Weight.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Calculate weight\Calculate Weight.Inputs[Derived Column Input].Columns[Length]"
-                      cachedDataType="i4"
-                      cachedName="Length"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Length]" />
-                    <inputColumn
-                      refId="Package\Calculate weight\Calculate Weight.Inputs[Derived Column Input].Columns[Width]"
-                      cachedDataType="i4"
-                      cachedName="Width"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Width]" />
-                    <inputColumn
-                      refId="Package\Calculate weight\Calculate Weight.Inputs[Derived Column Input].Columns[WeightInTonnes]"
-                      cachedDataType="i4"
-                      cachedName="WeightInTonnes"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[WeightInTonnes]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">#{Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Width]} * #{Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Length]} * 1.0 * 22500 / 22000 * 10</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">Width * Length * 1.0 * 22500 / 22000 * 10</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Calculate weight\Calculate Weight.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Calculate weight\Calculate Weight.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Calculate weight\Calculate Weight.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Calculate weight\Calculate Weight.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate weight\Calculate Weight.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\Calculate Weight.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Calculate weight\Calculate Weight.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\Calculate Weight.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Calculate weight\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Calculate weight\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Calculate weight\Derived Column.Inputs[Derived Column Input].Columns[SpeedInKnots]"
-                      cachedDataType="i4"
-                      cachedName="SpeedInKnots"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[SpeedInKnots]" />
-                    <inputColumn
-                      refId="Package\Calculate weight\Derived Column.Inputs[Derived Column Input].Columns[WeightInTonnes]"
-                      cachedDataType="i4"
-                      cachedName="WeightInTonnes"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[WeightInTonnes]" />
-                    <inputColumn
-                      refId="Package\Calculate weight\Derived Column.Inputs[Derived Column Input].Columns[FuelConsumptionPerDay]"
-                      cachedDataType="numeric"
-                      cachedName="FuelConsumptionPerDay"
-                      cachedPrecision="18"
-                      cachedScale="2"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[FuelConsumptionPerDay]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">(#{Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[WeightInTonnes]} * [POWER](#{Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[SpeedInKnots]},2 / 3) * 0.7 / 2252) * (0.1727 * [POWER](#{Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[SpeedInKnots]},2) - (0.217 * #{Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[SpeedInKnots]}))</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">(WeightInTonnes * POWER(SpeedInKnots,2 / 3) * 0.7 / 2252) * (0.1727 * POWER(SpeedInKnots,2) - (0.217 * SpeedInKnots))</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Calculate weight\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Calculate weight\Derived Column.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Calculate weight\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Calculate weight\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate weight\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Calculate weight\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Calculate weight\D_Ship Source"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="D_Ship Source"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset">[dbo].[D_Ship]</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">0</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Calculate weight\D_Ship Source.Connections[OleDbConnection]"
-                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[ShipRowId]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[ShipRowId]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[ShipRowId]"
-                      name="ShipRowId"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Id]"
-                      name="Id"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Shipname]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Shipname]"
-                      length="50"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Shipname]"
-                      name="Shipname"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[MaxTEU]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[MaxTEU]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[MaxTEU]"
-                      name="MaxTEU"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[SpeedInKnots]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[SpeedInKnots]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[SpeedInKnots]"
-                      name="SpeedInKnots"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[SpeedInKmH]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[SpeedInKmH]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[SpeedInKmH]"
-                      name="SpeedInKmH"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Country]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Country]"
-                      length="50"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Country]"
-                      name="Country"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Yearcost]"
-                      dataType="cy"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Yearcost]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Yearcost]"
-                      name="Yearcost"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Length]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Length]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Length]"
-                      name="Length"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Width]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Width]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[Width]"
-                      name="Width"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[WeightInTonnes]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[WeightInTonnes]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[WeightInTonnes]"
-                      name="WeightInTonnes"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[StartDate]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[StartDate]"
-                      name="StartDate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[EndDate]"
-                      dataType="dbTimeStamp"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[EndDate]"
-                      name="EndDate"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[FuelConsumptionPerDay]"
-                      dataType="numeric"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[FuelConsumptionPerDay]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[FuelConsumptionPerDay]"
-                      name="FuelConsumptionPerDay"
-                      precision="18"
-                      scale="2"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[ShipRowId]"
-                      dataType="i4"
-                      name="ShipRowId" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Id]"
-                      dataType="i4"
-                      name="Id" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Shipname]"
-                      dataType="wstr"
-                      length="50"
-                      name="Shipname" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[MaxTEU]"
-                      dataType="i4"
-                      name="MaxTEU" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[SpeedInKnots]"
-                      dataType="i4"
-                      name="SpeedInKnots" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[SpeedInKmH]"
-                      dataType="i4"
-                      name="SpeedInKmH" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Country]"
-                      dataType="wstr"
-                      length="50"
-                      name="Country" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Yearcost]"
-                      dataType="cy"
-                      name="Yearcost" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Length]"
-                      dataType="i4"
-                      name="Length" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[Width]"
-                      dataType="i4"
-                      name="Width" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[WeightInTonnes]"
-                      dataType="i4"
-                      name="WeightInTonnes" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[StartDate]"
-                      dataType="dbTimeStamp"
-                      name="StartDate" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[EndDate]"
-                      dataType="dbTimeStamp"
-                      name="EndDate" />
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].ExternalColumns[FuelConsumptionPerDay]"
-                      dataType="numeric"
-                      name="FuelConsumptionPerDay"
-                      precision="18"
-                      scale="2" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[ShipRowId]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[ShipRowId]"
-                      name="ShipRowId" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      name="Id" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Shipname]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Shipname]"
-                      name="Shipname" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[MaxTEU]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[MaxTEU]"
-                      name="MaxTEU" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[SpeedInKnots]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[SpeedInKnots]"
-                      name="SpeedInKnots" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[SpeedInKmH]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[SpeedInKmH]"
-                      name="SpeedInKmH" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Country]"
-                      dataType="wstr"
-                      length="50"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Country]"
-                      name="Country" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Yearcost]"
-                      dataType="cy"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Yearcost]"
-                      name="Yearcost" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Length]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Length]"
-                      name="Length" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Width]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[Width]"
-                      name="Width" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[WeightInTonnes]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[WeightInTonnes]"
-                      name="WeightInTonnes" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[StartDate]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[StartDate]"
-                      name="StartDate" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[EndDate]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[EndDate]"
-                      name="EndDate" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[FuelConsumptionPerDay]"
-                      dataType="numeric"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[FuelConsumptionPerDay]"
-                      name="FuelConsumptionPerDay"
-                      precision="18"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Calculate weight\Update D_Ship"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="Update D_Ship"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE D_Ship
-SET WeightInTonnes = ?
-WHERE ShipRowId = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Calculate weight\Update D_Ship.Connections[OleDbConnection]"
-                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Calculate weight\Update D_Ship.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Calculate weight\Update D_Ship.Inputs[OLE DB Command Input].Columns[WeightInTonnes]"
-                      cachedDataType="i4"
-                      cachedName="WeightInTonnes"
-                      externalMetadataColumnId="Package\Calculate weight\Update D_Ship.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[WeightInTonnes]" />
-                    <inputColumn
-                      refId="Package\Calculate weight\Update D_Ship.Inputs[OLE DB Command Input].Columns[ShipRowId]"
-                      cachedDataType="i4"
-                      cachedName="ShipRowId"
-                      externalMetadataColumnId="Package\Calculate weight\Update D_Ship.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[ShipRowId]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\Update D_Ship.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="i4"
-                      name="Param_0">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\Update D_Ship.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Calculate weight\Update D_Ship.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\Calculate weight\Update D_Ship.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Calculate weight\Update D_Ship.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Calculate weight\Update D_Ship.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate weight\Update D_Ship.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\Update D_Ship.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Calculate weight\Update D_Ship.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\Update D_Ship.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Calculate weight\Update D_Ship FuelConsumption"
-              componentClassID="Microsoft.OLEDBCommand"
-              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
-              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
-              name="Update D_Ship FuelConsumption"
-              usesDispositions="true"
-              version="2">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE D_Ship
-SET FuelConsumptionPerDay= ?
-WHERE ShipRowId = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Calculate weight\Update D_Ship FuelConsumption.Connections[OleDbConnection]"
-                  connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\Calculate weight\Update D_Ship FuelConsumption.Inputs[OLE DB Command Input]"
-                  errorOrTruncationOperation="Command Execution"
-                  errorRowDisposition="FailComponent"
-                  hasSideEffects="true"
-                  name="OLE DB Command Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Calculate weight\Update D_Ship FuelConsumption.Inputs[OLE DB Command Input].Columns[ShipRowId]"
-                      cachedDataType="i4"
-                      cachedName="ShipRowId"
-                      externalMetadataColumnId="Package\Calculate weight\Update D_Ship FuelConsumption.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[ShipRowId]" />
-                    <inputColumn
-                      refId="Package\Calculate weight\Update D_Ship FuelConsumption.Inputs[OLE DB Command Input].Columns[FuelConsumptionPerDay]"
-                      cachedDataType="numeric"
-                      cachedName="FuelConsumptionPerDay"
-                      cachedPrecision="18"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\Calculate weight\Update D_Ship FuelConsumption.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      lineageId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output].Columns[FuelConsumptionPerDay]" />
-                  </inputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\Update D_Ship FuelConsumption.Inputs[OLE DB Command Input].ExternalColumns[Param_0]"
-                      dataType="numeric"
-                      name="Param_0"
-                      precision="18"
-                      scale="2">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">65</property>
-                      </properties>
-                    </externalMetadataColumn>
-                    <externalMetadataColumn
-                      refId="Package\Calculate weight\Update D_Ship FuelConsumption.Inputs[OLE DB Command Input].ExternalColumns[Param_1]"
-                      dataType="i4"
-                      name="Param_1">
-                      <properties>
-                        <property
-                          dataType="System.Int32"
-                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
-                          name="DBParamInfoFlags">17</property>
-                      </properties>
-                    </externalMetadataColumn>
-                  </externalMetadataColumns>
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Calculate weight\Update D_Ship FuelConsumption.Outputs[OLE DB Command Output]"
-                  exclusionGroup="1"
-                  name="OLE DB Command Output"
-                  synchronousInputId="Package\Calculate weight\Update D_Ship FuelConsumption.Inputs[OLE DB Command Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Calculate weight\Update D_Ship FuelConsumption.Outputs[OLE DB Command Error Output]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="OLE DB Command Error Output"
-                  synchronousInputId="Package\Calculate weight\Update D_Ship FuelConsumption.Inputs[OLE DB Command Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Calculate weight\Update D_Ship FuelConsumption.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\Update D_Ship FuelConsumption.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Calculate weight\Update D_Ship FuelConsumption.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Calculate weight\Update D_Ship FuelConsumption.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Calculate weight.Paths[Derived Column Output]"
-              endId="Package\Calculate weight\Update D_Ship.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\Calculate weight\Calculate Weight.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Calculate weight.Paths[Derived Column Output1]"
-              endId="Package\Calculate weight\Update D_Ship FuelConsumption.Inputs[OLE DB Command Input]"
-              name="Derived Column Output"
-              startId="Package\Calculate weight\Derived Column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Calculate weight.Paths[OLE DB Command Output]"
-              endId="Package\Calculate weight\Derived Column.Inputs[Derived Column Input]"
-              name="OLE DB Command Output"
-              startId="Package\Calculate weight\Update D_Ship.Outputs[OLE DB Command Output]" />
-            <path
-              refId="Package\Calculate weight.Paths[OLE DB Source Output]"
-              endId="Package\Calculate weight\Calculate Weight.Inputs[Derived Column Input]"
-              name="OLE DB Source Output"
-              startId="Package\Calculate weight\D_Ship Source.Outputs[OLE DB Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -8694,11 +7900,11 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           version="1">
           <components>
             <component
-              refId="Package\Load Item\Item Destination"
+              refId="Package\Load Item\Insert Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="Item Destination"
+              name="Insert Destination"
               usesDispositions="true"
               version="4">
               <properties>
@@ -8751,7 +7957,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               </properties>
               <connections>
                 <connection
-                  refId="Package\Load Item\Item Destination.Connections[OleDbConnection]"
+                  refId="Package\Load Item\Insert Destination.Connections[OleDbConnection]"
                   connectionManagerID="{F0D59CF7-F552-4C74-A2D2-834E3F9D3C35}:external"
                   connectionManagerRefId="Project.ConnectionManagers[ODS]"
                   description="The OLE DB runtime connection used to access the database."
@@ -8759,82 +7965,82 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               </connections>
               <inputs>
                 <input
-                  refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input]"
+                  refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].Columns[Id]"
                       cachedDataType="i4"
                       cachedName="Id"
-                      externalMetadataColumnId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      externalMetadataColumnId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                       lineageId="Package\Load Item\Item Source.Outputs[OLE DB Source Output].Columns[Id]" />
                     <inputColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].Columns[Description]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].Columns[Description]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Description"
-                      externalMetadataColumnId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      externalMetadataColumnId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
                       lineageId="Package\Load Item\Item Source.Outputs[OLE DB Source Output].Columns[Description]" />
                     <inputColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].Columns[Category]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].Columns[Category]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="Category"
-                      externalMetadataColumnId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
+                      externalMetadataColumnId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
                       lineageId="Package\Load Item\Item Source.Outputs[OLE DB Source Output].Columns[Category]" />
                     <inputColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].Columns[MFGR]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].Columns[MFGR]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="MFGR"
-                      externalMetadataColumnId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[MFGR]"
+                      externalMetadataColumnId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Manufacturer]"
                       lineageId="Package\Load Item\Item Source.Outputs[OLE DB Source Output].Columns[MFGR]" />
                     <inputColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].Columns[StorageType]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].Columns[StorageType]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="StorageType"
-                      externalMetadataColumnId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[StorageType]"
+                      externalMetadataColumnId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StorageType]"
                       lineageId="Package\Load Item\Item Source.Outputs[OLE DB Source Output].Columns[StorageType]" />
                     <inputColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].Columns[HazardFlag]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].Columns[HazardFlag]"
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="HazardFlag"
-                      externalMetadataColumnId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[HazardFlag]"
+                      externalMetadataColumnId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HazardFlag]"
                       lineageId="Package\Load Item\Item Source.Outputs[OLE DB Source Output].Columns[HazardFlag]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
                       dataType="i4"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Description]"
                       dataType="wstr"
                       length="50"
                       name="Description" />
                     <externalMetadataColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Category]"
                       dataType="wstr"
                       length="50"
                       name="Category" />
                     <externalMetadataColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[MFGR]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[Manufacturer]"
                       dataType="wstr"
                       length="50"
-                      name="MFGR" />
+                      name="Manufacturer" />
                     <externalMetadataColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[StorageType]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[StorageType]"
                       dataType="wstr"
                       length="50"
                       name="StorageType" />
                     <externalMetadataColumn
-                      refId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input].ExternalColumns[HazardFlag]"
+                      refId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[HazardFlag]"
                       dataType="wstr"
                       length="50"
                       name="HazardFlag" />
@@ -8843,22 +8049,22 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Load Item\Item Destination.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Load Item\Insert Destination.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Load Item\Item Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Load Item\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Load Item\Item Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Load Item\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Load Item\Item Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Load Item\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Load Item\Item Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Load Item\Insert Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -9095,7 +8301,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                   description="The SQL command to be executed."
                   expressionType="Notify"
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[D_Item] SET [Category] = ?,[Description] = ?,[HazardFlag] = ?,[MFGR] = ?,[StorageType] = ? WHERE [Id] = ?</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">UPDATE [dbo].[D_Item] SET [Category] = ?,[Description] = ?,[HazardFlag] = ?,[Manufacturer] = ?,[StorageType] = ? WHERE [Id] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="Specifies the column code page to use when code page information is unavailable from the data source."
@@ -9279,7 +8485,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                   dataType="System.String"
                   description="Specifies the SELECT statement used to create a schema rowset."
                   name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Category], [Description], [HazardFlag], [Id], [MFGR], [StorageType] FROM [dbo].[D_Item]</property>
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT [Category], [Description], [HazardFlag], [Id], [Manufacturer], [StorageType] FROM [dbo].[D_Item]</property>
                 <property
                   dataType="System.String"
                   description="Specifies the WHERE clause in the SELECT statement that selects the current row among rows with identical business keys."
@@ -9387,7 +8593,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                       cachedDataType="wstr"
                       cachedLength="50"
                       cachedName="MFGR"
-                      externalMetadataColumnId="Package\Load Item\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MFGR]"
+                      externalMetadataColumnId="Package\Load Item\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Manufacturer]"
                       lineageId="Package\Load Item\Item Source.Outputs[OLE DB Source Output].Columns[MFGR]">
                       <properties>
                         <property
@@ -9433,10 +8639,10 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                       dataType="i4"
                       name="Id" />
                     <externalMetadataColumn
-                      refId="Package\Load Item\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[MFGR]"
+                      refId="Package\Load Item\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[Manufacturer]"
                       dataType="wstr"
                       length="50"
-                      name="MFGR" />
+                      name="Manufacturer" />
                     <externalMetadataColumn
                       refId="Package\Load Item\Slowly Changing Dimension.Inputs[Slowly Changing Dimension Input].ExternalColumns[StorageType]"
                       dataType="wstr"
@@ -9505,7 +8711,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
               startId="Package\Load Item\Slowly Changing Dimension.Outputs[Changing Attribute Updates Output]" />
             <path
               refId="Package\Load Item.Paths[New Output]"
-              endId="Package\Load Item\Item Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Load Item\Insert Destination.Inputs[OLE DB Destination Input]"
               name="New Output"
               startId="Package\Load Item\Slowly Changing Dimension.Outputs[New Output]" />
             <path
@@ -13284,14 +12490,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       DTS:ObjectName="Constraint 11"
       DTS:To="Package\Calculate NumberOfDaysVoyage" />
     <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
-      DTS:CreationName=""
-      DTS:DTSID="{4D584240-5E34-465F-BECF-4FD9FF63290D}"
-      DTS:From="Package\Load Ship"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 12"
-      DTS:To="Package\Calculate weight" />
-    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
       DTS:DTSID="{367F5E8F-9B7F-402E-95C4-22B0886FCEB4}"
@@ -13384,10 +12582,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
           Size="230.4,42.4"
           Id="Package\Calculate NumberOfDaysVoyage"
           TopLeft="347.34693951492,326.92549004906" />
-        <NodeLayout
-          Size="156,41.6"
-          Id="Package\Calculate weight"
-          TopLeft="584.432653554309,211.576470534611" />
         <NodeLayout
           Size="152,41.6"
           Id="Package\Load Consignor"
@@ -13532,40 +12726,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,58.0607840762183" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="635.175509967313,85.5411765644294">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="27.2571435869957,126.035293970182"
-              Start="0,0"
-              End="27.2571435869957,118.535293970182">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,70.3352940339943" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,70.3352940339943"
-                    Point2="0,74.3352940339943"
-                    Point3="4,74.3352940339943" />
-                  <mssgle:LineSegment
-                    End="23.2571435869957,74.3352940339943" />
-                  <mssgle:CubicBezierSegment
-                    Point1="23.2571435869957,74.3352940339943"
-                    Point2="27.2571435869957,74.3352940339943"
-                    Point3="27.2571435869957,78.3352940339943" />
-                  <mssgle:LineSegment
-                    End="27.2571435869957,118.535293970182" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -14390,135 +13550,6 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Calculate NumberOfDaysVoyage\F_DaysInPort source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Calculate weight">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="148.8,41.6"
-          Id="Package\Calculate weight\Update D_Ship"
-          TopLeft="396.333327427506,196.77777484556" />
-        <NodeLayout
-          Size="157.6,41.6"
-          Id="Package\Calculate weight\Calculate Weight"
-          TopLeft="397.555549631516,116.111109380921" />
-        <EdgeLayout
-          Id="Package\Calculate weight.Paths[Derived Column Output]"
-          TopLeft="473.544438529511,157.711109380921">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,39.0666654646397"
-              Start="0,0"
-              End="0,31.5666654646397">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,31.5666654646397" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="147.2,41.6"
-          Id="Package\Calculate weight\D_Ship Source"
-          TopLeft="405.999993950128,46.9999992996454" />
-        <EdgeLayout
-          Id="Package\Calculate weight.Paths[OLE DB Source Output]"
-          TopLeft="477.977771790822,88.5999992996454">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.5111100812754"
-              Start="0,0"
-              End="0,20.0111100812754">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.0111100812754" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="152.8,41.6"
-          Id="Package\Calculate weight\Derived Column"
-          TopLeft="395.222216332952,263.444440518816" />
-        <EdgeLayout
-          Id="Package\Calculate weight.Paths[OLE DB Command Output]"
-          TopLeft="471.177771880229,238.37777484556">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,25.0666656732558"
-              Start="0,0"
-              End="0,17.5666656732558">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.5666656732558" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="232.8,42.4"
-          Id="Package\Calculate weight\Update D_Ship FuelConsumption"
-          TopLeft="350.888883660237,333.933329871297" />
-        <EdgeLayout
-          Id="Package\Calculate weight.Paths[Derived Column Output1]"
-          TopLeft="469.455549996595,305.044440518816">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,28.8888893524805"
-              Start="0,0"
-              End="0,21.3888893524805">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.3888893524805" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Calculate weight\D_Ship Source">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -15472,24 +14503,16 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
+          Size="208,41.6"
           Id="Package\Load Item\Slowly Changing Dimension"
-          TopLeft="564.5,124.5" />
+          TopLeft="206.7,107.1" />
         <NodeLayout
-          Size="137,42"
+          Size="136.8,41.6"
           Id="Package\Load Item\Item Source"
-          TopLeft="600.5,22.5" />
-        <NodeLayout
-          Size="157,42"
-          Id="Package\Load Item\Item Destination"
-          TopLeft="362.5,226.5" />
-        <NodeLayout
-          Size="166,42"
-          Id="Package\Load Item\OLE DB Command"
-          TopLeft="586,226.5" />
+          TopLeft="242.3,5.49999999999984" />
         <EdgeLayout
           Id="Package\Load Item.Paths[OLE DB Source Output]"
-          TopLeft="669,64.5">
+          TopLeft="310.7,47.0999999999998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15506,80 +14529,86 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="162.4,41.6"
+          Id="Package\Load Item\Insert Destination"
+          TopLeft="5.5000000000001,208.7" />
         <EdgeLayout
           Id="Package\Load Item.Paths[New Output]"
-          TopLeft="635.5,166.5">
+          TopLeft="277.366666666667,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-194.5,60"
+              EndConnector="-190.666666666667,60"
               Start="0,0"
-              End="-194.5,52.5">
+              End="-190.666666666667,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
+                    End="0,20.2748091603053" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    Point1="0,20.2748091603053"
+                    Point2="0,24.2748091603053"
+                    Point3="-4,24.2748091603053" />
                   <mssgle:LineSegment
-                    End="-190.5,24.2735042735043" />
+                    End="-186.666666666667,24.2748091603053" />
                   <mssgle:CubicBezierSegment
-                    Point1="-190.5,24.2735042735043"
-                    Point2="-194.5,24.2735042735043"
-                    Point3="-194.5,28.2735042735043" />
+                    Point1="-186.666666666667,24.2748091603053"
+                    Point2="-190.666666666667,24.2748091603053"
+                    Point3="-190.666666666667,28.2748091603053" />
                   <mssgle:LineSegment
-                    End="-194.5,52.5" />
+                    End="-190.666666666667,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-124.34138671875,29.2735042735043,54.1827734375,11.43359375"
+              BoundingBox="-122.424720052083,29.2748091603053,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="164.8,41.6"
+          Id="Package\Load Item\OLE DB Command"
+          TopLeft="228.3,208.7" />
         <EdgeLayout
           Id="Package\Load Item.Paths[Changing Attribute Updates Output]"
-          TopLeft="702.5,166.5">
+          TopLeft="344.033333333333,148.7">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-33.5,60"
+              EndConnector="-33.3333333333333,60"
               Start="0,0"
-              End="-33.5,52.5">
+              End="-33.3333333333333,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.2735042735043" />
+                    End="0,20.2748091603054" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,20.2735042735043"
-                    Point2="0,24.2735042735043"
-                    Point3="-4,24.2735042735043" />
+                    Point1="0,20.2748091603054"
+                    Point2="0,24.2748091603054"
+                    Point3="-4,24.2748091603054" />
                   <mssgle:LineSegment
-                    End="-29.5,24.2735042735043" />
+                    End="-29.3333333333333,24.2748091603054" />
                   <mssgle:CubicBezierSegment
-                    Point1="-29.5,24.2735042735043"
-                    Point2="-33.5,24.2735042735043"
-                    Point3="-33.5,28.2735042735043" />
+                    Point1="-29.3333333333333,24.2748091603054"
+                    Point2="-33.3333333333333,24.2748091603054"
+                    Point3="-33.3333333333333,28.2748091603054" />
                   <mssgle:LineSegment
-                    End="-33.5,52.5" />
+                    End="-33.3333333333333,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-95.28390625,29.2735042735043,157.0678125,11.6630859375"
+              BoundingBox="-95.2005729166667,29.2748091603054,157.0678125,11.6630859375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -15623,7 +14652,7 @@ where [refTable].[Id] = ? and [refTable].[EndDate] is null</property>
     &lt;/InputColumnToDBColumn&gt;
     &lt;InputColumnToDBColumn&gt;
       &lt;IdentificationString&gt;Item Source.Outputs[OLE DB Source Output].Columns[MFGR]&lt;/IdentificationString&gt;
-      &lt;ColumnName&gt;MFGR&lt;/ColumnName&gt;
+      &lt;ColumnName&gt;Manufacturer&lt;/ColumnName&gt;
       &lt;KeyType&gt;None&lt;/KeyType&gt;
       &lt;ChangeType&gt;ChangingAttribute&lt;/ChangeType&gt;
     &lt;/InputColumnToDBColumn&gt;
