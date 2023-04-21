@@ -7,6 +7,14 @@
     <DTS:ConnectionManager
       DTS:ConnectRetryCount="1"
       DTS:ConnectRetryInterval="5"
+<<<<<<< Updated upstream
       DTS:ConnectionString="Data Source=.;Initial Catalog=Kramse-RDBMS;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}RDBMS;" />
+=======
+      DTS:ConnectionString="Data Source=Localhost;User ID=Kramse;Initial Catalog=Kramse_RDBMS;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-Kramse-{951ECD45-BEF1-4D15-8BEB-3A9A46852C0E}LAPTOP-60VI45O7.RDBMS;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAM5Sbr7ru/kaFOIwhg8Dq3AAAAAACAAAAAAAQZgAAAAEAACAAAADG2UyZOFUg13EDXX+P5fbZbbh9NXTC+nW0iJS0Qw4igQAAAAAOgAAAAAIAACAAAADo0gFzrbPtRLvTYa5/aAQwwoWKyW3Yi93GIov6rBg0YYAAAAApYK/MZnTvECITJeBivjhzX/fcUo1BW1FRF2l6t5iswTptFOBHtEYPf7GGNo3XqIZRg6jdD5mktiPVx5W/QWQo1yj7/l9BvLUV4GB4m4qet2KE+bpYUy872Qfve3ZO92Ksz+UuoK9LsDc6mUR16Gzk0vB20kK1acqy7sa/95Q4LkAAAACnYPDEtEnzMMn7z5VjoGb9r8GCzRAYNsZwRgRDbgxOh3k63xAI591LtYa8FNeuOO4XaB0IS2RU8WnJSbym7h7d</DTS:Password>
+    </DTS:ConnectionManager>
+>>>>>>> Stashed changes
   </DTS:ObjectData>
 </DTS:ConnectionManager>

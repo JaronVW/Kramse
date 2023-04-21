@@ -20,10 +20,6 @@
   </Cubes>
   <Dimensions>
     <ProjectItem>
-      <Name>D Time.dim</Name>
-      <FullPath>D Time.dim</FullPath>
-    </ProjectItem>
-    <ProjectItem>
       <Name>D Ship.dim</Name>
       <FullPath>D Ship.dim</FullPath>
     </ProjectItem>
@@ -42,6 +38,10 @@
     <ProjectItem>
       <Name>D Item.dim</Name>
       <FullPath>D Item.dim</FullPath>
+    </ProjectItem>
+    <ProjectItem>
+      <Name>D Time.dim</Name>
+      <FullPath>D Time.dim</FullPath>
     </ProjectItem>
   </Dimensions>
   <DataSources>
